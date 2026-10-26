@@ -1,0 +1,19 @@
+7 things we hand over before a software project is called finished.
+
+Most agency relationships end well on paper. The app is live, the last invoice is paid. Then six months later the client needs a small change and nobody can find the cloud login, the deploy steps or the person who knew how the payments webhook worked.
+
+That's not a code problem. It's a handover problem, and it's the client who pays for it.
+
+So our last sprint on every project ends with the same checklist, everything in the client's name:
+
+1. Source code in the client's own GitHub or GitLab account
+2. Cloud, domain and app store accounts owned by the client, with our access removed on request
+3. Every credential in a shared password vault, not in an email thread
+4. A one-page runbook: how to deploy, roll back and restart
+5. Environment variables and third-party keys documented
+6. A recorded walkthrough of the architecture
+7. A list of known issues and what we'd build next
+
+None of it is difficult. It just has to be planned from day one rather than remembered on the last day.
+
+If you've inherited a codebase from another team, what was missing from the handover?

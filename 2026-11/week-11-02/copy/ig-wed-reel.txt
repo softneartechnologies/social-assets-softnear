@@ -1,0 +1,9 @@
+Save this for your next roadmap meeting.
+
+Before adding AI to your app, find the task your team repeats every day. Sorting 200 Zendesk tickets. Pulling totals out of PDF invoices. Drafting a Gmail reply that a person checks and approves before it goes out to the customer.
+
+That's where AI automation pays for itself.
+
+A chatbot bolted on because the demo looked good usually gets switched off within a few months, once someone notices nobody uses it.
+
+We build AI agents and LLM apps for startups in India, the US and the UK. First question, every time: which task repeats?

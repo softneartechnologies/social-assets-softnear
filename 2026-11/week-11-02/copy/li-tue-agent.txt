@@ -1,0 +1,17 @@
+An AI agent is a new hire with a 5-line job description.
+
+That's how we explain it to founders who ask what they'd actually be paying for, because "autonomous LLM workflow" doesn't help anyone set a budget.
+
+Take a real job description. Line 1 names one task: read the support inbox and sort each email into billing, bugs or sales. Line 2 lists the tools the hire may touch, say Gmail and HubSpot, and nothing else. Line 3 says what to do when unsure, which is ask a person on Slack. Lines 4 and 5 say how the work gets checked and who the hire reports to.
+
+An agent is built from the same 5 lines, with the model (GPT, Claude or Llama, whichever fits the budget) as the hire, tool access as its permissions, stop rules as its manager and the logs as its weekly review.
+
+Projects go wrong at line 1.
+
+"Handle customer service" isn't a job, it's a department, and nobody would hire one person against that brief. Build an agent against it and you get a little of everything, done badly.
+
+So before we write any code, we ask the client to write the job ad. If it fits in 5 lines, we can usually build it in weeks. If it doesn't, our first project is narrowing it down.
+
+What would line 1 say for the task you'd hand to an agent first?
+
+#AIagents #AIautomation

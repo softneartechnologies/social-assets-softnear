@@ -1,0 +1,15 @@
+
+BEAT SHEET  ·  48 words  ·  ~17.4s at 165 wpm  ·  target 20.0s
+========================================================================
+  0:00.0   2.2s  HOOK    You don't need an AI chatbot.
+  0:02.2   2.5s          You need AI where a task repeats.
+  0:04.7   2.5s          Sorting two hundred Zendesk tickets a day.
+  0:07.3   2.2s  MID     Pulling totals out of PDF invoices.
+  0:09.4   2.2s          Drafting Gmail replies a person approves.
+  0:11.6   3.3s          A chatbot added for the demo gets switched off.
+  0:14.9   2.5s  CTA     Ask which task repeats. Not which chatbot.
+------------------------------------------------------------------------
+  - Beat 1 has no number and no name in it. Hooks without something checkable are the ones that get scrolled.
+  - Loops: the last beat repeats "chatbot" from the hook. Second watches are free reach.
+  - 2.5s under target. Either add 7 words or shoot it short. Short is usually right.
+

@@ -1,0 +1,98 @@
+{
+  "handle": "@official_softnear",
+  "posts": [
+    {
+      "id": "ig-mon-handover",
+      "platform": "instagram",
+      "format": "carousel",
+      "slides": [
+        {"kind": "headline", "eyebrow": "Before your developer leaves", "title": "Steal this ==handover== checklist", "sub": "7 things to get in your name before the last invoice."},
+        {"kind": "statement", "eyebrow": "Why it matters", "title": "The app works. Then nobody can find the ==AWS password.==", "sub": "Handover gaps show up months later, and the client pays for them."},
+        {"kind": "point", "eyebrow": "Item 1", "title": "Code in **your** GitHub", "body": "The repo lives in your own GitHub or GitLab organisation. The team works in it as invited members."},
+        {"kind": "point", "eyebrow": "Item 2", "title": "Accounts in **your** name", "body": "Cloud, domain and App Store accounts are owned by you. Agency access is removed when you ask."},
+        {"kind": "point", "eyebrow": "Items 3 and 4", "title": "A vault and a ==1-page runbook==", "body": "Every credential in a shared password vault, not an email thread. One page on how to deploy, roll back and restart."},
+        {"kind": "point", "eyebrow": "Items 5 and 6", "title": "Keys listed, architecture recorded", "body": "Environment variables and third-party API keys documented, plus a recorded walkthrough of how the system fits together."},
+        {"kind": "point", "eyebrow": "Item 7", "title": "What to build ==next==", "body": "Known issues and the next sensible improvements, written down while the team still remembers them."},
+        {"kind": "list", "eyebrow": "Screenshot this", "title": "The checklist", "items": ["Code in your GitHub", "Accounts in your name", "Password vault", "1-page runbook", "API keys documented", "Architecture walkthrough", "Known issues and next steps"]},
+        {"kind": "cta", "eyebrow": "Your next software project", "title": "Ask for this list on ==day one==", "body": "A good outsourced development team won't mind.", "button": "Save this post"}
+      ]
+    },
+    {
+      "id": "ig-wed-reel-ai",
+      "platform": "instagram",
+      "format": "reel",
+      "seconds_per_slide": 2.8,
+      "slides": [
+        {"kind": "statement", "eyebrow": "AI automation", "title": "You don't need an ==AI chatbot.=="},
+        {"kind": "statement", "eyebrow": "AI automation", "title": "You need AI where a task ==repeats.=="},
+        {"kind": "list", "eyebrow": "Good fit", "title": "Worth automating", "items": ["Sorting 200 Zendesk tickets a day", "Pulling totals out of PDF invoices", "Drafting replies a person approves"]},
+        {"kind": "statement", "eyebrow": "Bad fit", "title": "A chatbot added because ~~the demo looked good~~", "sub": "It usually gets switched off."},
+        {"kind": "statement", "eyebrow": "Ask first", "title": "Which task does your team **repeat** every day?"},
+        {"kind": "cta", "eyebrow": "Softnear builds AI agents", "title": "Save this for your next ==roadmap meeting==", "button": "@official_softnear"}
+      ]
+    },
+    {
+      "id": "ig-fri-hire",
+      "platform": "instagram",
+      "format": "carousel",
+      "slides": [
+        {"kind": "headline", "eyebrow": "Hire developers", "title": "A developer in ==72 hours==", "sub": "React, Node.js or Python. Tried for 7 days before you commit."},
+        {"kind": "statement", "eyebrow": "The problem", "title": "Hiring shouldn't take longer than ==building the feature.=="},
+        {"kind": "point", "eyebrow": "Step 1", "title": "Share the stack and the work", "body": "Tell us what you're building, the tech stack and the hours you need each week."},
+        {"kind": "point", "eyebrow": "Step 2", "title": "Meet vetted developers", "body": "We introduce developers who have shipped similar work. You pick the one you want."},
+        {"kind": "stat", "eyebrow": "Step 3", "big": "72 **hrs**", "title": "to onboard", "body": "Your developer joins your repo, your Slack and your standups."},
+        {"kind": "stat", "eyebrow": "Step 4", "big": "7 **days**", "title": "risk-free trial", "body": "Judge real pull requests, not a CV. Not the right fit? Walk away."},
+        {"kind": "list", "eyebrow": "The whole process", "title": "How it works", "items": ["Share the stack", "Meet vetted developers", "Onboarded in 72 hours", "7-day risk-free trial", "Monthly contract, NDA first"], "highlight": 3},
+        {"kind": "cta", "eyebrow": "Dedicated developers", "title": "Comment ==HIRE==", "body": "We'll message you the details. The NDA is signed before you share a single file.", "button": "Comment HIRE"}
+      ]
+    },
+    {
+      "id": "li-tue-agent",
+      "platform": "linkedin",
+      "format": "image",
+      "slides": [
+        {"kind": "headline", "eyebrow": "AI agents, plainly", "title": "An AI agent is a new hire with a ==5-line== job description", "chips": ["One task", "Allowed tools", "When to ask a human", "How it's checked", "?Who it reports to"]}
+      ]
+    },
+    {
+      "id": "li-wed-hiring",
+      "platform": "linkedin",
+      "format": "image",
+      "slides": [
+        {"kind": "headline", "eyebrow": "Hiring developers", "title": "In-house is slow. Outsourced is ~~out of sight.~~", "sub": "Dedicated developers work in your repo and your standups, onboarded in ==72 hours.==", "chips": ["In-house", "Outsourced shop", "?Dedicated developer"]}
+      ]
+    },
+    {
+      "id": "li-thu-handover",
+      "platform": "linkedin",
+      "format": "image",
+      "slides": [
+        {"kind": "headline", "eyebrow": "How we close a project", "title": "A project isn't finished until the ==handover== is", "sub": "7 things we put in the client's name before the last invoice.", "chips": ["Code", "Accounts", "Vault", "Runbook", "Keys", "Walkthrough", "?Next steps"]}
+      ]
+    },
+    {
+      "id": "fb-tue-ai",
+      "platform": "facebook",
+      "format": "image",
+      "slides": [
+        {"kind": "list", "eyebrow": "AI for small business", "title": "Automate the task you ==repeat==", "items": ["Typing invoice totals into Excel", "Answering 5 questions on WhatsApp", "Copying Shopify orders into Sheets"], "highlight": 1}
+      ]
+    },
+    {
+      "id": "fb-thu-proof",
+      "platform": "facebook",
+      "format": "image",
+      "slides": [
+        {"kind": "stat", "eyebrow": "Softnear in numbers", "big": "500**+**", "title": "mobile app projects delivered", "chips": ["4.8 on Clutch", "NDA on every project", "?You own the code"]}
+      ]
+    },
+    {
+      "id": "fb-sat-trial",
+      "platform": "facebook",
+      "format": "image",
+      "slides": [
+        {"kind": "stat", "eyebrow": "Hire a developer", "big": "7 **days**", "title": "to try before you commit", "body": "Onboarded within 72 hours. React, Node.js or Python. Not the right fit? Walk away."}
+      ]
+    }
+  ]
+}

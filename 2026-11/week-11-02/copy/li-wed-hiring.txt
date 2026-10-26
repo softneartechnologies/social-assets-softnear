@@ -1,0 +1,17 @@
+72 hours. That's how long it takes us to onboard a dedicated developer onto a client's team.
+
+We built it that way because founders kept describing the same trap.
+
+Option one is hiring in-house. It's the right call eventually. But the job post, the 4 interview rounds and a 60 or 90-day notice period in India eat months you don't have when the launch date is already on the investor update.
+
+Option two is handing the whole build to an outsourced shop. Faster to start. But the code lives in their GitHub, decisions happen in calls you're not on, and switching vendors later costs you.
+
+Both lose you something: time, or control.
+
+What works for most of the startups and agencies we partner with sits in between. A vetted React, Node.js or Python developer who commits to your repo, joins your 10am standup on Slack and reports to your tech lead, on a monthly contract. The first 7 days are a risk-free trial, so you judge real pull requests, not a CV. The NDA is signed before any code is shared.
+
+It's not right for every team. If you need someone to own the product vision for 5 years, hire in-house.
+
+Which part of hiring has slowed your roadmap most this year?
+
+#hiring #softwaredevelopment

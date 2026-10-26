@@ -1,0 +1,7 @@
+You don't need an AI chatbot.
+You need AI where a task repeats.
+Sorting two hundred Zendesk tickets a day.
+Pulling totals out of PDF invoices.
+Drafting Gmail replies a person approves.
+A chatbot added for the demo gets switched off.
+Ask which task repeats. Not which chatbot.

@@ -1,0 +1,9 @@
+Steal this checklist before your developer's last day, not after.
+
+Most handovers fail quietly. The app works and the invoice is paid. Then 3 months later nobody can find the AWS password, or say how a release goes live.
+
+So we close every software project with the same 7 items, all in the client's name: GitHub repo, cloud and App Store accounts, a password vault, a 1-page runbook, documented API keys, a recorded architecture walkthrough, and the known-issues list.
+
+Hiring an outsourced development team? Ask for this on day one. A good team won't mind.
+
+Save this for the day you need it.
