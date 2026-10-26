@@ -22,6 +22,7 @@ python3 -c "import playwright" && which ffmpeg                  # renderer needs
 
 - Target week = the next Monday to Sunday after today (Asia/Kolkata).
 - Week folder: `assets/YYYY-MM/week-MM-DD/` named after that Monday (month of the Monday).
+- If that folder already exists, or PostDesk already has posts with campaign `Week of YYYY-MM-DD`, the week is done: only handle rejected posts (below), then stop and report.
 - PostDesk `get_studio_info`: note dates/platforms already taken; do not double-book a platform on a day.
 - PostDesk `list_posts status=rejected`: read `reviewer_notes`; fix and `update_post` those first, and apply the lesson to this week.
 - Read `assets/_system/log.md`: do not repeat an angle or hook formula used in the last 4 weeks.
