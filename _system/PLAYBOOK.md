@@ -42,12 +42,19 @@ Weekly slots (studio timezone Asia/Kolkata):
 | Instagram | 3 | Mon 19:30, Wed 19:30, Fri 19:30 | 2 carousels (6-8 slides, 1080x1350) + 1 reel (1080x1920 MP4 from 5-6 text frames) |
 | Facebook | 3 | Tue 18:30, Thu 18:30, Sat 11:00 | 1200x1200 image each |
 
-Rules for the mix:
-- Cover all four pillars in `brand.md` across the week; at most one offer post per platform.
-- Facebook posts are repurposed from the week's best LinkedIn/Instagram ideas (`li/skills/linkedin-repurposer/SKILL.md`, `ig/skills/ig-repurpose/SKILL.md`) but rewritten for a broader, small-business audience. Never copy-paste between platforms.
-- Each post gets one clear angle, not a topic.
+Rules for the mix (lead generation first, see "Lead generation rules" in `brand.md`):
+- **Pick this week's targets first.** Choose 3 service x industry pairs from the tables in `brand.md` (e.g. S11 Shopify x I8 Retail, S8 AI automations x I4 Logistics, S2 App development x I7 Healthcare). Read `_system/log.md` and pick pairs not used in the last 4 weeks, so every service and industry gets covered over time.
+- Each pair gets one post per platform, rewritten for that platform's buyer:
+  - LinkedIn: decision makers (founders, CTOs, ops and marketing heads) in that industry.
+  - Instagram: founders and small-business owners; carousels for checklists and cost breakdowns, the reel for the sharpest pain point.
+  - Facebook: small and mid-size business owners; plain language, local-business examples.
+- Every post: buyer named in the first 2 lines, one pain, one service as the fix, one lead action with a keyword or link, and a lead offer from `brand.md`. Put the keyword and target pair in the PostDesk title, e.g. `W46 – S11xI8 – Shopify speed – keyword SPEED`.
+- At least 2 posts a week are direct offers; at most 1 post a week has no service in it (proof or people).
+- Use the industry's own words and search terms in captions (e.g. "LMS", "patient app", "dispatch app", "Shopify theme") so Instagram and LinkedIn search can find them. Hashtags: industry + service, specific, never generic.
+- Facebook posts can share an idea with LinkedIn/Instagram but are rewritten for small-business owners (`li/skills/linkedin-repurposer/SKILL.md`, `ig/skills/ig-repurpose/SKILL.md`). Never copy-paste between platforms.
+- Links: service page + UTM tags (`brand.md`, rule 5).
 
-Write the plan to `WEEK/plan.md` (the calendar table from the skills, plus angle, pillar, formula and goal per post).
+Write the plan to `WEEK/plan.md` (the calendar table from the skills, plus target pair, buyer, angle, pillar, formula, lead action/keyword and lead offer per post).
 
 ## 3. Write the copy
 
@@ -107,5 +114,5 @@ Use the `postdesk-softnear` connector (tools `mcp__postdesk-softnear__*`).
 
 ## 7. Log and report
 
-Append to `_system/log.md`: week, each post's platform, pillar, formula/hook number, angle. Commit and push.
+Append to `_system/log.md`: week, each post's platform, service x industry pair, pillar, formula/hook number, angle, keyword. Before planning, also read PostDesk comments/notes and any lead feedback the team leaves in `_system/leads.md`, and plan more of what produced leads. Commit and push.
 Finish with a short message: what was planned, the folder link, and anything flagged (rejected posts fixed, `{{number}}` placeholders, render problems).

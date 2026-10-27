@@ -10,7 +10,7 @@ numbers or anything under NDA.
 
 - filled: yes
 - source: softnear.com, October 2026
-- updated: 2026-10-27
+- updated: 2026-10-28
 
 ## Who we are
 
@@ -39,14 +39,68 @@ Never invent any other figure, client, result or testimonial. If a post needs a
 number we do not have, write the post around a process, a question or a decision
 instead, or leave `{{number}}` and flag it in the PostDesk title.
 
+## Services we sell (from softnear.com, October 2026)
+
+Every post sells one of these, to one of the industries below. Link to the service page when one exists; otherwise https://softnear.com/services.
+
+| # | service | page | who buys it |
+| --- | --- | --- | --- |
+| S1 | Web development | /services/web-development | founders, marketing and ops heads replacing an old site or portal |
+| S2 | App development (iOS, Android, Flutter, React Native) | /services/mobile-app-development | founders launching an app, businesses adding a customer app |
+| S3 | CMS development (WordPress, headless CMS) | /services | marketing teams that can't update their own site |
+| S4 | Blockchain | /services | fintech and BFSI product teams |
+| S5 | Website designing | /services | small businesses and startups needing a new site |
+| S6 | E-commerce development | /services | retailers and D2C brands going online or outgrowing a template |
+| S7 | API service / integrations | /services | companies whose systems don't talk to each other |
+| S8 | AI automations (agents, LLM apps, chatbots done right) | /services/ai-development | ops heads drowning in repetitive work |
+| S9 | UI/UX design | /services/ui-ux-design | product teams with low conversion or high drop-off |
+| S10 | SEO services (incl. white-label SEO for agencies) | /digital-marketing/white-label-seo | businesses invisible on Google, agencies reselling SEO |
+| S11 | Shopify development | /services | Shopify store owners: speed, custom themes, apps, migrations |
+| S12 | AI/ML automations (models, prediction, document AI) | /services/ai-development | data-heavy teams: forecasting, fraud, document processing |
+| S13 | Hire dedicated developers (React, Node.js, Python) | /hire | startups and agencies short of engineers |
+
+## Industries we target
+
+| # | industry | angle that resonates |
+| --- | --- | --- |
+| I1 | BFSI | secure, compliant, reliable finance systems |
+| I2 | Education & e-learning | LMS, student apps, online courses that people finish |
+| I3 | Fintech | payments, KYC, lending, wallets, speed to market |
+| I4 | Logistics & supply chain | tracking, dispatch, inventory, driver apps |
+| I5 | Software & tech | extra engineering capacity, white-label, product builds |
+| I6 | Travel & hospitality | booking engines, guest apps, channel integrations |
+| I7 | Healthcare & life science | patient apps, appointment systems, data privacy |
+| I8 | Retail & e-commerce | Shopify, online stores, conversion, inventory sync |
+| I9 | Manufacturing & engineering | ERP integrations, dashboards, shop-floor automation |
+
+## Lead generation rules (every post)
+
+The goal of every post is a conversation with a potential buyer, not likes.
+
+1. **One buyer, one service, one industry.** Each post names who it is for in the first two lines (e.g. "If you run a Shopify store doing 50+ orders a day..."). Generic "businesses" posts are not allowed.
+2. **Start from the buyer's pain, in their words**, not from our service list. The service appears as the fix, once.
+3. **One lead action per post**, chosen by platform:
+   - Instagram / Facebook: "Comment KEYWORD" (one word, e.g. SHOPIFY, AGENT, APP, SEO) or "DM us KEYWORD". The keyword goes in the PostDesk title so the team knows what to reply.
+   - LinkedIn: closing question + "DM me KEYWORD" or the service page link in the first comment.
+   - Facebook `link_url`: the service page.
+4. **Offer something useful in return** for the keyword: a free 20-minute call, a free website or store audit, a cost estimate, or a checklist. Never promise anything not listed in "Lead offers" below.
+5. **Track it.** Every link carries UTM tags: `?utm_source=<platform>&utm_medium=social&utm_campaign=<YYYY-MM-DD>-<service#>-<industry#>`.
+
+## Lead offers we can promise
+
+- Free 20-minute consultation call
+- Free cost and timeline estimate for an app or website
+- 7-day risk-free developer trial (hiring)
+- (Add more here, e.g. "free Shopify speed audit", only once the team agrees to deliver them.)
+
 ## Content pillars (rotate weekly)
 
 | pillar | share | what it looks like |
 | --- | --- | --- |
-| **How we build** (authority / teach) | 40% | scoping, MVP cuts, architecture choices, QA, handover, AI-agent build notes |
-| **AI in real software** (opinion) | 20% | where AI automation pays off and where it does not, LLM app pitfalls |
-| **Hiring developers / outsourcing** (offer) | 20% | dedicated teams, 72-hour onboarding, 7-day trial, white-label for agencies |
-| **Proof and people** (narrative / community) | 20% | the 500+ apps, Clutch rating, team, culture, careers, behind the scenes |
+| **Buyer pain + fix** (service-led, teach) | 45% | a specific industry problem and how one service solves it: checklists, cost breakdowns, before/after |
+| **Offer** (lead) | 25% | one service, one lead offer, one keyword, said plainly |
+| **How we build / AI in real software** (authority) | 15% | process, scoping, AI where it pays off |
+| **Proof and people** | 15% | 500+ apps, Clutch rating, team, behind the scenes |
 
 ## Voice
 

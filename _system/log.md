@@ -19,3 +19,5 @@ One block per week, newest last. The weekly run reads the last four weeks so it 
 - FB Thu · Proof · 500+ mobile apps, 4.8 Clutch
 - IG Fri · Hiring · #5 Time Collapse · developer in 72 hours, 7-day trial
 - FB Sat · Hiring · 7-day trial
+
+(From week of 2026-11-09 each line also records the service x industry pair, e.g. S11xI8, and the lead keyword. Week of 2026-11-02 mostly covered S13 Hire developers and S8 AI automations, with no specific industry.)
