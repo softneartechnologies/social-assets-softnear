@@ -93,15 +93,11 @@ cd assets && git add -A && git commit -m "Week of YYYY-MM-DD: plan and media" &&
 
 Public URL of a file: `https://raw.githubusercontent.com/softneartechnologies/social-assets-softnear/main/<path>`. Check one with `curl -sI` before using them.
 
-## 6. Draft into PostDesk (both connectors)
+## 6. Draft into PostDesk
 
-Push the identical 9 posts to **both** PostDesk connectors:
-- `postdesk-softnear` (tools `mcp__postdesk-softnear__*`)
-- `post_local_testing` (tools `mcp__post_local_testing__*`)
+Use the `postdesk-softnear` connector (tools `mcp__postdesk-softnear__*`).
 
-For each connector: call `get_studio_info` and `list_posts status=rejected` (fix rejected ones with that connector's `update_post`), skip the connector if it already has posts with this week's campaign, then `create_posts` with the same payload. If one connector is unavailable, still push to the other and say so in the report. Post ids differ between the two, so never reuse an id across connectors.
-
-`create_posts` once per connector with all 9 posts:
+`create_posts` once with all 9 posts:
 - `campaign`: `Week of YYYY-MM-DD`
 - `title`: `W<ISO week> – <pillar> – <angle>`
 - `content` without hashtags; `hashtags` separate; `first_comment` for the LinkedIn link
