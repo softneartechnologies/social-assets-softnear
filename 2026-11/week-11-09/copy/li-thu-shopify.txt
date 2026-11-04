@@ -1,0 +1,21 @@
+Every Shopify app you install adds code to your store.
+
+Every app you uninstall can leave some of that code behind in theme.liquid.
+
+Every chat widget, Judge.me badge, Klaviyo pop-up and Meta pixel loads on every product page, for every shopper, on a 4G phone.
+
+That's how a retail or D2C brand that's doing well on Shopify ends up with a store that feels slow, and a theme nobody on your team wants to touch.
+
+The usual answer is another speed app from the Shopify App Store. That's more code.
+
+What fixes it is work on the theme itself. We list what actually loads on your product page, remove leftover app code, swap apps for native Shopify features where they now exist, and rebuild the sections so your marketing team can change a banner without opening a ticket.
+
+Your shoppers see the same store. It just carries less.
+
+We've delivered 500+ mobile app projects, and we'll sign an NDA before we look at your Shopify admin.
+
+If you run e-commerce for a retail brand, which app would you remove tomorrow if you knew nothing would break?
+
+P.S. DM me SHOPIFY and we'll set up a free 20-minute call on your store.
+
+#shopify #ecommerce

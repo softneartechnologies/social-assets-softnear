@@ -21,3 +21,15 @@ One block per week, newest last. The weekly run reads the last four weeks so it 
 - FB Sat · Hiring · 7-day trial
 
 (From week of 2026-11-09 each line also records the service x industry pair, e.g. S11xI8, and the lead keyword. Week of 2026-11-02 mostly covered S13 Hire developers and S8 AI automations, with no specific industry.)
+
+## Week of 2026-11-09
+
+- IG Mon · S11xI8 · Buyer pain + fix · #11 Numbered With A Favourite · 4 checks for a slow Shopify store · SHOPIFY
+- LI Tue · S2xI7 · How we build · F8 · patient app v1 = 6 screens, privacy day 1 · link
+- FB Tue · S11xI8 · Buyer pain + fix · small-shop Shopify store feels slow · SHOPIFY
+- LI Wed · S7xI4 · Buyer pain + fix · F10 (EDI receipt) · connect 3 tools instead of a new platform · link
+- IG Wed · S2xI7 · Opinion · #2 Negative Command reel · stop booking patients by phone · APP
+- LI Thu · S11xI8 · Offer · F1 Anaphora · theme still carries apps you deleted · SHOPIFY
+- FB Thu · S7xI4 · Buyer pain + fix · delivery business: type the order once · SYNC
+- IG Fri · S7xI4 · Offer · #13 Before And After · WhatsApp order retyped 3 times · SYNC
+- FB Sat · S2xI7 · Offer · 500+ stat · clinic patient app doesn't have to be big · APP

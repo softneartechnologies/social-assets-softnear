@@ -1,0 +1,14 @@
+
+BEAT SHEET  ·  46 words  ·  ~16.7s at 165 wpm  ·  target 17.0s
+========================================================================
+  0:00.0   2.9s  HOOK    Stop booking patients by phone at 9 AM.
+  0:02.9   2.9s          The line's busy. A slot gets booked twice.
+  0:05.8   2.2s          A patient app needs 3 things.
+  0:08.0   1.4s  MID     Booking. Reminders. Lab reports.
+  0:09.4   2.5s          Patient data stays private from day one.
+  0:12.0   2.5s          From the team behind 500+ mobile apps.
+  0:14.6   2.2s  CTA     Comment APP. Stop booking by phone.
+------------------------------------------------------------------------
+  - Loops: the last beat repeats "booking, phone, stop" from the hook. Second watches are free reach.
+  - Length is on target (16.7s against 17.0s).
+

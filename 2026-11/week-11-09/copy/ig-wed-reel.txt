@@ -1,0 +1,9 @@
+Comment APP for a free cost and timeline estimate on a patient app for your clinic, from the team behind 500+ mobile apps.
+
+Your front desk shouldn't spend 9 to 11 every morning on the phone. A simple patient appointment app on iOS and Android takes the booking, rescheduling and reminder calls off them, and your patients can book at midnight if they want.
+
+You don't need a long feature list for version 1. Just 3. Booking, reminders, and 1 place for lab reports.
+
+We'll sign an NDA before we see anything.
+
+#healthcareapp #patientapp #clinicmanagement #appointmentbooking #mobileappdevelopment

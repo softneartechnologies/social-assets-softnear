@@ -1,0 +1,22 @@
+6 screens. That's how small we'd keep the first version of a patient app for most clinics and diagnostic chains.
+
+The healthcare app briefs we get usually arrive with a long wish list: video consults, a pharmacy store, wearable sync, a chatbot, loyalty points.
+
+The apps your patients keep using start smaller. They open a clinic app to do a handful of things, and version 1 should do those well:
+
+1. Book, reschedule or cancel an appointment
+2. Get a reminder the evening before
+3. See lab reports and prescriptions
+4. Pay for the visit
+5. Message the front desk without calling
+6. Manage family members on 1 account
+
+Video consults, refills and HIS or LIS integrations can wait for version 2, once you've seen which ones patients ask for.
+
+Privacy can't wait. We put encryption, role-based access and audit logs in on day 1, because retrofitting them into a live patient app is slower and riskier than building them in.
+
+We've delivered 500+ mobile app projects, and I'd say the same thing to every clinic: version 1 should be smaller than you want.
+
+If you run a clinic chain or a diagnostics business, which of these 6 would your patients use first?
+
+#healthtech #mobileappdevelopment

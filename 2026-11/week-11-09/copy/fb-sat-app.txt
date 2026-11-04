@@ -1,0 +1,9 @@
+For clinic and diagnostic centre owners: a patient app doesn't have to be a big project.
+
+Version 1 does 3 jobs. Patients book or reschedule a slot, get a reminder the evening before, and open their lab reports on iOS or Android without calling anyone. That's it.
+
+Fewer calls.
+
+We've delivered 500+ mobile app projects, privacy is planned in from day 1, and we sign an NDA before we see a single file from your clinic or your patients.
+
+Want to know what it would cost? Comment APP and we'll send a free cost and timeline estimate.

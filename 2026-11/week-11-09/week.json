@@ -1,0 +1,51 @@
+{
+  "handle": "@official_softnear",
+  "posts": [
+    {"id": "ig-mon-shopify", "platform": "instagram", "format": "carousel", "slides": [
+      {"kind": "headline", "eyebrow": "Shopify store owners", "title": "Why your Shopify store is ==slow==", "sub": "4 checks. Most owners skip the last one."},
+      {"kind": "statement", "eyebrow": "Why it matters", "title": "A slow product page loses the sale ==before the price loads.==", "sub": "Most of your shoppers are on a phone."},
+      {"kind": "point", "eyebrow": "Check 1", "title": "Apps you ==don't use==", "body": "Uninstalled apps can leave code in your theme. Remove the leftovers, not just the app."},
+      {"kind": "point", "eyebrow": "Check 2", "title": "Photos at the **right size**", "body": "Upload product photos close to the size your theme shows them. A 4,000px photo in a 600px slot is wasted load."},
+      {"kind": "point", "eyebrow": "Check 3", "title": "Widgets and ==pixels==", "body": "Chat widgets, pop-ups and tracking pixels each load on every page. Keep the ones that earn their place."},
+      {"kind": "point", "eyebrow": "Check 4 · the one most skip", "title": "A ==clean custom== Shopify theme", "body": "Years of quick fixes pile up. A rebuilt theme loads only what your store uses."},
+      {"kind": "list", "eyebrow": "Screenshot this", "title": "Shopify speed checklist", "items": [{"text": "Remove leftover app code"}, {"text": "Resize product photos"}, {"text": "Cut unused widgets and pixels"}, {"text": "Rebuild a bloated theme"}], "highlight": 3},
+      {"kind": "cta", "eyebrow": "Shopify development", "title": "Comment ==SHOPIFY==", "body": "We'll set up a free 20-minute call to look at your store with you.", "button": "Comment SHOPIFY"}
+    ]},
+    {"id": "ig-wed-reel-clinic", "platform": "instagram", "format": "reel", "seconds_per_slide": 2.8, "slides": [
+      {"kind": "statement", "eyebrow": "Clinic owners", "title": "Stop booking patients ==by phone.=="},
+      {"kind": "statement", "eyebrow": "9 AM at the front desk", "title": "Line busy. Slot ==booked twice.=="},
+      {"kind": "list", "eyebrow": "Patient app, version 1", "title": "Just 3 things", "items": [{"text": "Booking and rescheduling"}, {"text": "Reminder the evening before"}, {"text": "Lab reports in one place"}]},
+      {"kind": "statement", "eyebrow": "Privacy", "title": "Patient data private from ==day one.=="},
+      {"kind": "stat", "eyebrow": "Softnear", "big": "500**+**", "title": "mobile app projects delivered", "body": "NDA signed before we see anything."},
+      {"kind": "cta", "eyebrow": "Patient app for your clinic", "title": "Comment ==APP==", "body": "Free cost and timeline estimate.", "button": "@official_softnear"}
+    ]},
+    {"id": "ig-fri-sync", "platform": "instagram", "format": "carousel", "slides": [
+      {"kind": "headline", "eyebrow": "Delivery businesses", "title": "Type each order ==once==", "sub": "Not 3 times. When your tools talk, nobody retypes an address."},
+      {"kind": "statement", "eyebrow": "Why it matters", "title": "Every retyped order is a chance to ==ship to the wrong address.=="},
+      {"kind": "point", "eyebrow": "Before", "title": "Order comes in on **WhatsApp**", "body": "Someone types it into the courier portal, then Excel, then Tally for the invoice."},
+      {"kind": "point", "eyebrow": "After", "title": "One order, ==entered once==", "body": "An API integration sends it from your store or form to the courier, your sheet and your accounts."},
+      {"kind": "point", "eyebrow": "No new platform", "title": "Your tools, **as they are**", "body": "Shopify, WooCommerce, courier portals, Google Sheets, Tally or Zoho. Your team keeps what it knows."},
+      {"kind": "point", "eyebrow": "Bonus", "title": "Tracking that ==sends itself==", "body": "Customers get the tracking link automatically. Fewer 'where is my order?' calls."},
+      {"kind": "list", "eyebrow": "Screenshot this", "title": "Signs you need an integration", "items": [{"text": "Orders retyped into 2+ tools"}, {"text": "Addresses copied by hand"}, {"text": "Tracking links sent manually"}, {"text": "Month-end totals never match"}], "highlight": 0},
+      {"kind": "cta", "eyebrow": "API integrations", "title": "Comment ==SYNC==", "body": "We'll send a free cost and timeline estimate for connecting your tools.", "button": "Comment SYNC"}
+    ]},
+    {"id": "li-tue-patient", "platform": "linkedin", "format": "image", "slides": [
+      {"kind": "headline", "eyebrow": "Patient app, version 1", "title": "Start with ==6 screens==", "sub": "Everything else waits for version 2. Privacy doesn't.", "chips": ["Book", "Remind", "Reports", "Pay", "Message", "?Family"]}
+    ]},
+    {"id": "li-wed-logistics", "platform": "linkedin", "format": "image", "slides": [
+      {"kind": "headline", "eyebrow": "Logistics & supply chain", "title": "1 order, typed ~~3 times~~ ==once==", "sub": "Connect the WMS, TMS, carrier portals and ERP you already use.", "chips": ["WMS", "TMS", "Carrier", "Billing", "?1 order record"]}
+    ]},
+    {"id": "li-thu-shopify", "platform": "linkedin", "format": "image", "slides": [
+      {"kind": "headline", "eyebrow": "Shopify development", "title": "Your theme still carries ==apps you deleted==", "sub": "A clean theme loads only what your store uses.", "chips": ["Leftover code", "Widgets", "Pixels", "?Clean theme"]}
+    ]},
+    {"id": "fb-tue-shopify", "platform": "facebook", "format": "image", "slides": [
+      {"kind": "list", "eyebrow": "Shopify store owners", "title": "Why your store feels ==slow==", "items": [{"text": "Old apps still in the theme"}, {"text": "Huge product photos"}, {"text": "Years of quick fixes"}], "highlight": 0}
+    ]},
+    {"id": "fb-thu-sync", "platform": "facebook", "format": "image", "slides": [
+      {"kind": "headline", "eyebrow": "Delivery & courier businesses", "title": "Type the order ==once.==", "sub": "We connect your store, courier portal, Excel and billing.", "chips": ["Courier", "Excel", "Billing", "?Tracking"]}
+    ]},
+    {"id": "fb-sat-app", "platform": "facebook", "format": "image", "slides": [
+      {"kind": "stat", "eyebrow": "Clinics & diagnostic centres", "big": "500**+**", "title": "mobile app projects delivered", "body": "Free cost and timeline estimate for your patient app. Comment APP."}
+    ]}
+  ]
+}

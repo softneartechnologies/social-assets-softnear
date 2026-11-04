@@ -1,0 +1,21 @@
+1 order, typed in 3 times. That's a normal Tuesday in a lot of mid-size logistics and 3PL operations we talk to.
+
+The order lands in Outlook or on WhatsApp. Someone keys it into the TMS or a courier portal. Then someone else copies it into Excel for billing, usually late in the day, because they've been doing it by hand since the morning. At month end, your finance team reconciles all 3.
+
+The fix you usually get pitched is a new all-in-one platform. A big migration, every dispatcher retrained, and 6 months or more of running 2 systems side by side.
+
+We think that's wrong.
+
+Large shippers solved this in the 1980s with EDI, systems sending each other structured messages so nobody retyped anything. It's far cheaper now. Most WMS, TMS, carrier and accounting tools have APIs, and a well-built integration layer lets them share 1 order record.
+
+What changes on your floor:
+
+- An order is entered once
+- Tracking updates reach the customer without a dispatcher sending them
+- Billing reads from the same record, so month end stops being a hunt
+
+Your team keeps the tools they already know. We'd only remove the typing.
+
+If you run operations at a logistics or supply chain company, how many times is a single order keyed in before it ships?
+
+#logistics #supplychain
