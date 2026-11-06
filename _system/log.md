@@ -33,3 +33,8 @@ One block per week, newest last. The weekly run reads the last four weeks so it 
 - FB Thu · S7xI4 · Buyer pain + fix · delivery business: type the order once · SYNC
 - IG Fri · S7xI4 · Offer · #13 Before And After · WhatsApp order retyped 3 times · SYNC
 - FB Sat · S2xI7 · Offer · 500+ stat · clinic patient app doesn't have to be big · APP
+
+## Diwali 2026 (one-off, Fri 2026-11-06)
+
+- Festive greeting to clients and team, not a lead post. Banner (square + landscape) and 15 s reel with original music, in `2026-11/week-11-02/diwali-2026/`.
+- IG/FB/LI banner 18:30 · IG/FB/LI reel 19:30 · PostDesk ids 22-27
