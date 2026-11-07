@@ -1,0 +1,11 @@
+[
+ {"id":"01-hook","vo":"Getting a website for your business? The five-thousand-rupee website usually ends up costing you the most.","cues":[1.47,3.4]},
+ {"id":"02-setup","vo":"Five thousand or twenty-five thousand, they look exactly the same. But inside, there are five big differences.","cues":[3.85]},
+ {"id":"03-design","vo":"One: design. The cheap one is a template shared by thousands of sites. The right one is designed for your business.","cues":[1.3,4.75]},
+ {"id":"04-domain","vo":"Two: domain. Cheap sites are often registered in the developer's name. The right one is in your name, and you're in control.","cues":[1.28,4.4]},
+ {"id":"05-speed","vo":"Three: speed. Cheap hosting means a slow site, and customers don't wait. The right one runs on fast hosting and opens in a blink.","cues":[1.4,3.8,5.3]},
+ {"id":"06-google","vo":"Four: Google. Without SEO, Google doesn't even know you exist. Set it up right, and when customers search, they find you.","cues":[1.27,4.75]},
+ {"id":"07-leads","vo":"Five: leads. The cheap one is just an online brochure. The right one has a WhatsApp button and an inquiry form. Real leads.","cues":[1.48,3.95,7.38]},
+ {"id":"08-invest","vo":"A cheap website is an expense. The right website is an investment. One order, and it has paid for itself.","cues":[1.95,4.4]},
+ {"id":"09-cta","vo":"So don't just compare prices. Ask these five questions. Want a free check of your website? Comment, WEBSITE. And follow Softnear.","cues":[1.6,3.6,5.45]}
+]
