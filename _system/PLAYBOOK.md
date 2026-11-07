@@ -27,6 +27,7 @@ python3 -c "import playwright" && which ffmpeg                  # renderer needs
 - PostDesk `list_posts status=rejected`: read `reviewer_notes`; fix and `update_post` those first, and apply the lesson to this week.
 - Read `assets/_system/log.md`: do not repeat an angle or hook formula used in the last 4 weeks.
 - Read `assets/_system/brand.md`: facts, pillars, positions, banned words. Never invent numbers or clients.
+- Read `assets/_system/content-library.md`: the team's own scripts and point of view. Plan at least one post a week that develops an idea from it (new angle, follow-up, same metaphor for another industry), reuse its "Lines to keep", and don't rerun a script within 6 weeks. When the team gives a new script, add it there as a new entry (original text unchanged).
 
 ## 2. Plan (use the skills' own rules)
 

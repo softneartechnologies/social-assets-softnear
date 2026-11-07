@@ -116,6 +116,9 @@ The goal of every post is a conversation with a potential buyer, not likes.
   3. AI belongs where a process repeats, not where a demo impresses.
   4. A dedicated developer you can trial for 7 days beats a long hiring loop.
   5. Agencies should never have to explain to their client who actually wrote the code.
+  6. A website doesn't bring customers on its own. It's the net; ads, Google and social media are the water (team script, 2026-11-08).
+  7. The cheap website usually costs the most (team script, 2026-11-07).
+- The team's own scripts, metaphors and lines are in `_system/content-library.md`. Build from them first.
 
 ## Off limits
 

@@ -1,0 +1,268 @@
+<!doctype html><html lang="hi"><head><meta charset="utf-8"><style>
+:root{--bg:#F7F9FC;--ink:#0F172A;--muted:#475569;--soft:#94A3B8;--blue:#3B8DF0;--blue2:#2A72CC;--yellow:#FFD635;--ysoft:#FFF6D1;
+--card:#FFFFFF;--line:#E3E8F0;--db:#E8EFFA;--dy:#F7F5E8;--grey:#EEF1F5;--water:#CFE3FB}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--bg);font-family:'Inter','Hind',sans-serif;color:var(--ink)}
+.page{position:relative;width:1080px;height:1920px;padding:190px 84px 0;display:flex;flex-direction:column;overflow:hidden}
+.deco{position:absolute;border-radius:90px;z-index:0}
+.d1{width:620px;height:620px;right:-260px;top:-260px;background:var(--db);opacity:.75}
+.d2{width:330px;height:330px;right:-150px;top:-60px;background:var(--dy);border-radius:110px;opacity:.9}
+#cw{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center;padding-bottom:30px}
+#c{transform-origin:50% 45%}
+.footer{position:relative;z-index:1;border-top:2px solid var(--line);height:230px;display:flex;align-items:center;justify-content:space-between}
+.footer img{height:92px}
+.footer span{font-weight:600;font-size:36px;color:var(--muted)}
+.eyebrow{display:flex;align-items:center;gap:18px;color:var(--blue);font-weight:700;letter-spacing:.04em;font-size:34px}
+.eyebrow:before{content:"";flex:none;width:56px;height:9px;border-radius:5px;background:var(--yellow)}
+h1{font-family:'Inter Display','Hind';font-weight:700;letter-spacing:-.005em;line-height:1.22;font-size:84px;margin-top:24px}
+.hl{position:relative;display:inline-block;z-index:0}
+.hl i{position:absolute;left:-6px;right:-6px;bottom:.12em;height:.34em;background:var(--yellow);z-index:-1;transform-origin:left;transform:scaleX(0)}
+.op0{opacity:0}
+.abs{position:absolute}
+.wipe{position:absolute;left:0;top:0;width:1080px;height:1920px;background:var(--yellow);z-index:50;transform:translateY(100%)}
+.wipe:after{content:"";position:absolute;left:84px;top:50%;width:120px;height:14px;border-radius:7px;background:var(--ink)}
+.stage{position:relative;background:#fff;border:2px solid var(--line);border-radius:36px;overflow:hidden}
+.card{background:#fff;border:2px solid var(--line);border-radius:30px}
+.tagk{font-weight:700;font-size:24px;letter-spacing:.1em;text-transform:uppercase}
+.chip{display:inline-flex;align-items:center;gap:12px;background:#fff;border:2px solid var(--line);border-radius:18px;padding:14px 24px;font-weight:600;font-size:32px}
+.vcs{display:flex;flex-direction:column;gap:18px}
+.vc{display:flex;align-items:center;gap:26px;border-radius:26px;padding:24px 30px}
+.vc .ic{flex:none;width:66px;height:66px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:34px}
+.vc .lb{font-weight:700;font-size:26px;letter-spacing:.02em}
+.vc .tx{font-weight:600;font-size:44px;line-height:1.25}
+.vc.bad{background:#fff;border:2px solid var(--line)} .vc.bad .ic{background:var(--grey);color:#64748B} .vc.bad .lb{color:var(--soft)} .vc.bad .tx{color:#475569}
+.vc.good{background:var(--yellow)} .vc.good .ic{background:var(--ink);color:var(--yellow)}
+svg{overflow:visible}
+</style></head><body>
+<div class="page"><div class="deco d1" id="d1"></div><div class="deco d2" id="d2"></div>
+<div id="cw"><div id="c"></div></div>
+<div class="footer"><img id="logo"><span>softnear.com</span></div>
+<div class="wipe" id="wipe"></div></div>
+<script>
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const P=(t,s,d)=>cl((t-s)/d);
+const eo=x=>1-Math.pow(1-x,3);
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const bk=x=>{const c=1.6;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const rnd=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x)};
+function rise(el,t,s,d=.5,dy=46){if(!el)return;const k=eo(P(t,s,d));el.style.opacity=k;el.style.transform=`translateY(${(1-k)*dy}px)`}
+function pop(el,t,s,d=.5,base=''){if(!el)return;const k=P(t,s,d);el.style.opacity=cl(k*3);el.style.transform=`${base} scale(${k?bk(k):0.001})`}
+function fade(el,t,s,d=.4){if(el)el.style.opacity=eo(P(t,s,d))}
+function out(el,t,s,d=.35,dy=-40){if(!el||t<s)return;const k=eio(P(t,s,d));el.style.opacity=1-k;el.style.transform=`translateY(${k*dy}px)`}
+function sweep(el,t,s,d=.45){if(el)el.querySelectorAll('i').forEach(i=>i.style.transform=`scaleX(${eio(P(t,s,d))})`)}
+const seg=s=>[...new Intl.Segmenter('hi',{granularity:'grapheme'}).segment(s)].map(x=>x.segment);
+function typed(el,txt,t,s,cps=9,cursor=true){const g=seg(txt);const n=Math.floor(cl((t-s)*cps,0,g.length));const blink=cursor&&(Math.floor(t*2.4)%2===0);
+  el.innerHTML=g.slice(0,n).join('')+(cursor?`<span style="opacity:${blink?1:0};color:var(--blue);font-weight:400">|</span>`:'')}
+const hl=s=>s.replace(/==(.+?)==/g,'<span class="hl"><i></i>$1</span>');
+
+/* ---------- reusable drawings ---------- */
+function netSVG(w,h,id,opt={}){ // diamond mesh with top rope + floats
+  const step=opt.step||64, sag=opt.sag||0;let L='';let n=0;
+  for(let x=-h;x<w+h;x+=step){L+=`<line x1="${x}" y1="0" x2="${x+h}" y2="${h}" pathLength="1"/>`;L+=`<line x1="${x+h}" y1="0" x2="${x}" y2="${h}" pathLength="1"/>`;n++}
+  let F='';for(let x=step/2;x<w;x+=step*1.5)F+=`<circle class="fl" cx="${x}" cy="0" r="13"/>`;
+  return `<svg id="${id}" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">
+   <defs><clipPath id="${id}-cp"><path d="M0 0 H${w} L${w-28} ${h} Q${w/2} ${h+sag} 28 ${h} Z"/></clipPath></defs>
+   <g class="mesh" clip-path="url(#${id}-cp)" fill="none" stroke="#1E3A5F" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="1" stroke-dashoffset="1">${L}</g>
+   <path class="rim" d="M28 ${h} Q${w/2} ${h+sag} ${w-28} ${h}" fill="none" stroke="#1E3A5F" stroke-width="5" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+   <line class="rope" x1="-10" y1="0" x2="${w+10}" y2="0" stroke="var(--ink)" stroke-width="9" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+   <g fill="var(--yellow)" stroke="var(--ink)" stroke-width="4">${F}</g></svg>`}
+function drawNet(id,k){const s=document.getElementById(id);if(!s)return;
+  s.querySelectorAll('.mesh line').forEach((l,i,a)=>{const st=(i/a.length)*.55;l.style.strokeDashoffset=1-eo(cl((k-st)/.45))});
+  s.querySelector('.rope').style.strokeDashoffset=1-eo(cl(k/.35));s.querySelector('.rim').style.strokeDashoffset=1-eo(cl((k-.5)/.5));
+  s.querySelectorAll('.fl').forEach((f,i,a)=>{const kk=cl((k-.1-i/a.length*.4)/.2);f.style.transform=`scale(${kk?bk(kk):0})`;f.style.transformOrigin=`${f.getAttribute('cx')}px 0px`;f.style.transformBox='view-box'})}
+function wave(w,h,level,amp,ph,len){let d=`M0 ${h} L0 ${level}`;for(let x=0;x<=w;x+=12){d+=` L${x} ${(level+Math.sin(x/len*6.283+ph)*amp+Math.sin(x/(len*.47)*6.283-ph*1.3)*amp*.35).toFixed(1)}`}return d+` L${w} ${h} Z`}
+function fish(id,col='var(--yellow)'){return `<svg class="abs fish" id="${id}" width="90" height="46" viewBox="0 0 90 46"><path d="M8 23 Q34 0 64 23 Q34 46 8 23 Z" fill="${col}" stroke="var(--ink)" stroke-width="3.5"/><path d="M62 23 L86 7 L86 39 Z" fill="${col}" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round"/><circle cx="22" cy="20" r="3.5" fill="var(--ink)"/></svg>`}
+function browser(w,h,id,inner=''){return `<div class="abs" id="${id}" style="width:${w}px;height:${h}px;background:#fff;border:3px solid var(--ink);border-radius:26px;overflow:hidden;box-shadow:0 26px 60px rgba(15,23,42,.14)">
+ <div style="height:52px;background:var(--grey);display:flex;gap:10px;align-items:center;padding-left:22px;border-bottom:2px solid var(--line)"><i style="width:14px;height:14px;border-radius:50%;background:#CBD5E1"></i><i style="width:14px;height:14px;border-radius:50%;background:#CBD5E1"></i><i style="width:14px;height:14px;border-radius:50%;background:#CBD5E1"></i>
+ <span style="margin-left:18px;flex:1;margin-right:22px;height:28px;border-radius:14px;background:#fff"></span></div>${inner}</div>`}
+const siteBody=`<div style="margin:22px;height:150px;border-radius:18px;background:linear-gradient(120deg,var(--blue),#6AA9F5)"></div>
+ <div style="margin:16px 22px;height:18px;border-radius:9px;background:#E2E8F0"></div><div style="margin:16px 22px;width:58%;height:18px;border-radius:9px;background:#E2E8F0"></div>
+ <div style="margin:24px 22px;width:40%;height:54px;border-radius:14px;background:var(--yellow)"></div>`;
+function coin(id,x,y,s=1){return `<div class="abs coin" id="${id}" style="left:${x}px;top:${y}px;width:${58*s}px;height:${58*s}px;border-radius:50%;background:var(--yellow);border:${4*s}px solid var(--ink);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:${30*s}px;font-family:Inter">₹</div>`}
+function heart(id){return `<svg class="abs hrt" id="${id}" width="46" height="42" viewBox="0 0 46 42"><path d="M23 40 C6 27 2 18 2 12 C2 5 8 1 13 1 C18 1 21 4 23 8 C25 4 28 1 33 1 C38 1 44 5 44 12 C44 18 40 27 23 40 Z" fill="#F43F5E" stroke="var(--ink)" stroke-width="3"/></svg>`}
+
+const S={};
+/* ---------- 1 HOOK ---------- */
+S['01-hook']={html:()=>`
+<div class="eyebrow op0" id="eb">वेबसाइट है, पर कस्टमर नहीं?</div>
+<div class="op0" id="l1" style="margin-top:40px;font-weight:600;font-size:60px;color:var(--muted)">हम वेबसाइट बनाते हैं।</div>
+<div class="op0" id="l2" style="margin-top:8px;font-weight:600;font-size:60px;color:var(--muted)">और हम ही कह रहे हैं:</div>
+<h1 id="big" style="font-size:128px;line-height:1.16;margin-top:36px"><div class="op0 bw">वेबसाइट से</div><div class="op0 bw">${hl('==कस्टमर==')}</div><div class="op0 bw">नहीं आते।</div></h1>
+<div class="card op0" id="an" style="margin-top:56px;padding:26px 32px;display:flex;align-items:center;gap:28px">
+ <div style="width:74px;height:74px;border-radius:20px;background:var(--db);display:flex;align-items:flex-end;justify-content:center;gap:7px;padding-bottom:16px">
+  <i style="width:11px;height:12px;border-radius:3px;background:var(--soft)"></i><i style="width:11px;height:8px;border-radius:3px;background:var(--soft)"></i><i style="width:11px;height:5px;border-radius:3px;background:var(--soft)"></i></div>
+ <div style="flex:1"><div style="font-weight:600;font-size:30px;color:var(--soft)">आज की इंक्वायरी</div><div id="cnt" style="font-family:Inter;font-weight:800;font-size:64px;line-height:1">0</div></div>
+ <div class="tagk" style="color:#E11D48;background:#FFE4E6;border-radius:12px;padding:10px 16px">Live</div></div>`,
+upd(t,c){rise($('#eb'),t,.05);rise($('#l1'),t,c[0],.45);rise($('#l2'),t,c[1],.45);
+  $$('.bw').forEach((b,i)=>{const s=c[2]+i*.12;const k=P(t,s,.28);b.style.opacity=cl(k*2.5);b.style.transform=`scale(${1+(1-eo(k))*.9})`;b.style.transformOrigin='left center'});
+  sweep($('#big'),t,c[2]+.55,.4);
+  const sh=t>c[2]+.36&&t<c[2]+.75?Math.sin(t*90)*7*(1-P(t,c[2]+.36,.39)):0;$('#big').style.transform=`translateX(${sh}px)`;
+  rise($('#an'),t,c[2]+.85,.5);$('#cnt').textContent='0';}};
+
+/* ---------- 2 NET ---------- */
+S['02-net']={html:()=>`
+<div class="eyebrow op0" id="eb">सीधी बात</div>
+<div style="position:relative;height:330px;margin-top:6px">
+ <h1 class="abs op0" id="ta" style="top:0">वेबसाइट =<br>${hl('==मछली पकड़ने का जाल==')}</h1>
+ <h1 class="abs op0" id="tb" style="top:0;font-size:76px">जाल कितना भी अच्छा हो,<br>उसे ${hl('==पानी में==')} डालना<br>पड़ता है।</h1></div>
+<div class="stage op0" id="st" style="height:860px;margin-top:30px;background:#fff">
+ <svg class="abs" id="wv" width="912" height="860" style="left:0;top:0"><path id="w1" fill="var(--water)"/><path id="w2" fill="var(--blue)" opacity=".28"/></svg>
+ ${browser(640,440,'br',siteBody)}
+ <div class="abs" id="nw" style="left:136px;top:150px">${netSVG(640,400,'net',{step:58,sag:60})}</div>
+ ${fish('f1')}${fish('f2','#fff')}${fish('f3')}
+ <div class="abs" id="spl" style="left:0;top:0"></div>
+</div>`,
+upd(t,c){rise($('#eb'),t,.05);rise($('#ta'),t,.15);sweep($('#ta'),t,c[0],.5);rise($('#st'),t,.25,.6,80);
+  const br=$('#br');br.style.left='136px';br.style.top='150px';
+  const m=P(t,c[1],1.0);br.style.opacity=1-eio(P(t,c[1]+.35,.6));br.style.transform=`scale(${1-.06*eio(m)})`;
+  drawNet('net',P(t,c[1],1.4));
+  out($('#ta'),t,c[2]);if(t>=c[2]){rise($('#tb'),t,c[2]+.1);sweep($('#tb'),t,c[2]+.7)}
+  const H=860,W=912;const lv=H-eio(P(t,c[3]-.35,1.1))*430;
+  $('#w1').setAttribute('d',wave(W,H,lv,16,t*2.2,520));$('#w2').setAttribute('d',wave(W,H,lv+34,12,-t*1.7+1,380));
+  const drop=eio(P(t,c[3],.9));const bob=t>c[3]+.9?Math.sin((t-c[3])*2.6)*8:0;
+  $('#nw').style.transform=`translateY(${drop*250+bob}px)`;
+  const sp=P(t,c[3]+.55,.7);let h='';if(sp>0&&sp<1){for(let i=0;i<14;i++){const a=-Math.PI*(.15+.7*rnd(i));const r=60+220*rnd(i+9);const x=456+Math.cos(a)*r*sp*1.4;const y=lv-10+Math.sin(a)*r*sp+500*sp*sp;
+    h+=`<i style="position:absolute;left:${x}px;top:${y}px;width:${14+12*rnd(i+3)}px;height:${14+12*rnd(i+3)}px;border-radius:50%;background:var(--blue);opacity:${1-sp}"></i>`}}$('#spl').innerHTML=h;
+  [['#f1',1.0,640,.8],['#f2',1.6,700,-.9],['#f3',2.2,600,.7]].forEach(([id,o,y,dir])=>{const f=$(id);const s=c[3]+.8+o*.4;const k=t-s;
+    f.style.opacity=cl(k*2);const x=dir>0?-120+k*150:960-k*150;f.style.left=x+'px';f.style.top=(y+Math.sin(k*3)*10)+'px';f.style.transform=dir>0?'scaleX(-1)':'none'});}};
+
+/* ---------- 3 WATER ---------- */
+function chan(n,id,title,line,tags,icon){return `<div class="card op0 ch" id="${id}" style="position:relative;display:flex;gap:30px;align-items:center;padding:34px 30px 52px;overflow:hidden">
+ <div style="position:relative;flex:none;width:210px;height:210px;border-radius:26px;background:var(--db);overflow:hidden">${icon}</div>
+ <div style="flex:1;position:relative;z-index:2"><div class="tagk" style="color:var(--blue)">पानी ${n} · ${tags}</div>
+  <div style="font-family:'Inter Display','Hind';font-weight:700;font-size:72px;line-height:1.15;margin-top:6px">${title}</div>
+  <div style="font-weight:600;font-size:40px;color:var(--muted);margin-top:2px">${hl(line)}</div></div>
+ <svg class="abs" style="left:0;bottom:0" width="912" height="40"><path class="cw" fill="var(--water)"/></svg></div>`}
+S['03-water']={html:()=>`
+<div class="eyebrow op0" id="eb">जाल डालें कहां?</div>
+<h1 class="op0" id="tt" style="font-size:96px">पानी ${hl('==3 जगह==')} है</h1>
+<div style="display:flex;flex-direction:column;gap:30px;margin-top:44px">
+${chan(1,'c1','एड','जहां ==पैसा== लगता है','Meta · Google Ads',`<div class="abs" style="left:30px;top:118px;width:150px;height:70px;border-radius:16px;background:#fff;border:3px solid var(--ink)"><div style="margin:12px 14px 0;height:10px;width:70%;border-radius:5px;background:var(--line)"></div><div style="margin:10px 14px;height:20px;width:46%;border-radius:6px;background:var(--blue)"></div></div><div id="coins"></div>`)}
+${chan(2,'c2','गूगल','जहां ==टाइम== लगता है','SEO',`<svg class="abs" style="left:35px;top:20px" width="140" height="140" viewBox="0 0 140 140"><circle cx="70" cy="70" r="60" fill="#fff" stroke="var(--ink)" stroke-width="6"/><line id="hh" x1="70" y1="70" x2="70" y2="38" stroke="var(--ink)" stroke-width="7" stroke-linecap="round"/><line id="mh" x1="70" y1="70" x2="70" y2="22" stroke="var(--blue)" stroke-width="5" stroke-linecap="round"/><circle cx="70" cy="70" r="7" fill="var(--yellow)" stroke="var(--ink)" stroke-width="3"/></svg>
+ <div class="abs" style="left:24px;top:160px;width:162px;height:38px;border-radius:19px;background:#fff;border:3px solid var(--ink);font-family:Inter;font-weight:800;font-size:24px;display:flex;align-items:center;justify-content:center">रैंक <span id="rk" style="margin-left:8px;color:var(--blue2)">#48</span></div>`)}
+${chan(3,'c3','सोशल मीडिया','जहां ==मेहनत== लगती है','Instagram · Facebook · LinkedIn',`<div class="abs" style="left:55px;top:22px;width:100px;height:170px;border-radius:18px;background:#fff;border:3px solid var(--ink);padding:16px 10px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;align-content:start">${[0,1,2,3,4,5].map(i=>`<i class="tile" style="height:36px;border-radius:6px;background:${i%3==1?'var(--yellow)':'var(--blue)'};opacity:0"></i>`).join('')}</div><div id="hearts"></div>`)}
+</div>`,
+upd(t,c){rise($('#eb'),t,.05);rise($('#tt'),t,.15);sweep($('#tt'),t,.65);
+  ['#c1','#c2','#c3'].forEach((id,i)=>{rise($(id),t,c[i],.55,90);sweep($(id),t,c[i]+.6,.45);const on=t>=c[i];$(id).style.borderColor=(t>=c[i]&&(i==2||t<c[i+1]))?'var(--blue)':'var(--line)'});
+  $$('.cw').forEach((p,i)=>p.setAttribute('d',wave(912,40,18,7,t*2.4+i,300)));
+  let ch='';const s0=c[0]+.4;for(let i=0;i<12;i++){const st=s0+i*.42;const k=(t-st);if(k>0&&k<1.1){const y=-70+k*k*190;ch+=coin('k'+i,62+((i*53)%70),Math.min(y,96),.8).replace('class="abs coin"',`class="abs coin" style2`)}}
+  $('#coins').innerHTML=ch;
+  const tc=Math.max(0,t-c[1]-.3);$('#mh').setAttribute('transform',`rotate(${tc*360} 70 70)`);$('#hh').setAttribute('transform',`rotate(${tc*30} 70 70)`);
+  const rk=Math.round(48-45*eio(P(t,c[1]+.4,2.4)));$('#rk').textContent='#'+rk;
+  $$('.tile').forEach((ti,i)=>{const k=P(t,c[2]+.35+i*.22,.25);ti.style.opacity=k;ti.style.transform=`scale(${k?bk(k):0})`});
+  let hh='';for(let i=0;i<9;i++){const st=c[2]+.6+i*.3;const k=t-st;if(k>0&&k<1.3){const x=120+30*Math.sin(i*2.1)+k*18;const y=150-k*120;hh+=`<div class="abs" style="left:${x}px;top:${y}px;opacity:${cl(1.3-k)};transform:scale(${.6+.5*cl(k*3)})">${heart('h'+i)}</div>`}}$('#hearts').innerHTML=hh;}};
+
+/* ---------- 4 DRY ---------- */
+S['04-dry']={html:()=>`
+<div class="eyebrow op0" id="eb">और जिसने सिर्फ़ वेबसाइट बनाई</div>
+<h1 style="font-size:80px"><div class="op0" id="a1">…और बैठ गया,</div><div class="op0" id="a2" style="color:var(--muted);font-size:64px;margin-top:8px">उसके पास एक सुंदर जाल है —</div></h1>
+<div class="stage op0" id="st" style="height:760px;margin-top:40px;background:linear-gradient(#FBFAF6,#F4EFE3)">
+ <svg class="abs" style="left:700px;top:60px" width="150" height="150" viewBox="-75 -75 150 150"><g id="sun">${[...Array(12)].map((_,i)=>`<line x1="0" y1="-52" x2="0" y2="-70" stroke="#F5B400" stroke-width="7" stroke-linecap="round" transform="rotate(${i*30})"/>`).join('')}</g><circle r="40" fill="var(--yellow)" stroke="#F5B400" stroke-width="5"/></svg>
+ <div class="abs" style="left:0;right:0;top:520px;bottom:0;background:#E9DFC9"></div>
+ <svg class="abs" style="left:0;top:520px" width="912" height="240"><g id="cracks" fill="none" stroke="#B9A684" stroke-width="5" stroke-linecap="round">
+  <path pathLength="1" d="M80 30 L140 70 L120 120 L190 170"/><path pathLength="1" d="M330 20 L300 80 L360 110 L340 190"/><path pathLength="1" d="M560 40 L620 90 L600 150"/><path pathLength="1" d="M760 30 L720 100 L790 140 L770 210"/><path pathLength="1" d="M140 70 L230 60"/><path pathLength="1" d="M620 90 L700 80"/></g></svg>
+ <div class="abs" style="left:150px;top:150px;width:12px;height:390px;border-radius:6px;background:#8B6B43"></div><div class="abs" style="left:750px;top:150px;width:12px;height:390px;border-radius:6px;background:#8B6B43"></div>
+ <div class="abs" id="nw" style="left:156px;top:160px;transform-origin:300px 0">${netSVG(600,300,'dnet',{step:60,sag:70})}</div>
+ <svg class="abs" id="tw" width="110" height="110" viewBox="-55 -55 110 110" style="top:445px"><g fill="none" stroke="#A88B5E" stroke-width="4">${[...Array(9)].map((_,i)=>`<ellipse rx="${40-i*2}" ry="${18+i*3}" transform="rotate(${i*20})"/>`).join('')}</g></svg>
+ <div class="abs card op0" id="zero" style="left:40px;top:40px;padding:18px 26px;font-weight:700;font-size:34px">इंक्वायरी: <span style="font-family:Inter;font-weight:800;color:#E11D48">0</span></div>
+</div>
+<div class="op0" id="dry" style="position:relative;margin-top:-140px;margin-left:430px;z-index:5;display:inline-block;align-self:flex-start;background:var(--yellow);border:6px solid var(--ink);border-radius:26px;padding:6px 38px 0;font-family:'Inter Display','Hind';font-weight:700;font-size:120px;line-height:1.25;transform:rotate(-6deg)">सूखा।</div>`,
+upd(t,c){rise($('#eb'),t,.05);rise($('#a1'),t,c[0]);rise($('#st'),t,.2,.6,80);drawNet('dnet',1);rise($('#a2'),t,c[1]);
+  $('#sun').setAttribute('transform',`rotate(${t*25})`);
+  $$('#cracks path').forEach((p,i)=>{p.style.strokeDasharray=1;p.style.strokeDashoffset=1-eo(P(t,c[1]+i*.12,.6))});
+  $('#nw').style.transform=`rotate(${Math.sin(t*1.6)*2.2}deg)`;
+  const tw=$('#tw');const x=-140+(t-.6)*190;tw.style.left=x+'px';tw.querySelector('g').setAttribute('transform',`rotate(${(t-.6)*190/55*57.3})`);tw.style.top=(445-Math.abs(Math.sin((t-.6)*3.2))*28)+'px';
+  rise($('#zero'),t,c[1]+.4,.45);
+  pop($('#dry'),t,c[2],.45,'rotate(-6deg)');const sh=t>c[2]+.2&&t<c[2]+.5?Math.sin(t*80)*6:0;$('#c').style.translate=`${sh}px 0`;}};
+
+/* ---------- 5 JOURNEY ---------- */
+const rows=[['₹','रेट दिखाया','Rate card · पैकेज'],['★','भरोसा दिया','Reviews · काम के उदाहरण'],['➜','बटन दिया','WhatsApp · Call · Form']];
+S['05-journey']={html:()=>`
+<div class="eyebrow op0" id="eb">कस्टमर ऐसे बनता है</div>
+<h1 class="op0" id="tt" style="font-size:80px">लोग ${hl('==एड==')} से आए,<br>फिर वेबसाइट ने…</h1>
+<div class="stage op0" id="st" style="height:780px;margin-top:34px">
+ <div class="abs card" id="ad" style="left:34px;top:40px;width:330px;padding:20px;box-shadow:0 18px 40px rgba(15,23,42,.1)">
+  <div class="tagk" style="color:var(--soft);font-size:20px">Sponsored</div>
+  <div style="margin-top:12px;height:120px;border-radius:16px;background:linear-gradient(120deg,var(--blue),#6AA9F5)"></div>
+  <div style="margin-top:14px;font-weight:700;font-size:30px">आपका बिज़नेस</div>
+  <div style="margin-top:12px;height:50px;border-radius:12px;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:26px">और जानें</div></div>
+ <div class="abs card op0" id="vis" style="left:34px;top:470px;width:330px;padding:22px 24px"><div style="font-weight:600;font-size:28px;color:var(--soft)">वेबसाइट पर विज़िटर</div><div id="vn" style="font-family:Inter;font-weight:800;font-size:64px;line-height:1.1;color:var(--blue2)">0</div></div>
+ <div class="abs" id="ph" style="left:440px;top:30px;width:430px;height:720px;border:5px solid var(--ink);border-radius:56px;background:#fff;overflow:hidden;padding:56px 22px 0">
+  <div style="height:120px;border-radius:20px;background:var(--db);display:flex;align-items:center;padding:0 22px;font-weight:700;font-size:34px;color:var(--blue2)">आपकी वेबसाइट</div>
+  ${rows.map((r,i)=>`<div class="rw op0" style="display:flex;gap:18px;align-items:center;margin-top:20px;padding:18px;border-radius:20px;border:2px solid var(--line)">
+   <div style="flex:none;width:62px;height:62px;border-radius:16px;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:32px;font-family:Inter">${r[0]}</div>
+   <div style="flex:1"><div style="font-weight:700;font-size:34px;line-height:1.2">${r[1]}</div><div style="font-weight:500;font-size:22px;color:var(--soft)">${r[2]}</div></div>
+   <div class="ok" style="flex:none;width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--yellow);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:24px;transform:scale(0)">✓</div></div>`).join('')}
+ </div>
+ <div id="ppl"></div>
+ <div class="abs" id="nt" style="left:470px;top:0"></div>
+</div>
+<div class="vc good op0" id="res" style="margin-top:26px"><div class="ic">✓</div><div style="flex:1"><div class="lb">तब जाकर</div><div class="tx">वो ${hl('==कस्टमर==')} बने</div></div>
+ <div style="font-family:Inter;font-weight:800;font-size:72px" id="cn">+0</div></div>`,
+upd(t,c){rise($('#eb'),t,.05);rise($('#tt'),t,.15);sweep($('#tt'),t,.7);rise($('#st'),t,.25,.6,80);pop($('#ad'),t,c[0],.5);rise($('#vis'),t,c[0]+.4,.45,30);let vc=0;for(let i=0;i<10;i++){if(t>c[0]+.5+i*.38+1.0)vc++}$('#vn').textContent=vc;
+  let pp='';for(let i=0;i<10;i++){const st=c[0]+.5+i*.38;const k=P(t,st,1.1);if(k>0&&k<1){const e=eio(k);const x0=200,y0=330,x1=655,y1=260+i%3*10;const x=x0+(x1-x0)*e;const y=y0+(y1-y0)*e-Math.sin(e*Math.PI)*120;
+    pp+=`<div class="abs" style="left:${x-17}px;top:${y-17}px;width:34px;height:34px;border-radius:50%;background:var(--blue);border:4px solid #fff;box-shadow:0 4px 10px rgba(15,23,42,.2);opacity:${cl((1-k)*5)}"></div>`}}$('#ppl').innerHTML=pp;
+  $$('.rw').forEach((r,i)=>{rise(r,t,c[1+i]-.2,.45,30);const k=P(t,c[1+i]+.3,.35);r.querySelector('.ok').style.transform=`scale(${k?bk(k):0})`;r.style.borderColor=k>0?'var(--blue)':'var(--line)'});
+  rise($('#res'),t,c[4],.55,80);sweep($('#res'),t,c[4]+.5,.4);
+  const n=Math.min(3,Math.floor(cl(t-c[4]-.6,0,9)/0.55));$('#cn').textContent='+'+n;
+  let nh='';for(let i=0;i<n;i++){const k=P(t,c[4]+.6+i*.55,.4);nh+=`<div style="position:absolute;left:${-40}px;top:${120+i*0}px;opacity:${k*(i==n-1?1:0)};transform:translateY(${(1-eo(k))*-30}px);width:370px;background:var(--ink);color:#fff;border-radius:22px;padding:16px 22px;font-weight:600;font-size:28px;display:flex;gap:14px;align-items:center;box-shadow:0 14px 30px rgba(15,23,42,.25)"><b style="width:40px;height:40px;border-radius:50%;background:#22C55E;display:flex;align-items:center;justify-content:center;font-size:22px">✓</b>नई इंक्वायरी आई</div>`}$('#nt').innerHTML=nh;}};
+
+/* ---------- 6 BOTH ---------- */
+S['06-both']={html:()=>`
+<div class="eyebrow op0" id="eb">इसलिए</div>
+<h1 class="op0" id="tt" style="font-size:112px">दोनों चाहिए।</h1>
+<div class="vcs" style="margin-top:40px">
+ <div class="vc bad op0" id="v1"><div class="ic">✕</div><div><div class="lb">सिर्फ़ वेबसाइट</div><div class="tx">अकेली वेबसाइट, कुछ नहीं</div></div></div>
+ <div class="vc bad op0" id="v2" style="position:relative;overflow:hidden"><div class="ic">✕</div><div><div class="lb">बिना वेबसाइट के एड</div><div class="tx">एड का पैसा, पानी में</div></div>
+  <svg class="abs" style="left:0;bottom:0" width="912" height="70"><path id="v2w" fill="var(--water)"/></svg><div id="sink"></div></div>
+ <div class="vc good op0" id="v3"><div class="ic">✓</div><div><div class="lb">वेबसाइट + एड · गूगल · सोशल</div><div class="tx">${hl('==जाल + पानी==')} = कस्टमर</div></div></div>
+</div>
+<div class="op0" id="eqn" style="display:flex;align-items:center;justify-content:center;gap:26px;margin-top:46px">
+ <div class="card" style="width:200px;height:170px;display:flex;align-items:center;justify-content:center;overflow:hidden">${netSVG(150,110,'enet',{step:30,sag:20})}</div>
+ <b style="font-size:76px;font-family:Inter">+</b>
+ <div class="card" style="position:relative;width:200px;height:170px;overflow:hidden"><svg class="abs" style="left:0;top:0" width="200" height="170"><path id="ew" fill="var(--blue)" opacity=".75"/><path id="ew2" fill="var(--water)"/></svg></div>
+ <b style="font-size:76px;font-family:Inter">=</b>
+ <div id="ec" style="width:170px;height:170px;border-radius:50%;background:var(--yellow);border:6px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:84px;font-weight:800;font-family:Inter">✓</div></div>`,
+upd(t,c){rise($('#eb'),t,.05);pop($('#tt'),t,.12,.45);rise($('#v1'),t,c[0],.5);rise($('#v2'),t,c[1],.5);rise($('#v3'),t,c[2],.5,60);sweep($('#v3'),t,c[2]+.5);
+  $('#v2w').setAttribute('d',wave(912,70,54,6,t*2.5,260));
+  let s='';for(let i=0;i<4;i++){const k=P(t,c[1]+.5+i*.35,1.4);if(k>0&&k<1){s+=coin('s'+i,600+i*70,10+k*120,.7).replace('class="abs coin"',`class="abs coin" data-o="${1-k}"`).replace('style="',`style="opacity:${(1-k).toFixed(2)};`)}}$('#sink').innerHTML=s;
+  rise($('#eqn'),t,c[2]+.7,.5,60);drawNet('enet',1);$('#ew').setAttribute('d',wave(200,170,70,8,t*3,140));$('#ew2').setAttribute('d',wave(200,170,92,7,-t*2.4,110));
+  pop($('#ec'),t,c[2]+1.4,.5);}};
+
+/* ---------- 7 CTA ---------- */
+const opts=[['₹','एड से'],['G','गूगल से'],['♥','सोशल मीडिया से'],['?','पता नहीं']];
+S['07-cta']={html:()=>`
+<div class="eyebrow op0" id="eb">आपसे एक सवाल</div>
+<h1 class="op0" id="tt" style="font-size:80px">आपकी वेबसाइट पर लोग<br>${hl('==कहां से==')} आते हैं?</h1>
+<div style="display:flex;flex-direction:column;gap:16px;margin-top:36px">${opts.map((o,i)=>`<div class="opt op0" style="position:relative;display:flex;align-items:center;gap:24px;background:#fff;border:3px solid var(--line);border-radius:24px;padding:16px 26px;overflow:hidden">
+ <span class="ob" style="position:absolute;left:0;top:0;bottom:0;width:100%;background:var(--yellow);transform-origin:left;transform:scaleX(0)"></span>
+ <span style="position:relative;flex:none;width:58px;height:58px;border-radius:16px;background:var(--db);color:var(--blue2);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:32px;font-family:Inter">${o[0]}</span>
+ <span style="position:relative;font-weight:700;font-size:42px">${o[1]}</span></div>`).join('')}</div>
+<div class="abs op0" id="tap" style="width:90px;height:90px;border-radius:50%;border:6px solid var(--blue)"></div>
+<div class="op0" id="cta" style="margin-top:30px;background:var(--ink);border-radius:32px;padding:30px 36px;color:#fff">
+ <div style="display:flex;gap:16px;align-items:center"><div style="flex:1;height:96px;border-radius:48px;background:#fff;display:flex;align-items:center;padding:0 34px;font-size:44px;font-weight:700" id="cbox"></div>
+  <div id="send" style="width:96px;height:96px;border-radius:50%;background:var(--yellow);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:800">➤</div></div>
+ <div class="op0" id="cl1" style="margin-top:22px;font-weight:600;font-size:40px;line-height:1.3">पता नहीं? कमेंट में लिखो <b style="color:var(--yellow)">"पता नहीं"</b></div>
+ <div class="op0" id="cl2" style="margin-top:6px;font-weight:600;font-size:36px;color:#CBD5E1">या DM करो, बात करते हैं · फ़्री 20 मिनट कॉल</div></div>
+<div class="op0" id="hd" style="margin-top:22px;text-align:center;font-weight:700;font-size:36px;color:var(--blue2)">जाल और पानी, दोनों चाहिए · @official_softnear</div>`,
+upd(t,c){rise($('#eb'),t,.05);rise($('#tt'),t,c[0]);sweep($('#tt'),t,c[0]+.6);
+  $$('.opt').forEach((o,i)=>{rise(o,t,c[0]+.6+i*.2,.45,40)});
+  const last=$$('.opt')[3];const sel=P(t,c[1],.45);last.querySelector('.ob').style.transform=`scaleX(${eio(sel)})`;last.style.borderColor=sel>0?'var(--ink)':'var(--line)';
+  const tp=$('#tap');const r=last.getBoundingClientRect();const pr=$('#c').getBoundingClientRect();tp.style.left=(r.left-pr.left+r.width-170)+'px';tp.style.top=(r.top-pr.top+r.height/2-45)+'px';
+  const tk=P(t,c[1]-.25,.6);tp.style.opacity=tk>0&&tk<1?(1-tk):0;tp.style.transform=`scale(${.4+tk*1.2})`;
+  rise($('#cta'),t,c[2]-.4,.55,120);const cb=$('#cbox');if(t<c[2]){cb.innerHTML='<span style="color:#94A3B8;font-weight:500">कमेंट लिखें…</span>'}else{typed(cb,'पता नहीं',t,c[2],7,true);cb.style.color='var(--ink)'}
+  const sk=P(t,c[2]+1.2,.5);$('#send').style.transform=`scale(${1+.2*Math.sin(sk*Math.PI)})`;
+  rise($('#cl1'),t,c[2]+1.4,.45,20);rise($('#cl2'),t,c[3],.45,20);rise($('#hd'),t,c[3]+.5,.45,20);}};
+
+let SC;
+window.build=(id,logo)=>{SC=S[id];$('#c').innerHTML=SC.html();$('#logo').src=logo};
+window.setT=(t,c,D,first,last)=>{$('#c').style.translate='0 0';SC.upd(t,c);
+  const z=1+.025*eio(P(t,0,D));$('#c').style.transform=`scale(${z})`;
+  $('#d1').style.transform=`rotate(${45+Math.sin(t*.6)*4}deg) translate(${Math.sin(t*.5)*14}px,${Math.cos(t*.4)*14}px)`;
+  $('#d2').style.transform=`rotate(${45-Math.sin(t*.7)*6}deg)`;
+  const w=$('#wipe');let y=100;
+  if(!first&&t<.34)y=-100*eio(P(t,0,.34));
+  else if(!last&&t>D-.3)y=100*(1-eio(P(t,D-.3,.3)));
+  w.style.transform=`translateY(${y}%)`};
+</script></body></html>
