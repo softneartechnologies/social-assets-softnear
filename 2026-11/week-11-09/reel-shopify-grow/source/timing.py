@@ -5,8 +5,8 @@ python3 timing.py VO_DIR LANG OUT.json"""
 import json, re, subprocess, sys
 from pathlib import Path
 LEAD, GAP, LAST = .35, .45, 1.6
-SENT = {"hi": [2, 3, 4, 4, 4, 4, 4, 4], "en": [2, 3, 4, 4, 4, 4, 4, 4]}   # sentences per scene in the VO
-TAIL = [1.8, 1.9, 2.2, 2.8, 2.4, 2.4, 2.0, 2.6]     # time the animation needs after its last cue
+SENT = {"hi": [2, 3, 4, 4, 4, 4, 4, 3], "en": [2, 3, 4, 4, 4, 4, 4, 3]}   # sentences per scene in the VO
+TAIL = [1.8, 1.9, 2.2, 2.8, 2.4, 2.4, 2.4, 2.4]     # time the animation needs after its last cue
 IDS = ["01-hook", "02-pain", "03-speed", "04-google", "05-trust", "06-checkout", "07-work", "08-cta"]
 def starts(f, n):
     o = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(f), "-af", "silencedetect=n=-38dB:d=0.12", "-f", "null", "-"],

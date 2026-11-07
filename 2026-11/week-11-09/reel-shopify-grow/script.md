@@ -1,14 +1,15 @@
-# Reel: "Losing sales? Find the leaks" (Shopify & e-commerce)
+# Reel: "Find the leaks. We're the right team." (Shopify & e-commerce)
 
 Written by Claude for Softnear, 2026-11-08 (team brief: target e-commerce and Shopify owners, people building a store, and Shopify stores that need customers / SEO; facts on how we help them grow; examples of our work; strong engagement).
 Target: S11 Shopify development + S10 SEO + S6 E-commerce development x I8 Retail & e-commerce
-Keyword: comment `GROW` → free 20-minute call · new store → DM → free cost & timeline estimate (both are approved offers in `brand.md`)
+Keyword: comment `STORE` or DM → connect with our team: free 20-minute call / free cost & timeline estimate (approved offers in `brand.md`)
+Team change 2026-11-08: no "500+ apps" or Clutch rating in this reel; lead with positioning ("we're the right team") instead.
 1080x1920 · 30 fps · English on-screen text · original score + sound effects (`source/music.py`)
 
 | file | voiceover | length |
 | --- | --- | --- |
-| `reel-hi.mp4` | Hindi (ElevenLabs v4 "christopher" via Bloom, 1.15x) | 87.1 s |
-| `reel-en.mp4` | English (ElevenLabs v4 "christopher" via Bloom, 1.08x) | 79.3 s |
+| `reel-hi.mp4` | Hindi (ElevenLabs v4 "christopher" via Bloom, 1.15x) | 83.7 s |
+| `reel-en.mp4` | English (ElevenLabs v4 "christopher" via Bloom, 1.08x) | 75.5 s |
 
 ## Script
 
@@ -20,8 +21,8 @@ Keyword: comment `GROW` → free 20-minute call · new store → DM → free cos
 | 4 Google | Two. Get found on Google. Shoppers search before they buy. Shopify SEO puts your products in front of them, without paying for every click. | दो। गूगल पर दिखिए। खरीदार खरीदने से पहले सर्च करते हैं। शॉपिफाई एसईओ, आपके प्रोडक्ट उनके सामने लाता है, हर क्लिक का पैसा दिए बिना। | search types "linen kurta set for women", competitor results, your store slides in at #1 · ✓ Product titles · Collections · Schema · Site speed |
 | 5 Trust | Three. Build trust. Nearly one in five who abandon don't trust the site with their card. Reviews, real photos and clear returns fix that. | तीन। भरोसा। छोड़ने वाले लगभग पाँच में से एक, साइट पर कार्ड डालने का भरोसा नहीं करता। रिव्यू, असली फोटो और साफ़ रिटर्न पॉलिसी, ये भरोसा बनाते हैं। | 19% stat (Baymard) · product page on a phone · ✓ Customer reviews · Real product photos · Easy returns · Secure checkout |
 | 6 Checkout | Four. Fix the checkout. Surprise costs are the number one reason shoppers quit. Show the full price early, and keep checkout to a few taps. | चार। चेकआउट ठीक कीजिए। अचानक दिखा एक्स्ट्रा खर्चा, खरीदार के छोड़ने की सबसे बड़ी वजह है। पूरी कीमत पहले दिखाइए, और चेकआउट कुछ ही टैप में। | + Shipping ₹149, + Handling fee ₹49 → total jumps red, cursor leaves · "#1 reason: extra costs (40%)" · then 5 steps → 1, UPI · Cards · COD · Free shipping · "Pay ₹1,840" |
-| 7 Our work | That's what we build at Softnear. Fast Shopify stores, SEO that brings buyers, and checkouts that convert. Five hundred plus apps delivered. Rated four point eight on Clutch. | सॉफ्टनियर यही बनाता है। तेज़ शॉपिफाई स्टोर, खरीदार लाने वाला एसईओ, और बिक्री कराने वाला चेकआउट। पाँच सौ से ज़्यादा ऐप्स डिलीवर। क्लच पर चार दशमलव आठ रेटिंग। | three storefronts slide past (skincare, fashion, home decor) labelled "Store design concepts by Softnear" · 500+ apps delivered · 4.8 ★ on Clutch |
-| 8 CTA | Losing sales, and not sure where? Comment GROW, and we'll find the leaks on a free twenty-minute call. Building a new store? DM us for a free cost and timeline estimate. | सेल खो रहे हैं, पर पता नहीं कहां? कमेंट कीजिए ग्रो, फ़्री बीस मिनट की कॉल पर हम बताएंगे। नया स्टोर बनवाना है? डीएम कीजिए, फ़्री कॉस्ट और टाइमलाइन एस्टिमेट के लिए। | comment box types GROW → free 20-minute call · "Building a new store? DM us · free cost & timeline estimate" · @official_softnear |
+| 7 Positioning | Looking to build your e-commerce or Shopify store? We're the right team. We design it, build it, and make it fast. With SEO that brings buyers, and a checkout that converts. | अपना ई-कॉमर्स या शॉपिफाई स्टोर बनवाना है? हम सही टीम हैं। हम डिज़ाइन करते हैं, बनाते हैं, और उसे तेज़ बनाते हैं। साथ में खरीदार लाने वाला एसईओ, और बिक्री कराने वाला चेकआउट। | "Looking to build your store?" → "We're the right team." · three storefronts slide past (labelled "Store design concepts by Softnear") · From idea to first sale, one team: Design · Build · Speed · SEO · Checkout · Launch ✓ · "Shopify stores & custom e-commerce, built to sell from day one" |
+| 8 CTA | Ready to grow your online store? Comment STORE, or DM us. Connect with our team, and get your store ready. | अपना ऑनलाइन स्टोर बढ़ाना है? कमेंट कीजिए स्टोर, या डीएम कीजिए। हमारी टीम से जुड़िए, और अपना स्टोर तैयार करवाइए। | "Let's get your store ready." · comment box types STORE · "Comment STORE or DM us" · Connect with our team: free 20-min call · free cost & timeline estimate · @official_softnear · softnear.com |
 
 ## Facts used (all checked 2026-11-08)
 
@@ -29,7 +30,6 @@ Keyword: comment `GROW` → free 20-minute call · new store → DM → free cos
 - Reasons for abandoning checkout: extra costs 40% (#1), didn't trust site with card 19%: [Baymard Institute](https://baymard.com/lists/cart-abandonment-rate)
 - 53% of mobile visitors leave if a page takes over 3 s: Google, "The Need for Mobile Speed", 2016 ([Marketing Dive](https://www.marketingdive.com/news/google-53-of-mobile-users-abandon-sites-that-take-over-3-seconds-to-load/426070/))
 - 0.1 s faster mobile site → +8.4% retail conversions: Google / 55 / Deloitte, "Milliseconds Make Millions", 2019 ([web.dev](https://web.dev/case-studies/milliseconds-make-millions))
-- 500+ apps delivered, 4.8 on Clutch: `brand.md` (public, softnear.com)
 
 ## Images
 

@@ -195,41 +195,48 @@ upd(t,c){headAnim(t,.75);rise($('#co'),t,c[0]-.1,.5,70);
   $$('.sp').forEach((s,i)=>{const k=P(t,c[2]+.2+i*.08,.2);s.style.background=(k>0)?'var(--green)':(i==0?'var(--blue)':'var(--line)');s.style.width=(46-26*eo(P(t,c[2]+.2,.4))*(i>0?1:0))+'px';s.style.opacity=i>0?1-.7*P(t,c[2]+.2,.4):1});
   rise($('#good'),t,c[2]+.3,.5,40);const pk=P(t,c[2]+1.3,.6);$('#pay').style.transform=`scale(${1+.05*Math.sin(pk*Math.PI)})`}};
 
-/* ---------- 7 WORK ---------- */
+/* ---------- 7 POSITIONING ---------- */
+const PROC=['Design','Build','Speed','SEO','Checkout','Launch'];
 S['07-work']={html:()=>`
-<div class="eyebrow op0" id="eb">What we build at Softnear</div>
-<h1 class="op0" id="tt" style="font-size:96px">Stores that ${hl('==sell.==')}</h1>
-<div style="position:relative;height:640px;margin-top:34px;margin-left:-84px;margin-right:-84px;overflow:hidden" id="car">
+<div class="eyebrow op0" id="eb">Shopify &amp; e-commerce stores</div>
+<div style="position:relative;height:200px;margin-top:6px">
+ <h1 class="abs op0" id="ta" style="top:0;font-size:84px">Looking to build<br>your store?</h1>
+ <h1 class="abs op0" id="tb" style="top:0;font-size:96px">We're the<br>${hl('==right team.==')}</h1></div>
+<div style="position:relative;height:600px;margin-top:30px;margin-left:-84px;margin-right:-84px;overflow:hidden" id="car">
  ${store('s1',84,30,820,SKIN)}${store('s2',84,30,820,FASH)}${store('s3',84,30,820,HOME)}
- <div class="abs" id="tagc" style="left:108px;bottom:20px;background:var(--ink);color:#fff;border-radius:14px;padding:10px 18px;font-weight:600;font-size:22px">Store design concepts by Softnear</div></div>
-<div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:22px">${['Fast Shopify stores','SEO that brings buyers','Checkouts that convert'].map(s=>`<div class="chip op0 sv"><b style="width:34px;height:34px;border-radius:50%;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:18px">✓</b>${s}</div>`).join('')}</div>
-<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:22px">
- <div class="card op0" id="p1" style="padding:24px 28px"><div class="big" style="font-size:96px;color:var(--blue)"><span id="n500">0</span>+</div><div style="font-weight:600;font-size:30px;margin-top:4px">apps delivered</div></div>
- <div class="card op0" id="p2" style="padding:24px 28px;background:var(--yellow);border-color:var(--yellow)"><div class="big" style="font-size:96px"><span id="n48">0.0</span> ★</div><div style="font-weight:600;font-size:30px;margin-top:4px">rating on Clutch</div></div></div>`,
-upd(t,c){rise($('#eb'),t,.05);rise($('#tt'),t,c[0]);sweep($('#tt'),t,c[0]+.5);
+ <div class="abs" id="tagc" style="left:108px;bottom:12px;background:var(--ink);color:#fff;border-radius:14px;padding:10px 18px;font-weight:600;font-size:22px">Store design concepts by Softnear</div></div>
+<div class="tagk op0" id="fl" style="margin-top:26px;color:var(--blue)">From idea to first sale, one team</div>
+<div style="display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin-top:14px">${PROC.map((p,i)=>`<div class="pr op0" style="position:relative;text-align:center;background:${i==5?'var(--yellow)':'#fff'};border:2px solid ${i==5?'var(--yellow)':'var(--line)'};border-radius:18px;padding:18px 0 14px">
+ <div style="width:40px;height:40px;margin:0 auto;border-radius:50%;background:${i==5?'var(--ink)':'var(--db)'};color:${i==5?'var(--yellow)':'var(--blue2)'};display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px">${i==5?'✓':i+1}</div>
+ <div style="margin-top:10px;font-weight:700;font-size:24px">${p}</div></div>`).join('')}</div>
+<div class="op0" id="pos" style="margin-top:22px;background:var(--ink);color:#fff;border-radius:26px;padding:22px 28px;display:flex;gap:22px;align-items:center">
+ <div style="flex:none;width:64px;height:64px;border-radius:18px;background:var(--yellow);display:flex;align-items:center;justify-content:center">${cartSVG()}</div>
+ <div style="font-weight:700;font-size:32px;line-height:1.25">Shopify stores &amp; custom e-commerce,<br><span style="color:var(--yellow)">built to sell from day one</span></div></div>`,
+upd(t,c){rise($('#eb'),t,.05);rise($('#ta'),t,c[0]);
+  if(t>=c[1]){const k=eio(P(t,c[1],.35));$('#ta').style.opacity=1-k;$('#ta').style.transform=`translateY(${-k*40}px)`;rise($('#tb'),t,c[1]+.1,.45);sweep($('#tb'),t,c[1]+.6)}
   const D=SC_D;const seg=(D-.6)/3;['#s1','#s2','#s3'].forEach((id,i)=>{const s=.15+i*seg;const kin=eio(P(t,s,.6)),kout=i<2?eio(P(t,s+seg,.6)):0;const el=$(id);
     el.style.transform=`translateX(${(1-kin)*1080-kout*1080}px) rotate(${(1-kin)*4}deg)`;el.style.opacity=t>=s?1:0;el.style.zIndex=i+1});
   $('#tagc').style.zIndex=9;
-  $$('.sv').forEach((s,i)=>pop(s,t,c[1]+i*.55,.4));rise($('#p1'),t,c[2],.5,40);count($('#n500'),t,c[2]+.2,1.0,500);
-  rise($('#p2'),t,c[3],.5,40);count($('#n48'),t,c[3]+.2,.9,4.8,v=>v.toFixed(1))}};
+  rise($('#fl'),t,c[2]-.2,.4,20);$$('.pr').forEach((p,i)=>{const s=i<3?c[2]+i*.35:c[3]+(i-3)*.35;pop(p,t,s,.4)});
+  rise($('#pos'),t,c[3]+1.2,.5,40)}};
 
 /* ---------- 8 CTA ---------- */
 S['08-cta']={html:()=>`
-<div class="eyebrow op0" id="eb">For Shopify &amp; e-commerce owners</div>
-<h1 class="op0" id="tt" style="font-size:88px">Losing sales?<br>Find the ${hl('==leaks.==')}</h1>
-<div class="op0" id="cta" style="margin-top:40px;background:var(--ink);border-radius:32px;padding:32px 36px;color:#fff">
- <div style="font-weight:600;font-size:34px;color:#CBD5E1">Comment below</div>
- <div style="display:flex;gap:16px;align-items:center;margin-top:18px"><div style="flex:1;height:100px;border-radius:50px;background:#fff;display:flex;align-items:center;padding:0 36px;font-size:46px;font-weight:800;color:var(--ink)" id="cbox"></div>
+<div class="eyebrow op0" id="eb">Ready to grow your online store?</div>
+<h1 class="op0" id="tt" style="font-size:96px">Let's get your<br>${hl('==store ready.==')}</h1>
+<div class="op0" id="cta" style="margin-top:44px;background:var(--ink);border-radius:32px;padding:32px 36px;color:#fff">
+ <div style="display:flex;gap:16px;align-items:center"><div style="flex:1;height:100px;border-radius:50px;background:#fff;display:flex;align-items:center;padding:0 36px;font-size:46px;font-weight:800;color:var(--ink)" id="cbox"></div>
   <div id="send" style="width:100px;height:100px;border-radius:50%;background:var(--yellow);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:46px;font-weight:800">➤</div></div>
- <div class="op0" id="cl1" style="margin-top:22px;font-weight:600;font-size:36px;line-height:1.3">Comment <b style="color:var(--yellow)">GROW</b> · we'll find the leaks on a <b>free 20-minute call</b></div></div>
-<div class="card op0" id="new" style="margin-top:22px;padding:28px 32px;display:flex;gap:24px;align-items:center">
- <div style="flex:none;width:96px;height:96px;border-radius:24px;background:var(--yellow);display:flex;align-items:center;justify-content:center">${cartSVG()}</div>
- <div><div style="font-weight:700;font-size:38px">Building a new store?</div><div style="font-weight:600;font-size:30px;color:var(--muted);margin-top:4px">DM us · free cost &amp; timeline estimate</div></div></div>
-<div class="op0" id="hd" style="margin-top:28px;text-align:center;font-weight:700;font-size:36px;color:var(--blue2)">@official_softnear</div>`,
-upd(t,c){rise($('#eb'),t,.05);rise($('#tt'),t,c[0]);sweep($('#tt'),t,c[0]+.7);
-  rise($('#cta'),t,c[1]-.3,.55,100);const cb=$('#cbox');if(t<c[1]+.3){cb.innerHTML='<span style="color:#94A3B8;font-weight:500;font-size:38px">Add a comment…</span>'}else typed(cb,'GROW',t,c[1]+.3,8);
-  const sk=P(t,c[1]+1.0,.5);$('#send').style.transform=`scale(${1+.2*Math.sin(sk*Math.PI)})`;rise($('#cl1'),t,c[1]+1.2,.45,20);
-  rise($('#new'),t,c[2],.5,60);const nk=P(t,c[3]+.2,.5);$('#new').style.borderColor=nk>0?'var(--blue)':'var(--line)';rise($('#hd'),t,c[3]+.6,.45,20)}};
+ <div style="display:flex;gap:14px;align-items:center;margin-top:24px;font-weight:700;font-size:38px"><span>Comment <b style="color:var(--yellow)">STORE</b></span><span class="op0" id="or" style="color:#94A3B8">or</span><span class="op0" id="dm" style="background:var(--yellow);color:var(--ink);border-radius:16px;padding:8px 20px">DM us</span></div></div>
+<div class="card op0" id="team" style="margin-top:22px;padding:28px 32px;display:flex;gap:24px;align-items:center;border-color:var(--blue)">
+ <div style="flex:none;display:flex">${['var(--blue)','var(--yellow)','var(--ink)'].map((b,i)=>`<div style="width:74px;height:74px;border-radius:50%;background:${b};border:5px solid #fff;margin-left:${i?-22:0}px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden"><i style="width:38px;height:30px;border-radius:19px 19px 0 0;background:${i==1?'var(--ink)':'#fff'};opacity:.85"></i></div>`).join('')}</div>
+ <div><div style="font-weight:700;font-size:38px">Connect with our team</div><div style="font-weight:600;font-size:28px;color:var(--muted);margin-top:4px">Free 20-min call · free cost &amp; timeline estimate</div></div></div>
+<div class="op0" id="hd" style="margin-top:28px;text-align:center;font-weight:700;font-size:36px;color:var(--blue2)">@official_softnear · softnear.com</div>`,
+upd(t,c){rise($('#eb'),t,.05);rise($('#tt'),t,c[0]);sweep($('#tt'),t,c[0]+.6);
+  rise($('#cta'),t,c[1]-.35,.5,100);const cb=$('#cbox');if(t<c[1]+.2){cb.innerHTML='<span style="color:#94A3B8;font-weight:500;font-size:38px">Add a comment…</span>'}else typed(cb,'STORE',t,c[1]+.2,9);
+  const sk=P(t,c[1]+.9,.5);$('#send').style.transform=`scale(${1+.2*Math.sin(sk*Math.PI)})`;
+  rise($('#or'),t,c[1]+1.0,.3,10);pop($('#dm'),t,c[1]+1.2,.4);
+  rise($('#team'),t,c[2],.5,60);rise($('#hd'),t,c[2]+.9,.45,20)}};
 
 let SC,SC_D=10;
 window.build=(id,logo)=>{SC=S[id];$('#c').innerHTML=SC.html();$('#logo').src=logo};

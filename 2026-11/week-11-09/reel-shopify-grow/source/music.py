@@ -169,12 +169,13 @@ add(pluck(52, .8), at(co, 1, .5), .3)
 add(chime([72, 76, 79, 84]), at(co, 2, .3), .8); add(ding(91), at(co, 2, 1.3), .5)
 w = "07-work"
 for i in range(3): add(whoosh(.5), T0[w] + .15 + i * (SC[6]["D"] - .6) / 3, .45)
-for i in range(3): add(popf(), at(w, 1, i * .55), .6)
-add(impact()[:int(.6 * SR)], at(w, 2), .35); add(ding(86), at(w, 3, .2), .7)
+add(impact()[:int(.7 * SR)], at(w, 1), .45); add(chime([72, 76, 79]), at(w, 1, .6), .6)
+for i in range(6): add(popf(), at(w, 2 if i < 3 else 3, (i % 3) * .35), .6, (-.4, -.2, 0, .2, .4, .5)[i])
+add(ding(88), at(w, 3, 1.2), .6)
 ct = "08-cta"
-for i in range(4): add(key(), at(ct, 1, .3 + i / 8), .8)
-add(whoosh(.35), at(ct, 1, 1.0), .5); add(popf(), at(ct, 2), .6)
-add(chime([72, 76, 79, 84, 88]), at(ct, 3, .2), .6)
+for i in range(5): add(key(), at(ct, 1, .2 + i / 9), .8)
+add(whoosh(.35), at(ct, 1, .9), .5); add(popf(), at(ct, 1, 1.2), .7)
+add(chime([72, 76, 79, 84, 88]), at(ct, 2), .6)
 add(pad([48, 55, 60, 64, 67], 3.2, 1.0), DUR - 3.4, .25)
 
 # ---------- voiceover + ducking ----------
