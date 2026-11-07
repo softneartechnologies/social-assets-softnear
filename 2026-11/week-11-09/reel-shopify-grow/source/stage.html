@@ -1,0 +1,244 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><style>
+:root{--bg:#F7F9FC;--ink:#0F172A;--muted:#475569;--soft:#94A3B8;--blue:#3B8DF0;--blue2:#2A72CC;--yellow:#FFD635;--ysoft:#FFF6D1;
+--card:#FFFFFF;--line:#E3E8F0;--db:#E8EFFA;--dy:#F7F5E8;--grey:#EEF1F5;--red:#E11D48;--green:#16A34A}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--bg);font-family:'Inter',sans-serif;color:var(--ink)}
+.page{position:relative;width:1080px;height:1920px;padding:190px 84px 0;display:flex;flex-direction:column;overflow:hidden}
+.deco{position:absolute;border-radius:90px;z-index:0}
+.d1{width:620px;height:620px;right:-260px;top:-260px;background:var(--db);opacity:.75}
+.d2{width:330px;height:330px;right:-150px;top:-60px;background:var(--dy);border-radius:110px;opacity:.9}
+#cw{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center;padding-bottom:30px}
+#c{transform-origin:50% 45%}
+.footer{position:relative;z-index:1;border-top:2px solid var(--line);height:230px;display:flex;align-items:center;justify-content:space-between}
+.footer img{height:92px}
+.footer span{font-weight:600;font-size:36px;color:var(--muted)}
+.eyebrow{display:flex;align-items:center;gap:18px;color:var(--blue);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:28px}
+.eyebrow:before{content:"";flex:none;width:56px;height:9px;border-radius:5px;background:var(--yellow)}
+h1{font-family:'Inter Display','Inter';font-weight:700;letter-spacing:-.035em;line-height:1.05;font-size:92px;margin-top:24px}
+.hl{position:relative;display:inline-block;z-index:0}
+.hl i{position:absolute;left:-6px;right:-6px;bottom:.06em;height:.36em;background:var(--yellow);z-index:-1;transform-origin:left;transform:scaleX(0)}
+.op0{opacity:0}
+.abs{position:absolute}
+.wipe{position:absolute;left:0;top:0;width:1080px;height:1920px;background:var(--yellow);z-index:50;transform:translateY(100%)}
+.wipe:after{content:"";position:absolute;left:84px;top:50%;width:120px;height:14px;border-radius:7px;background:var(--ink)}
+.card{background:#fff;border:2px solid var(--line);border-radius:30px}
+.tagk{font-weight:700;font-size:22px;letter-spacing:.1em;text-transform:uppercase}
+.chip{display:inline-flex;align-items:center;gap:12px;background:#fff;border:2px solid var(--line);border-radius:18px;padding:14px 22px;font-weight:600;font-size:30px;white-space:nowrap}
+.src{font-weight:500;font-size:21px;color:var(--soft)}
+.pills{display:flex;gap:12px;margin-bottom:40px}
+.pills div{flex:1;text-align:center;font-weight:700;font-size:26px;padding:14px 0;border-radius:14px;background:#fff;border:2px solid var(--line);color:var(--soft)}
+.pills .done{background:var(--db);border-color:var(--db);color:var(--blue)}
+.pills .now{background:var(--yellow);border-color:var(--yellow);color:var(--ink)}
+.big{font-family:'Inter Display','Inter';font-weight:800;letter-spacing:-.04em;line-height:1}
+.img{background-size:cover;background-position:center}
+svg{overflow:visible}
+</style></head><body>
+<div class="page"><div class="deco d1" id="d1"></div><div class="deco d2" id="d2"></div>
+<div id="cw"><div id="c"></div></div>
+<div class="footer"><img id="logo"><span>softnear.com</span></div>
+<div class="wipe" id="wipe"></div></div>
+<script>
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const P=(t,s,d)=>cl((t-s)/d);
+const eo=x=>1-Math.pow(1-x,3);
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const bk=x=>{const c=1.6;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const rnd=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x)};
+function rise(el,t,s,d=.5,dy=46){if(!el)return;const k=eo(P(t,s,d));el.style.opacity=k;el.style.transform=`translateY(${(1-k)*dy}px)`}
+function pop(el,t,s,d=.5,base=''){if(!el)return;const k=P(t,s,d);el.style.opacity=cl(k*3);el.style.transform=`${base} scale(${k?bk(k):0.001})`}
+function slideX(el,t,s,d,dx){if(!el)return;const k=eo(P(t,s,d));el.style.opacity=cl(k*2);el.style.transform=`translateX(${(1-k)*dx}px)`}
+function sweep(el,t,s,d=.45){if(el)el.querySelectorAll('.hl i').forEach(i=>i.style.transform=`scaleX(${eio(P(t,s,d))})`)}
+function typed(el,txt,t,s,cps=10){const n=Math.floor(cl((t-s)*cps,0,txt.length));const blink=Math.floor(t*2.4)%2===0;
+  el.innerHTML=txt.slice(0,n)+`<span style="opacity:${blink?1:0};color:var(--blue);font-weight:400">|</span>`}
+function count(el,t,s,d,to,fmt=v=>Math.round(v)){el.textContent=fmt(to*eo(P(t,s,d)))}
+const hl=s=>s.replace(/==(.+?)==/g,'<span class="hl"><i></i>$1</span>');
+const STEPS=['Speed','Google','Trust','Checkout'];
+const pills=n=>`<div class="pills op0" id="pills">${STEPS.map((p,i)=>`<div class="${i+1<n?'done':i+1==n?'now':''}">${i+1} · ${p}</div>`).join('')}</div>`;
+function head(n,topic,title){return pills(n)+`<div class="eyebrow op0" id="eb">Fix ${n}/4 · ${topic}</div><h1 class="op0" id="tt">${hl(title)}</h1>`}
+function headAnim(t,c0){rise($('#pills'),t,.05,.5,-30);rise($('#eb'),t,.15);rise($('#tt'),t,.25);sweep($('#tt'),t,c0+.2)}
+const cartSVG=(col='var(--ink)')=>`<svg width="64" height="58" viewBox="0 0 64 58" fill="none" stroke="${col}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h9l7 34h33l7-24H16"/><circle cx="24" cy="50" r="4.5"/><circle cx="48" cy="50" r="4.5"/></svg>`;
+const lockSVG=`<svg width="34" height="40" viewBox="0 0 34 40" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"><rect x="3" y="17" width="28" height="20" rx="5"/><path d="M9 17v-6a8 8 0 0 1 16 0v6"/></svg>`;
+/* storefront mockup: desktop browser with hero image + product row */
+function store(id,x,y,w,cfg){const h=Math.round(w*.62);return `<div class="abs" id="${id}" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px;background:#fff;border:3px solid var(--ink);border-radius:24px;overflow:hidden;box-shadow:0 30px 60px rgba(15,23,42,.18)">
+ <div style="height:${w*.05}px;background:var(--grey);display:flex;gap:8px;align-items:center;padding-left:18px"><i style="width:12px;height:12px;border-radius:50%;background:#CBD5E1"></i><i style="width:12px;height:12px;border-radius:50%;background:#CBD5E1"></i><i style="width:12px;height:12px;border-radius:50%;background:#CBD5E1"></i></div>
+ <div style="height:${w*.07}px;display:flex;align-items:center;justify-content:space-between;padding:0 ${w*.03}px;border-bottom:1px solid var(--line)">
+  <b style="font-size:${w*.03}px;letter-spacing:.18em;color:${cfg.ink||'#1F2937'}">YOUR BRAND</b>
+  <span style="display:flex;gap:${w*.025}px;font-size:${w*.019}px;font-weight:600;color:#64748B"><span>Shop</span><span>New in</span><span>About</span><span>Cart (1)</span></span></div>
+ <div class="img" style="position:relative;height:${h*.5}px;background-image:url(img/${cfg.hero})">
+  <div style="position:absolute;left:${w*.04}px;top:${h*.12}px;max-width:${w*.4}px;color:${cfg.ink||'#1F2937'}">
+   <div style="font-family:'Inter Display';font-weight:700;font-size:${w*.05}px;line-height:1.05;letter-spacing:-.02em">${cfg.title}</div>
+   <div style="margin-top:${w*.02}px;display:inline-block;background:${cfg.btn||'#1F2937'};color:#fff;font-weight:700;font-size:${w*.02}px;padding:${w*.012}px ${w*.025}px;border-radius:999px">Shop now</div></div></div>
+ <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:${w*.018}px;padding:${w*.022}px ${w*.03}px">
+  ${[1,2,3,4].map(i=>`<div><div class="img" style="aspect-ratio:1/1;border-radius:${w*.012}px;background-image:url(img/${cfg.grid}-p${i}.jpg)"></div><div style="margin-top:${w*.008}px;height:${w*.01}px;width:70%;border-radius:4px;background:#E2E8F0"></div><div style="margin-top:${w*.006}px;font-weight:700;font-size:${w*.018}px">${cfg.prices[i-1]}</div></div>`).join('')}
+ </div></div>`}
+const SKIN={hero:'skin-hero.jpg',grid:'skin',title:'Skin that<br>glows',btn:'#8B6A4B',ink:'#3F2E20',prices:['₹899','₹649','₹549','₹499']};
+const FASH={hero:'fash-hero.jpg',grid:'fash',title:'Linen for<br>long days',btn:'#7A2E14',ink:'#3B1D10',prices:['₹1,890','₹1,450','₹990','₹1,290']};
+const HOME={hero:'home-hero.jpg',grid:'home',title:'Made by<br>hand',btn:'#5B4630',ink:'#3A2C1D',prices:['₹1,150','₹690','₹890','₹1,240']};
+
+const S={};
+/* ---------- 1 HOOK ---------- */
+S['01-hook']={html:()=>`
+<div class="eyebrow op0" id="eb">Shopify &amp; e-commerce owners</div>
+<div style="display:flex;align-items:flex-end;gap:26px;margin-top:20px"><div class="big op0" id="pc" style="font-size:300px;color:var(--blue)"><span id="pn">0</span>%</div></div>
+<h1 class="op0" id="tt" style="font-size:80px;margin-top:4px">of shoppers add to cart…<br>${hl('==and leave without paying.==')}</h1>
+<div id="carts" style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;margin-top:56px">${[...Array(10)].map((_,i)=>`<div class="ct op0" style="position:relative;height:120px;border-radius:24px;background:#fff;border:2px solid var(--line);display:flex;align-items:center;justify-content:center">${cartSVG()}<b class="x" style="position:absolute;right:10px;top:8px;font-size:30px;color:var(--red);opacity:0">✕</b></div>`).join('')}</div>
+<div class="src op0" id="src" style="margin-top:26px">Source: Baymard Institute, average of 50 studies (2006–2025)</div>`,
+upd(t,c){rise($('#eb'),t,.05);pop($('#pc'),t,c[0],.45);count($('#pn'),t,c[0]+.1,1.3,70);
+  $$('.ct').forEach((ct,i)=>{pop(ct,t,c[0]+.2+i*.07,.4);if(i<7){const k=P(t,c[1]+.15+i*.1,.45);ct.style.opacity=k?1-.6*k:ct.style.opacity;
+    ct.style.transform=`translateY(${eio(k)*40}px) scale(${k?1-.12*k:(P(t,c[0]+.2+i*.07,.4)?bk(P(t,c[0]+.2+i*.07,.4)):.001)})`;ct.querySelector('.x').style.opacity=k;ct.style.borderColor=k>0?'#FECDD3':'var(--line)'}});
+  rise($('#tt'),t,c[1]-.1,.5);sweep($('#tt'),t,c[1]+.5);rise($('#src'),t,c[1]+.6,.4,10)}};
+
+/* ---------- 2 PAIN ---------- */
+S['02-pain']={html:()=>`
+<div class="eyebrow op0" id="eb">If you run an online store</div>
+<h1 class="op0" id="tt" style="font-size:86px">That's your money<br>${hl('==walking out.==')}</h1>
+<div style="position:relative;height:600px;margin-top:40px">${store('st',0,0,912,SKIN)}<div id="coins"></div>
+ <div class="abs op0" id="cartb" style="right:28px;top:120px;width:92px;height:92px;border-radius:24px;background:var(--yellow);border:4px solid var(--ink);display:flex;align-items:center;justify-content:center">${cartSVG()}</div></div>
+<div style="display:flex;gap:16px;margin-top:30px"><div class="chip op0" id="q1">On Shopify?</div><div class="chip op0" id="q2">Building a new store?</div></div>
+<div class="op0" id="fx" style="margin-top:22px;background:var(--ink);border-radius:30px;padding:26px 30px;color:#fff">
+ <div style="font-weight:700;font-size:40px">Fix these <span style="color:var(--yellow)">4 things</span></div>
+ <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:18px">${STEPS.map((s,i)=>`<div class="fxi op0" style="background:#fff;color:var(--ink);border-radius:16px;padding:14px 0;text-align:center;font-weight:700;font-size:28px">${i+1} · ${s}</div>`).join('')}</div></div>`,
+upd(t,c){rise($('#eb'),t,.05);rise($('#tt'),t,c[0]);sweep($('#tt'),t,c[0]+.6);rise($('#st'),t,.1,.6,80);pop($('#cartb'),t,c[0]+.4,.4);
+  let h='';for(let i=0;i<10;i++){const s=c[0]+.8+i*.32;const k=P(t,s,1.2);if(k>0&&k<1){const x=812+k*260;const y=100-Math.sin(k*Math.PI)*150+k*120;h+=`<div class="abs" style="left:${x}px;top:${y}px;width:50px;height:50px;border-radius:50%;background:var(--yellow);border:4px solid var(--ink);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:26px;opacity:${1-k*k};transform:rotate(${k*400}deg)">₹</div>`}}$('#coins').innerHTML=h;
+  pop($('#q1'),t,c[1],.4);pop($('#q2'),t,c[1]+.5,.4);rise($('#fx'),t,c[2]-.1,.5,80);$$('.fxi').forEach((f,i)=>pop(f,t,c[2]+.4+i*.25,.4))}};
+
+/* ---------- 3 SPEED ---------- */
+S['03-speed']={html:()=>head(1,'Speed','Slow pages ==lose buyers.==')+`
+<div class="card op0" id="k1" style="margin-top:34px;padding:30px;display:flex;gap:34px;align-items:center">
+ <div style="position:relative;flex:none;width:250px;height:440px;border:5px solid var(--ink);border-radius:44px;background:#fff;overflow:hidden">
+  <div style="margin:46px 16px 0;height:24px;border-radius:12px;background:var(--grey)"></div>
+  <div id="ld" style="margin:18px 16px 0;height:10px;border-radius:5px;background:var(--line);overflow:hidden"><i id="bar" style="display:block;height:100%;width:0;background:var(--blue)"></i></div>
+  <svg class="abs" style="left:85px;top:170px" width="80" height="80" viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" fill="none" stroke="var(--line)" stroke-width="9"/><path id="spin" d="M40 8 A32 32 0 0 1 72 40" fill="none" stroke="var(--blue)" stroke-width="9" stroke-linecap="round"/></svg>
+  <div class="abs" style="left:0;right:0;top:280px;text-align:center;font-family:Inter;font-weight:800;font-size:56px" id="sec">0.0s</div></div>
+ <div style="flex:1"><div class="big" style="font-size:150px;color:var(--red)"><span id="n53">0</span>%</div>
+  <div style="font-weight:600;font-size:38px;line-height:1.25;margin-top:6px">of mobile visitors <b>leave</b> if a page takes over <b>3 seconds</b></div>
+  <div style="display:flex;gap:8px;margin-top:22px" id="ppl">${[...Array(10)].map(i=>`<i style="width:34px;height:34px;border-radius:50%;background:var(--blue)"></i>`).join('')}</div>
+  <div class="src" style="margin-top:16px">Source: Google, 2016</div></div></div>
+<div class="card op0" id="k2" style="margin-top:22px;padding:30px;display:flex;gap:30px;align-items:flex-end">
+ <div style="flex:1"><div class="tagk" style="color:var(--blue)">Just 0.1 s faster</div>
+  <div class="big" style="font-size:120px;margin-top:8px;color:var(--green)">+<span id="n84">0.0</span>%</div>
+  <div style="font-weight:600;font-size:36px">retail conversions</div><div class="src" style="margin-top:10px">Source: Google &amp; Deloitte, 2019</div></div>
+ <div style="display:flex;gap:18px;align-items:flex-end;height:250px"><div style="width:90px;height:180px;border-radius:14px 14px 0 0;background:var(--line)"></div><div id="b2" style="width:90px;height:0;border-radius:14px 14px 0 0;background:var(--green)"></div></div></div>`,
+upd(t,c){headAnim(t,.75);rise($('#k1'),t,c[1]-.3,.5,70);
+  const st=c[1]-.1;const el=cl(t-st,0,3);$('#sec').textContent=el.toFixed(1)+'s';$('#sec').style.color=el>=3?'var(--red)':'var(--ink)';
+  $('#bar').style.width=(cl(el/3)*45)+'%';$('#spin').setAttribute('transform',`rotate(${t*360} 40 40)`);
+  count($('#n53'),t,st+1.0,1.4,53);
+  $$('#ppl i').forEach((p,i)=>{const k=i<5?P(t,st+1.4+i*.18,.4):0;p.style.background=k>0?'#CBD5E1':'var(--blue)';p.style.transform=`translateY(${-k*24}px)`;p.style.opacity=1-k*.6});
+  rise($('#k2'),t,c[2]-.2,.5,70);count($('#n84'),t,c[2]+.4,1.4,8.4,v=>v.toFixed(1));
+  const k=P(t,c[2]+.4,1.2);$('#b2').style.height=(k?bk(k):0)*196+'px'}};
+
+/* ---------- 4 GOOGLE ---------- */
+const comp=['Big marketplace · Linen kurta sets','Competitor store · Kurta sets for women','Another shop · Summer linen collection'];
+S['04-google']={html:()=>head(2,'Get found on Google','Shoppers ==search first.==')+`
+<div class="card op0" id="sb" style="margin-top:34px;padding:22px 28px;display:flex;align-items:center;gap:20px;border-radius:60px;border-width:3px">
+ <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="var(--blue)" stroke-width="5" stroke-linecap="round"><circle cx="17" cy="17" r="12"/><path d="M26 26l10 10"/></svg>
+ <div id="q" style="font-size:40px;font-weight:500"></div></div>
+<div id="res" style="position:relative;height:600px;margin-top:22px">
+ ${comp.map((r,i)=>`<div class="abs rr op0" style="left:0;right:0;top:${i*148+156}px;height:132px;background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 28px">
+  <div class="src" style="font-size:22px">${r.split(' · ')[0].toLowerCase().replace(/ /g,'')}.com</div><div style="font-weight:600;font-size:34px;color:#1A0DAB;margin-top:4px">${r.split(' · ')[1]}</div><div style="margin-top:10px;height:12px;width:70%;border-radius:6px;background:var(--grey)"></div></div>`).join('')}
+ <div class="abs op0" id="you" style="left:0;right:0;top:0;height:132px;background:var(--ysoft);border:3px solid var(--ink);border-radius:24px;padding:16px 22px;display:flex;gap:22px;align-items:center;box-shadow:0 18px 40px rgba(15,23,42,.14)">
+  <div class="img" style="flex:none;width:100px;height:100px;border-radius:16px;background-image:url(img/fash-p1.jpg)"></div>
+  <div style="flex:1"><div class="src" style="font-size:22px;color:#475569">yourbrand.com › linen-kurta-set</div><div style="font-weight:700;font-size:34px;color:#1A0DAB;white-space:nowrap">Linen Kurta Set · Handwoven</div></div>
+  <div style="flex:none;background:var(--ink);color:var(--yellow);font-weight:800;font-size:32px;border-radius:16px;padding:10px 16px">#1</div></div></div>
+<div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:6px" id="seo">${['Product titles','Collections','Schema','Site speed'].map(s=>`<div class="chip op0"><b style="width:36px;height:36px;border-radius:50%;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:20px">✓</b>${s}</div>`).join('')}</div>
+<div class="op0" id="free" style="margin-top:18px;font-weight:700;font-size:36px;color:var(--blue2)">Visitors who find you ≠ visitors you pay for.</div>`,
+upd(t,c){headAnim(t,.75);rise($('#sb'),t,c[0]+.4,.45);typed($('#q'),'linen kurta set for women',t,c[1]-.2,14);
+  $$('.rr').forEach((r,i)=>rise(r,t,c[1]+1.0+i*.15,.4,30));
+  const k=eio(P(t,c[2]-.1,.8));const y=(1-k)*600;$('#you').style.top=y+'px';$('#you').style.opacity=cl(P(t,c[2]-.1,.2));
+  $$('#seo .chip').forEach((s,i)=>pop(s,t,c[2]+.9+i*.25,.4));rise($('#free'),t,c[2]+2.0,.45,20)}};
+
+/* ---------- 5 TRUST ---------- */
+const trust=[['★★★★★','Customer reviews'],['▣','Real product photos'],['↺','Easy returns'],['lock','Secure checkout']];
+S['05-trust']={html:()=>head(3,'Trust','No trust, ==no card.==')+`
+<div class="card op0" id="k1" style="margin-top:30px;padding:24px 30px;display:flex;align-items:center;gap:28px">
+ <div class="big" style="font-size:110px;color:var(--red)"><span id="n19">0</span>%</div>
+ <div style="flex:1"><div style="font-weight:600;font-size:32px;line-height:1.25">of shoppers who abandon <b>don't trust the site</b> with their card</div><div class="src" style="margin-top:8px">Source: Baymard Institute</div></div></div>
+<div style="position:relative;height:720px;margin-top:24px">
+ <div class="abs op0" id="ph" style="left:0;top:0;width:430px;height:720px;border:5px solid var(--ink);border-radius:52px;background:#fff;overflow:hidden">
+  <div class="img" style="height:380px;background-image:url(img/fash-hero.jpg);background-position:68% 40%"></div>
+  <div style="padding:20px 24px"><div style="font-weight:700;font-size:32px">Linen Kurta Set</div><div style="font-weight:800;font-size:34px;margin-top:4px">₹1,890</div>
+   <div class="tb op0" style="margin-top:10px;color:#F5B400;font-size:28px;letter-spacing:2px">★★★★★ <span style="color:var(--soft);font-size:22px;letter-spacing:0">Reviews</span></div>
+   <div class="tb op0" style="display:flex;gap:8px;margin-top:10px">${[1,2,3,4].map(i=>`<div class="img" style="width:64px;height:64px;border-radius:10px;background-image:url(img/fash-p${i}.jpg)"></div>`).join('')}</div>
+   <div style="margin-top:16px;height:64px;border-radius:16px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:28px;gap:12px">${lockSVG} Add to cart</div></div></div>
+ <div class="abs" style="left:470px;top:20px;width:442px;display:flex;flex-direction:column;gap:18px">${trust.map((x,i)=>`<div class="tr op0" style="display:flex;align-items:center;gap:20px;background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 24px">
+  <div style="flex:none;width:72px;height:72px;border-radius:18px;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:${i==0?18:34}px;color:var(--ink)">${x[0]=='lock'?lockSVG:x[0]}</div>
+  <div style="font-weight:700;font-size:32px;line-height:1.2">${x[1]}</div><b class="ok" style="margin-left:auto;flex:none;width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:22px;transform:scale(0)">✓</b></div>`).join('')}</div></div>`,
+upd(t,c){headAnim(t,.75);rise($('#k1'),t,c[1]-.3,.5,60);count($('#n19'),t,c[1]+.2,1.2,19);
+  slideX($('#ph'),t,c[1]+.9,.6,-300);
+  $$('.tr').forEach((r,i)=>{slideX(r,t,c[2]+i*.45,.5,300);const k=P(t,c[2]+i*.45+.35,.3);r.querySelector('.ok').style.transform=`scale(${k?bk(k):0})`});
+  $$('.tb').forEach((b,i)=>rise(b,t,c[2]+i*.45,.4,14))}};
+
+/* ---------- 6 CHECKOUT ---------- */
+S['06-checkout']={html:()=>head(4,'Checkout','Surprise costs ==kill sales.==')+`
+<div style="position:relative;height:960px;margin-top:30px">
+ <div class="abs card op0" id="co" style="left:0;right:0;top:0;padding:30px 34px;box-shadow:0 26px 50px rgba(15,23,42,.1)">
+  <div style="display:flex;justify-content:space-between;align-items:center"><div class="tagk" style="color:var(--soft)">Checkout</div>
+   <div id="steps" style="display:flex;gap:8px">${[1,2,3,4,5].map(i=>`<i class="sp" style="width:46px;height:12px;border-radius:6px;background:${i==1?'var(--blue)':'var(--line)'}"></i>`).join('')}</div></div>
+  ${[['home-p1','Ceramic vase + pampas','₹1,150'],['home-p2','Brass candle holder','₹690']].map(r=>`<div style="display:flex;align-items:center;gap:20px;margin-top:22px"><div class="img" style="width:96px;height:96px;border-radius:16px;background-image:url(img/${r[0]}.jpg)"></div><div style="flex:1;font-weight:600;font-size:32px">${r[1]}</div><div style="font-weight:700;font-size:32px">${r[2]}</div></div>`).join('')}
+  <div style="border-top:2px solid var(--line);margin-top:24px;padding-top:18px;display:flex;justify-content:space-between;font-weight:600;font-size:32px;color:var(--muted)"><span>Subtotal</span><span>₹1,840</span></div>
+  <div class="sur op0" style="display:flex;justify-content:space-between;font-weight:700;font-size:32px;color:var(--red);margin-top:10px"><span>+ Shipping</span><span>₹149</span></div>
+  <div class="sur op0" style="display:flex;justify-content:space-between;font-weight:700;font-size:32px;color:var(--red);margin-top:10px"><span>+ Handling fee</span><span>₹49</span></div>
+  <div style="display:flex;justify-content:space-between;font-weight:800;font-size:40px;margin-top:16px"><span>Total</span><span id="tot">₹1,840</span></div>
+  <div id="good" class="op0" style="margin-top:18px;display:flex;flex-direction:column;gap:12px">
+   <div style="display:flex;gap:12px">${['UPI','Cards','COD'].map(p=>`<div class="chip" style="font-size:28px;padding:10px 20px">${p}</div>`).join('')}<div class="chip" style="font-size:28px;padding:10px 20px;background:#DCFCE7;border-color:#DCFCE7;color:var(--green)">Free shipping</div></div>
+   <div id="pay" style="height:92px;border-radius:24px;background:var(--yellow);border:4px solid var(--ink);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:38px;gap:14px">${lockSVG} Pay ₹1,840</div></div></div>
+ <div class="abs op0" id="stat" style="left:0;right:0;top:760px;background:var(--ink);color:#fff;border-radius:28px;padding:24px 30px;display:flex;gap:26px;align-items:center">
+  <div class="big" style="font-size:96px;color:var(--yellow)">#1</div><div><div style="font-weight:700;font-size:32px;line-height:1.25">reason shoppers abandon checkout: extra costs (40%)</div><div class="src" style="color:#94A3B8;margin-top:6px">Source: Baymard Institute</div></div></div>
+ <div class="abs op0" id="cur" style="left:640px;top:600px;font-size:60px">↖</div></div>`,
+upd(t,c){headAnim(t,.75);rise($('#co'),t,c[0]-.1,.5,70);
+  const s1=c[1]+.1;$$('.sur').forEach((r,i)=>{const k=P(t,s1+i*.35,.3);r.style.opacity=(t<c[2])?k:1-P(t,c[2],.3);r.style.transform=`translateX(${(1-eo(k))*60}px)`;r.style.height=t>c[2]+.3?'0px':'';r.style.marginTop=t>c[2]+.3?'0':'10px';r.style.overflow='hidden'});
+  const bad=t>s1+.35&&t<c[2];$('#tot').textContent=bad?'₹2,038':'₹1,840';$('#tot').style.color=bad?'var(--red)':(t>=c[2]?'var(--green)':'var(--ink)');
+  const sh=t>s1+.35&&t<s1+.75?Math.sin(t*80)*6:0;$('#tot').style.transform=`translateX(${sh}px)`;
+  const cu=$('#cur');const ck=P(t,s1+.8,.8);cu.style.opacity=t<c[2]?cl(ck*3)*(1-ck*.3):0;cu.style.transform=`translate(${ck*260}px,${ck*-120}px)`;
+  pop($('#stat'),t,s1+1.0,.45);if(t>c[2])$('#stat').style.opacity=1-P(t,c[2],.3);
+  $$('.sp').forEach((s,i)=>{const k=P(t,c[2]+.2+i*.08,.2);s.style.background=(k>0)?'var(--green)':(i==0?'var(--blue)':'var(--line)');s.style.width=(46-26*eo(P(t,c[2]+.2,.4))*(i>0?1:0))+'px';s.style.opacity=i>0?1-.7*P(t,c[2]+.2,.4):1});
+  rise($('#good'),t,c[2]+.3,.5,40);const pk=P(t,c[2]+1.3,.6);$('#pay').style.transform=`scale(${1+.05*Math.sin(pk*Math.PI)})`}};
+
+/* ---------- 7 WORK ---------- */
+S['07-work']={html:()=>`
+<div class="eyebrow op0" id="eb">What we build at Softnear</div>
+<h1 class="op0" id="tt" style="font-size:96px">Stores that ${hl('==sell.==')}</h1>
+<div style="position:relative;height:640px;margin-top:34px;margin-left:-84px;margin-right:-84px;overflow:hidden" id="car">
+ ${store('s1',84,30,820,SKIN)}${store('s2',84,30,820,FASH)}${store('s3',84,30,820,HOME)}
+ <div class="abs" id="tagc" style="left:108px;bottom:20px;background:var(--ink);color:#fff;border-radius:14px;padding:10px 18px;font-weight:600;font-size:22px">Store design concepts by Softnear</div></div>
+<div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:22px">${['Fast Shopify stores','SEO that brings buyers','Checkouts that convert'].map(s=>`<div class="chip op0 sv"><b style="width:34px;height:34px;border-radius:50%;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:18px">✓</b>${s}</div>`).join('')}</div>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:22px">
+ <div class="card op0" id="p1" style="padding:24px 28px"><div class="big" style="font-size:96px;color:var(--blue)"><span id="n500">0</span>+</div><div style="font-weight:600;font-size:30px;margin-top:4px">apps delivered</div></div>
+ <div class="card op0" id="p2" style="padding:24px 28px;background:var(--yellow);border-color:var(--yellow)"><div class="big" style="font-size:96px"><span id="n48">0.0</span> ★</div><div style="font-weight:600;font-size:30px;margin-top:4px">rating on Clutch</div></div></div>`,
+upd(t,c){rise($('#eb'),t,.05);rise($('#tt'),t,c[0]);sweep($('#tt'),t,c[0]+.5);
+  const D=SC_D;const seg=(D-.6)/3;['#s1','#s2','#s3'].forEach((id,i)=>{const s=.15+i*seg;const kin=eio(P(t,s,.6)),kout=i<2?eio(P(t,s+seg,.6)):0;const el=$(id);
+    el.style.transform=`translateX(${(1-kin)*1080-kout*1080}px) rotate(${(1-kin)*4}deg)`;el.style.opacity=t>=s?1:0;el.style.zIndex=i+1});
+  $('#tagc').style.zIndex=9;
+  $$('.sv').forEach((s,i)=>pop(s,t,c[1]+i*.55,.4));rise($('#p1'),t,c[2],.5,40);count($('#n500'),t,c[2]+.2,1.0,500);
+  rise($('#p2'),t,c[3],.5,40);count($('#n48'),t,c[3]+.2,.9,4.8,v=>v.toFixed(1))}};
+
+/* ---------- 8 CTA ---------- */
+S['08-cta']={html:()=>`
+<div class="eyebrow op0" id="eb">For Shopify &amp; e-commerce owners</div>
+<h1 class="op0" id="tt" style="font-size:88px">Losing sales?<br>Find the ${hl('==leaks.==')}</h1>
+<div class="op0" id="cta" style="margin-top:40px;background:var(--ink);border-radius:32px;padding:32px 36px;color:#fff">
+ <div style="font-weight:600;font-size:34px;color:#CBD5E1">Comment below</div>
+ <div style="display:flex;gap:16px;align-items:center;margin-top:18px"><div style="flex:1;height:100px;border-radius:50px;background:#fff;display:flex;align-items:center;padding:0 36px;font-size:46px;font-weight:800;color:var(--ink)" id="cbox"></div>
+  <div id="send" style="width:100px;height:100px;border-radius:50%;background:var(--yellow);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:46px;font-weight:800">➤</div></div>
+ <div class="op0" id="cl1" style="margin-top:22px;font-weight:600;font-size:36px;line-height:1.3">Comment <b style="color:var(--yellow)">GROW</b> · we'll find the leaks on a <b>free 20-minute call</b></div></div>
+<div class="card op0" id="new" style="margin-top:22px;padding:28px 32px;display:flex;gap:24px;align-items:center">
+ <div style="flex:none;width:96px;height:96px;border-radius:24px;background:var(--yellow);display:flex;align-items:center;justify-content:center">${cartSVG()}</div>
+ <div><div style="font-weight:700;font-size:38px">Building a new store?</div><div style="font-weight:600;font-size:30px;color:var(--muted);margin-top:4px">DM us · free cost &amp; timeline estimate</div></div></div>
+<div class="op0" id="hd" style="margin-top:28px;text-align:center;font-weight:700;font-size:36px;color:var(--blue2)">@official_softnear</div>`,
+upd(t,c){rise($('#eb'),t,.05);rise($('#tt'),t,c[0]);sweep($('#tt'),t,c[0]+.7);
+  rise($('#cta'),t,c[1]-.3,.55,100);const cb=$('#cbox');if(t<c[1]+.3){cb.innerHTML='<span style="color:#94A3B8;font-weight:500;font-size:38px">Add a comment…</span>'}else typed(cb,'GROW',t,c[1]+.3,8);
+  const sk=P(t,c[1]+1.0,.5);$('#send').style.transform=`scale(${1+.2*Math.sin(sk*Math.PI)})`;rise($('#cl1'),t,c[1]+1.2,.45,20);
+  rise($('#new'),t,c[2],.5,60);const nk=P(t,c[3]+.2,.5);$('#new').style.borderColor=nk>0?'var(--blue)':'var(--line)';rise($('#hd'),t,c[3]+.6,.45,20)}};
+
+let SC,SC_D=10;
+window.build=(id,logo)=>{SC=S[id];$('#c').innerHTML=SC.html();$('#logo').src=logo};
+window.setT=(t,c,D,first,last)=>{SC_D=D;SC.upd(t,c);
+  const z=1+.025*eio(P(t,0,D));$('#c').style.transform=`scale(${z})`;
+  $('#d1').style.transform=`rotate(${45+Math.sin(t*.6)*4}deg) translate(${Math.sin(t*.5)*14}px,${Math.cos(t*.4)*14}px)`;
+  $('#d2').style.transform=`rotate(${45-Math.sin(t*.7)*6}deg)`;
+  const w=$('#wipe');let y=100;
+  if(!first&&t<.34)y=-100*eio(P(t,0,.34));
+  else if(!last&&t>D-.3)y=100*(1-eio(P(t,D-.3,.3)));
+  w.style.transform=`translateY(${y}%)`};
+</script></body></html>

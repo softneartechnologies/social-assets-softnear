@@ -34,13 +34,44 @@ one company with one point of view.
 
 ## Recurring calls to action
 
-- Comment a keyword: `WEBSITE` (free website check), `DON'T KNOW` / `पता नहीं` (doesn't know where visitors come from)
+- Comment a keyword: `WEBSITE` (free website check), `DON'T KNOW` / `पता नहीं` (doesn't know where visitors come from), `GROW` (Shopify / e-commerce store losing sales)
 - "DM करो, बात करते हैं" → free 20-minute call (approved offer in `brand.md`)
 - Follow @official_softnear
 
 ---
 
 ## Entries
+
+### 2026-11-08 · "Losing sales? Find the leaks" (Shopify & e-commerce) · written by Claude
+
+**Brief from the team:** write our own script for people who build e-commerce, run a store or
+want one built, and Shopify stores that aren't getting customers and need SEO. Add facts on how
+we help them grow, examples of our work, and strong engagement for conversions.
+
+**Core idea:** 7 in 10 shoppers who add to cart leave without paying. The leaks are in four
+places, and each is fixable: speed, Google (Shopify SEO), trust, checkout. Softnear builds stores
+that fix all four.
+
+**Lines to keep:**
+- "Seven out of ten shoppers add to cart. And leave without paying."
+- "That's your money walking out the door."
+- "Shoppers search before they buy."
+- "No trust, no card." / "Surprise costs kill sales."
+- "Losing sales, and not sure where? Comment GROW."
+
+**Facts (sourced, safe to reuse):** 70.22% cart abandonment (Baymard, 50 studies); extra costs
+are the #1 checkout-abandonment reason at 40%, 19% don't trust the site with their card
+(Baymard); 53% of mobile visitors leave after 3 s (Google 2016); 0.1 s faster = +8.4% retail
+conversions (Google & Deloitte 2019).
+
+**CTA:** comment GROW → free 20-minute call · new store → DM → free cost and timeline estimate.
+
+**Follow-up ideas:** one reel per leak (speed audit live, Shopify SEO checklist, trust badges
+before/after, one-page checkout); "UPI + COD" checkout post for Indian D2C; a real client store
+before/after once the team shares screenshots with permission.
+
+**Used in:** week of 2026-11-09, `2026-11/week-11-09/reel-shopify-grow/` (`reel-hi.mp4` Hindi VO,
+`reel-en.mp4` English VO; storefronts are labelled concept designs).
 
 ### 2026-11-08 · "जाल और पानी" (website = fishing net)
 
