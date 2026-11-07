@@ -38,3 +38,5 @@ One block per week, newest last. The weekly run reads the last four weeks so it 
 
 - Festive greeting to clients and team, not a lead post. Banner (square + landscape) and 15 s reel with original music, in `2026-11/week-11-02/diwali-2026/`.
 - IG/FB/LI banner 18:30 · IG/FB/LI reel 19:30 · PostDesk ids 22-27
+
+- 2026-11-08 (extra, W45): IG reel + FB reel · S5 Website designing x I8/local business · pillar Buyer pain + fix · angle "₹5,000 vs ₹25,000 website, 5 differences" · keyword WEBSITE · PostDesk 28, 29
