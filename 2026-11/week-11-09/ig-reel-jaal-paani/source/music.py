@@ -1,16 +1,19 @@
 #!/usr/bin/env python3
-"""Original score + sound design for the "जाल और पानी" reel (no samples, all synthesised).
-python3 music.py OUT.wav"""
+"""Original score + sound design + voiceover mix for the "Net and water" reel (no samples).
+python3 music.py TIMING.json VO_DIR OUT.wav
+TIMING comes from timing.py; VO_DIR holds 01.wav..07.wav (one voiceover file per scene).
+Every sound effect is placed on the same cues the animation uses, so picture and sound stay in sync."""
 import json, sys, wave
 from pathlib import Path
 import numpy as np
 
 SR = 44100
-HERE = Path(__file__).parent
-SC = json.loads((HERE / "scenes.json").read_text())
-T0 = {}; acc = 0.0
+SC = json.loads(Path(sys.argv[1]).read_text())
+VO = Path(sys.argv[2])
+LEAD = .35
+T0 = {}; C = {}; acc = 0.0
 for s in SC:
-    T0[s["id"]] = acc; acc += s["D"]
+    T0[s["id"]] = acc; C[s["id"]] = s["cues"]; acc += s["D"]
 DUR = acc
 N = int(DUR * SR)
 L = np.zeros(N); R = np.zeros(N)
@@ -26,11 +29,6 @@ def add(sig, t0, gain=1.0, pan=0.0):
 
 def tt(d): return np.arange(int(d * SR)) / SR
 def hz(m): return 440 * 2 ** ((m - 69) / 12)
-def lp(x, a):  # one-pole low-pass, a in (0,1): smaller = darker
-    y = np.empty_like(x); acc = 0.0
-    for i in range(len(x)):
-        acc += a * (x[i] - acc); y[i] = acc
-    return y
 def lp_fast(x, cutoff):
     X = np.fft.rfft(x); f = np.fft.rfftfreq(len(x), 1 / SR)
     return np.fft.irfft(X / (1 + (f / cutoff) ** 4), len(x))
@@ -139,41 +137,52 @@ for b in range(nb):
         for s16 in range(8):
             add(pluck(arp[s16 % 4], .45), t0 + s16 * B / 2, .14, -.3 if s16 % 2 else .3)
 
-# ---------- sound design ----------
-h = T0["01-hook"]
-add(pluck(76), h + .25, .3); add(pluck(79), h + 1.35, .3)
-add(riser(1.15), h + 1.4, .55); add(impact(), h + 2.55, .9)
+# ---------- sound design (absolute time = scene start + cue) ----------
+def at(sid, k, off=0.0): return T0[sid] + C[sid][k] + off
+h = "01-hook"
+add(pluck(76), at(h, 0), .3); add(pluck(79), at(h, 1), .3)
+add(riser(1.15), at(h, 2, -1.15), .5); add(impact(), at(h, 2), .85)
 for sid in list(T0)[1:]:
-    add(whoosh(), T0[sid] - .32, .7)
-n = T0["02-net"]
-for k in range(10): add(tick(), n + 2.1 + k * .12, .5)          # net drawing zip
-add(rumble(1.6), n + 4.55, .6); add(splash(), n + 5.35, .9)
-w = T0["03-water"]
-for k, c in enumerate([1.1, 3.8, 6.6]):
-    add(impact()[:int(.6 * SR)], w + c, .35); add(ding(81 + k * 3), w + c + .3, .7)
-for i in range(12): add(clink(), w + 1.5 + .93 + i * .42, .8, (-.3, .3)[i % 2])
-for k in range(11): add(tick(), w + 4.1 + k * .25, .7)
-for i in range(9): add(popf(), w + 6.6 + .6 + i * .3, .8, (-.4, .4)[i % 2])
-d = T0["04-dry"]
-add(wind(6.8), d, 1.0); add(thud(), d + 3.4, 1.0); add(impact(), d + 3.4, .45)
-j = T0["05-journey"]
-add(popf(), j + .7, .7)
-for i in range(10): add(whoosh(.25), j + 1.2 + i * .38, .18, .2)
-for k, c in enumerate([2.5, 3.6, 4.7]): add(ding(84 + k * 2), j + c + .3, .8)
-add(chime([72, 76, 79, 84]), j + 6.3, 1.0)
-for i in range(3): add(ding(91), j + 6.9 + i * .55, .6)
-o = T0["06-both"]
-add(impact()[:int(.8 * SR)], o + .12, .5)
-add(pluck(57, .8), o + .5, .35); add(pluck(52, .8), o + 2.4, .35)
-for i in range(4): add(splash()[:int(.4 * SR)], o + 2.9 + i * .35, .25)
-add(chime([72, 76, 79]), o + 4.6, .9); add(chime([84, 88, 91]), o + 6.0, .8)
-c = T0["07-cta"]
-add(popf(), c + 2.35, .9)
-for i in range(5): add(key(), c + 3.9 + i / 7, .9)
-add(whoosh(.35), c + 5.1, .6); add(chime([72, 76, 79, 84, 88]), c + 5.6, .7)
-# final resolve on C major
+    add(whoosh(), T0[sid] - .32, .6)
+n = "02-net"
+for k in range(10): add(tick(), at(n, 1, k * .12), .45)
+add(rumble(1.6), at(n, 3, -.35), .55); add(splash(), at(n, 3, .55), .8)
+w = "03-water"
+for k in range(3):
+    add(impact()[:int(.6 * SR)], at(w, k), .3); add(ding(81 + k * 3), at(w, k, .3), .6)
+for i in range(12): add(clink(), at(w, 0, .4 + .93 + i * .42), .7, (-.3, .3)[i % 2])
+k = 0
+while at(w, 1, .3 + k * .25) < at(w, 2): add(tick(), at(w, 1, .3 + k * .25), .6); k += 1
+for i in range(9): add(popf(), at(w, 2, .6 + i * .3), .7, (-.4, .4)[i % 2])
+d = "04-dry"
+add(wind(SC[3]["D"]), T0[d], .9); add(thud(), at(d, 2), .9); add(impact(), at(d, 2), .4)
+j = "05-journey"
+add(popf(), at(j, 0), .6)
+for i in range(10): add(whoosh(.25), at(j, 0, .5 + i * .38 + .5), .15, .2)
+for k in range(3): add(ding(84 + k * 2), at(j, 1 + k, .3), .7)
+add(chime([72, 76, 79, 84]), at(j, 4), .9)
+for i in range(3): add(ding(91), at(j, 4, .6 + i * .55), .5)
+o = "06-both"
+add(impact()[:int(.8 * SR)], T0[o] + .12, .45)
+add(pluck(57, .8), at(o, 0), .3); add(pluck(52, .8), at(o, 1), .3)
+for i in range(4): add(splash()[:int(.4 * SR)], at(o, 1, .5 + i * .35), .2)
+add(chime([72, 76, 79]), at(o, 2), .8); add(chime([84, 88, 91]), at(o, 2, 1.4), .7)
+c = "07-cta"
+add(popf(), at(c, 1), .8)
+for i in range(10): add(key(), at(c, 2, i / 12), .8)
+add(whoosh(.35), at(c, 2, 1.2), .5); add(chime([72, 76, 79, 84, 88]), at(c, 3), .6)
 add(pad([48, 55, 60, 64, 67], 3.2, 1.0), DUR - 3.4, .25)
 
+# ---------- voiceover + ducking ----------
+def readwav(p):
+    with wave.open(str(p)) as f:
+        x = np.frombuffer(f.readframes(f.getnframes()), np.int16).astype(np.float64) / 32768
+        if f.getnchannels() == 2: x = x.reshape(-1, 2).mean(1)
+    return x
+voice = np.zeros(N)
+for i, s in enumerate(SC):
+    v = readwav(VO / f"{i+1:02d}.wav"); v = v / (np.abs(v).max() + 1e-9)
+    st = int((T0[s["id"]] + LEAD) * SR); e = min(N, st + len(v)); voice[st:e] += v[:e - st]
 # ---------- reverb + master ----------
 def reverb(x, seed):
     r = np.random.default_rng(seed); n = int(1.8 * SR); t = np.arange(n) / SR
@@ -182,10 +191,15 @@ def reverb(x, seed):
     return np.fft.irfft(np.fft.rfft(x, m) * np.fft.rfft(ir, m), m)[:len(x)]
 L = L + .22 * reverb(L, 1); R = R + .22 * reverb(R, 2)
 env = np.minimum(1, t_all / .3) * np.minimum(1, (DUR - t_all) / 1.6)
-L *= env; R *= env
-st = np.stack([L, R], 1)
-st = np.tanh(st / (np.abs(st).max() + 1e-9) * 1.6) / np.tanh(1.6) * .89
-with wave.open(sys.argv[1], "wb") as f:
+bed = np.stack([L, R], 1) * env[:, None]
+bed = np.tanh(bed / (np.abs(bed).max() + 1e-9) * 1.6) / np.tanh(1.6)
+# duck the bed while the voice speaks: smoothed voice envelope -> gain 1.0 .. 0.28
+win = int(.05 * SR); ve = np.convolve(np.abs(voice), np.ones(win) / win, "same")
+ve = np.convolve((ve > .02).astype(float), np.ones(int(.35 * SR)) / int(.35 * SR), "same")
+duck = 1 - .72 * np.clip(ve * 1.5, 0, 1)
+mix = bed * .42 * duck[:, None] + voice[:, None] * .9
+mix = mix / (np.abs(mix).max() + 1e-9) * .89
+with wave.open(sys.argv[3], "wb") as f:
     f.setnchannels(2); f.setsampwidth(2); f.setframerate(SR)
-    f.writeframes((st * 32767).astype(np.int16).tobytes())
+    f.writeframes((mix * 32767).astype(np.int16).tobytes())
 print("ok", round(DUR, 2))

@@ -120,6 +120,14 @@ The goal of every post is a conversation with a potential buyer, not likes.
   7. The cheap website usually costs the most (team script, 2026-11-07).
 - The team's own scripts, metaphors and lines are in `_system/content-library.md`. Build from them first.
 
+## Reels and video (team rules, 2026-11-08)
+
+- **Every reel has a voiceover.** Never ship a text-only reel.
+- **On-screen text is always English.** Never put Hindi text in the visuals.
+- **Make two versions of every reel:** the same English visuals with a **Hindi voiceover**, and with an **English voiceover**. Time each version's animation to its own voice.
+- Reels should be cinematic and animated (motion graphics that act out the idea, sound effects on each beat, music under the voice), spread awareness, and end with a clear ask: comment a keyword or DM us.
+- Voice: ElevenLabs v4 via Bloom (brand "Softnear"), voice "christopher", unless the team records its own.
+
 ## Off limits
 
 - Client names, logos or project details (NDA)

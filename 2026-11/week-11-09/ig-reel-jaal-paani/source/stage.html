@@ -1,4 +1,4 @@
-<!doctype html><html lang="hi"><head><meta charset="utf-8"><style>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><style>
 :root{--bg:#F7F9FC;--ink:#0F172A;--muted:#475569;--soft:#94A3B8;--blue:#3B8DF0;--blue2:#2A72CC;--yellow:#FFD635;--ysoft:#FFF6D1;
 --card:#FFFFFF;--line:#E3E8F0;--db:#E8EFFA;--dy:#F7F5E8;--grey:#EEF1F5;--water:#CFE3FB}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -85,14 +85,14 @@ function heart(id){return `<svg class="abs hrt" id="${id}" width="46" height="42
 const S={};
 /* ---------- 1 HOOK ---------- */
 S['01-hook']={html:()=>`
-<div class="eyebrow op0" id="eb">वेबसाइट है, पर कस्टमर नहीं?</div>
-<div class="op0" id="l1" style="margin-top:40px;font-weight:600;font-size:60px;color:var(--muted)">हम वेबसाइट बनाते हैं।</div>
-<div class="op0" id="l2" style="margin-top:8px;font-weight:600;font-size:60px;color:var(--muted)">और हम ही कह रहे हैं:</div>
-<h1 id="big" style="font-size:128px;line-height:1.16;margin-top:36px"><div class="op0 bw">वेबसाइट से</div><div class="op0 bw">${hl('==कस्टमर==')}</div><div class="op0 bw">नहीं आते।</div></h1>
+<div class="eyebrow op0" id="eb">Got a website, but no customers?</div>
+<div class="op0" id="l1" style="margin-top:40px;font-weight:600;font-size:60px;color:var(--muted)">We build websites.</div>
+<div class="op0" id="l2" style="margin-top:8px;font-weight:600;font-size:60px;color:var(--muted)">And we&#39;re telling you:</div>
+<h1 id="big" style="font-size:118px;line-height:1.08;margin-top:36px;letter-spacing:-.03em"><div class="op0 bw">A website alone</div><div class="op0 bw">${hl('==won&#39;t bring==')}</div><div class="op0 bw">customers.</div></h1>
 <div class="card op0" id="an" style="margin-top:56px;padding:26px 32px;display:flex;align-items:center;gap:28px">
  <div style="width:74px;height:74px;border-radius:20px;background:var(--db);display:flex;align-items:flex-end;justify-content:center;gap:7px;padding-bottom:16px">
   <i style="width:11px;height:12px;border-radius:3px;background:var(--soft)"></i><i style="width:11px;height:8px;border-radius:3px;background:var(--soft)"></i><i style="width:11px;height:5px;border-radius:3px;background:var(--soft)"></i></div>
- <div style="flex:1"><div style="font-weight:600;font-size:30px;color:var(--soft)">आज की इंक्वायरी</div><div id="cnt" style="font-family:Inter;font-weight:800;font-size:64px;line-height:1">0</div></div>
+ <div style="flex:1"><div style="font-weight:600;font-size:30px;color:var(--soft)">Enquiries today</div><div id="cnt" style="font-family:Inter;font-weight:800;font-size:64px;line-height:1">0</div></div>
  <div class="tagk" style="color:#E11D48;background:#FFE4E6;border-radius:12px;padding:10px 16px">Live</div></div>`,
 upd(t,c){rise($('#eb'),t,.05);rise($('#l1'),t,c[0],.45);rise($('#l2'),t,c[1],.45);
   $$('.bw').forEach((b,i)=>{const s=c[2]+i*.12;const k=P(t,s,.28);b.style.opacity=cl(k*2.5);b.style.transform=`scale(${1+(1-eo(k))*.9})`;b.style.transformOrigin='left center'});
@@ -102,10 +102,10 @@ upd(t,c){rise($('#eb'),t,.05);rise($('#l1'),t,c[0],.45);rise($('#l2'),t,c[1],.45
 
 /* ---------- 2 NET ---------- */
 S['02-net']={html:()=>`
-<div class="eyebrow op0" id="eb">सीधी बात</div>
+<div class="eyebrow op0" id="eb">Straight talk</div>
 <div style="position:relative;height:330px;margin-top:6px">
- <h1 class="abs op0" id="ta" style="top:0">वेबसाइट =<br>${hl('==मछली पकड़ने का जाल==')}</h1>
- <h1 class="abs op0" id="tb" style="top:0;font-size:76px">जाल कितना भी अच्छा हो,<br>उसे ${hl('==पानी में==')} डालना<br>पड़ता है।</h1></div>
+ <h1 class="abs op0" id="ta" style="top:0;font-size:96px;letter-spacing:-.03em">Your website =<br>${hl('==a fishing net==')}</h1>
+ <h1 class="abs op0" id="tb" style="top:0;font-size:84px;letter-spacing:-.03em">However good the net,<br>it has to go<br>${hl('==in the water.==')}</h1></div>
 <div class="stage op0" id="st" style="height:860px;margin-top:30px;background:#fff">
  <svg class="abs" id="wv" width="912" height="860" style="left:0;top:0"><path id="w1" fill="var(--water)"/><path id="w2" fill="var(--blue)" opacity=".28"/></svg>
  ${browser(640,440,'br',siteBody)}
@@ -130,18 +130,18 @@ upd(t,c){rise($('#eb'),t,.05);rise($('#ta'),t,.15);sweep($('#ta'),t,c[0],.5);ris
 /* ---------- 3 WATER ---------- */
 function chan(n,id,title,line,tags,icon){return `<div class="card op0 ch" id="${id}" style="position:relative;display:flex;gap:30px;align-items:center;padding:34px 30px 52px;overflow:hidden">
  <div style="position:relative;flex:none;width:210px;height:210px;border-radius:26px;background:var(--db);overflow:hidden">${icon}</div>
- <div style="flex:1;position:relative;z-index:2"><div class="tagk" style="color:var(--blue)">पानी ${n} · ${tags}</div>
-  <div style="font-family:'Inter Display','Hind';font-weight:700;font-size:72px;line-height:1.15;margin-top:6px">${title}</div>
+ <div style="flex:1;position:relative;z-index:2"><div class="tagk" style="color:var(--blue)">Water ${n} · ${tags}</div>
+  <div style="font-family:'Inter Display','Hind';font-weight:700;font-size:72px;line-height:1.1;margin-top:6px;letter-spacing:-.02em">${title}</div>
   <div style="font-weight:600;font-size:40px;color:var(--muted);margin-top:2px">${hl(line)}</div></div>
  <svg class="abs" style="left:0;bottom:0" width="912" height="40"><path class="cw" fill="var(--water)"/></svg></div>`}
 S['03-water']={html:()=>`
-<div class="eyebrow op0" id="eb">जाल डालें कहां?</div>
-<h1 class="op0" id="tt" style="font-size:96px">पानी ${hl('==3 जगह==')} है</h1>
+<div class="eyebrow op0" id="eb">Where&#39;s the water?</div>
+<h1 class="op0" id="tt" style="font-size:96px;letter-spacing:-.03em">It&#39;s in ${hl('==3 places==')}</h1>
 <div style="display:flex;flex-direction:column;gap:30px;margin-top:44px">
-${chan(1,'c1','एड','जहां ==पैसा== लगता है','Meta · Google Ads',`<div class="abs" style="left:30px;top:118px;width:150px;height:70px;border-radius:16px;background:#fff;border:3px solid var(--ink)"><div style="margin:12px 14px 0;height:10px;width:70%;border-radius:5px;background:var(--line)"></div><div style="margin:10px 14px;height:20px;width:46%;border-radius:6px;background:var(--blue)"></div></div><div id="coins"></div>`)}
-${chan(2,'c2','गूगल','जहां ==टाइम== लगता है','SEO',`<svg class="abs" style="left:35px;top:20px" width="140" height="140" viewBox="0 0 140 140"><circle cx="70" cy="70" r="60" fill="#fff" stroke="var(--ink)" stroke-width="6"/><line id="hh" x1="70" y1="70" x2="70" y2="38" stroke="var(--ink)" stroke-width="7" stroke-linecap="round"/><line id="mh" x1="70" y1="70" x2="70" y2="22" stroke="var(--blue)" stroke-width="5" stroke-linecap="round"/><circle cx="70" cy="70" r="7" fill="var(--yellow)" stroke="var(--ink)" stroke-width="3"/></svg>
- <div class="abs" style="left:24px;top:160px;width:162px;height:38px;border-radius:19px;background:#fff;border:3px solid var(--ink);font-family:Inter;font-weight:800;font-size:24px;display:flex;align-items:center;justify-content:center">रैंक <span id="rk" style="margin-left:8px;color:var(--blue2)">#48</span></div>`)}
-${chan(3,'c3','सोशल मीडिया','जहां ==मेहनत== लगती है','Instagram · Facebook · LinkedIn',`<div class="abs" style="left:55px;top:22px;width:100px;height:170px;border-radius:18px;background:#fff;border:3px solid var(--ink);padding:16px 10px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;align-content:start">${[0,1,2,3,4,5].map(i=>`<i class="tile" style="height:36px;border-radius:6px;background:${i%3==1?'var(--yellow)':'var(--blue)'};opacity:0"></i>`).join('')}</div><div id="hearts"></div>`)}
+${chan(1,'c1','Ads','costs ==money==','Meta · Google Ads',`<div class="abs" style="left:30px;top:118px;width:150px;height:70px;border-radius:16px;background:#fff;border:3px solid var(--ink)"><div style="margin:12px 14px 0;height:10px;width:70%;border-radius:5px;background:var(--line)"></div><div style="margin:10px 14px;height:20px;width:46%;border-radius:6px;background:var(--blue)"></div></div><div id="coins"></div>`)}
+${chan(2,'c2','Google','costs ==time==','SEO',`<svg class="abs" style="left:35px;top:20px" width="140" height="140" viewBox="0 0 140 140"><circle cx="70" cy="70" r="60" fill="#fff" stroke="var(--ink)" stroke-width="6"/><line id="hh" x1="70" y1="70" x2="70" y2="38" stroke="var(--ink)" stroke-width="7" stroke-linecap="round"/><line id="mh" x1="70" y1="70" x2="70" y2="22" stroke="var(--blue)" stroke-width="5" stroke-linecap="round"/><circle cx="70" cy="70" r="7" fill="var(--yellow)" stroke="var(--ink)" stroke-width="3"/></svg>
+ <div class="abs" style="left:24px;top:160px;width:162px;height:38px;border-radius:19px;background:#fff;border:3px solid var(--ink);font-family:Inter;font-weight:800;font-size:24px;display:flex;align-items:center;justify-content:center">Rank <span id="rk" style="margin-left:8px;color:var(--blue2)">#48</span></div>`)}
+${chan(3,'c3','Social media','costs ==effort==','Instagram · Facebook · LinkedIn',`<div class="abs" style="left:55px;top:22px;width:100px;height:170px;border-radius:18px;background:#fff;border:3px solid var(--ink);padding:16px 10px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;align-content:start">${[0,1,2,3,4,5].map(i=>`<i class="tile" style="height:36px;border-radius:6px;background:${i%3==1?'var(--yellow)':'var(--blue)'};opacity:0"></i>`).join('')}</div><div id="hearts"></div>`)}
 </div>`,
 upd(t,c){rise($('#eb'),t,.05);rise($('#tt'),t,.15);sweep($('#tt'),t,.65);
   ['#c1','#c2','#c3'].forEach((id,i)=>{rise($(id),t,c[i],.55,90);sweep($(id),t,c[i]+.6,.45);const on=t>=c[i];$(id).style.borderColor=(t>=c[i]&&(i==2||t<c[i+1]))?'var(--blue)':'var(--line)'});
@@ -155,8 +155,8 @@ upd(t,c){rise($('#eb'),t,.05);rise($('#tt'),t,.15);sweep($('#tt'),t,.65);
 
 /* ---------- 4 DRY ---------- */
 S['04-dry']={html:()=>`
-<div class="eyebrow op0" id="eb">और जिसने सिर्फ़ वेबसाइट बनाई</div>
-<h1 style="font-size:80px"><div class="op0" id="a1">…और बैठ गया,</div><div class="op0" id="a2" style="color:var(--muted);font-size:64px;margin-top:8px">उसके पास एक सुंदर जाल है —</div></h1>
+<div class="eyebrow op0" id="eb">Built a website and waited?</div>
+<h1 style="font-size:84px;letter-spacing:-.03em"><div class="op0" id="a1">…and just sat back?</div><div class="op0" id="a2" style="color:var(--muted);font-size:64px;margin-top:8px">You&#39;ve got a beautiful net —</div></h1>
 <div class="stage op0" id="st" style="height:760px;margin-top:40px;background:linear-gradient(#FBFAF6,#F4EFE3)">
  <svg class="abs" style="left:700px;top:60px" width="150" height="150" viewBox="-75 -75 150 150"><g id="sun">${[...Array(12)].map((_,i)=>`<line x1="0" y1="-52" x2="0" y2="-70" stroke="#F5B400" stroke-width="7" stroke-linecap="round" transform="rotate(${i*30})"/>`).join('')}</g><circle r="40" fill="var(--yellow)" stroke="#F5B400" stroke-width="5"/></svg>
  <div class="abs" style="left:0;right:0;top:520px;bottom:0;background:#E9DFC9"></div>
@@ -165,9 +165,9 @@ S['04-dry']={html:()=>`
  <div class="abs" style="left:150px;top:150px;width:12px;height:390px;border-radius:6px;background:#8B6B43"></div><div class="abs" style="left:750px;top:150px;width:12px;height:390px;border-radius:6px;background:#8B6B43"></div>
  <div class="abs" id="nw" style="left:156px;top:160px;transform-origin:300px 0">${netSVG(600,300,'dnet',{step:60,sag:70})}</div>
  <svg class="abs" id="tw" width="110" height="110" viewBox="-55 -55 110 110" style="top:445px"><g fill="none" stroke="#A88B5E" stroke-width="4">${[...Array(9)].map((_,i)=>`<ellipse rx="${40-i*2}" ry="${18+i*3}" transform="rotate(${i*20})"/>`).join('')}</g></svg>
- <div class="abs card op0" id="zero" style="left:40px;top:40px;padding:18px 26px;font-weight:700;font-size:34px">इंक्वायरी: <span style="font-family:Inter;font-weight:800;color:#E11D48">0</span></div>
+ <div class="abs card op0" id="zero" style="left:40px;top:40px;padding:18px 26px;font-weight:700;font-size:34px">Enquiries: <span style="font-family:Inter;font-weight:800;color:#E11D48">0</span></div>
 </div>
-<div class="op0" id="dry" style="position:relative;margin-top:-140px;margin-left:430px;z-index:5;display:inline-block;align-self:flex-start;background:var(--yellow);border:6px solid var(--ink);border-radius:26px;padding:6px 38px 0;font-family:'Inter Display','Hind';font-weight:700;font-size:120px;line-height:1.25;transform:rotate(-6deg)">सूखा।</div>`,
+<div class="op0" id="dry" style="position:relative;margin-top:-140px;margin-left:330px;white-space:nowrap;z-index:5;display:inline-block;align-self:flex-start;background:var(--yellow);border:6px solid var(--ink);border-radius:26px;padding:6px 38px 0;font-family:'Inter Display','Hind';font-weight:800;font-size:112px;line-height:1.2;letter-spacing:-.03em;transform:rotate(-6deg)">Bone dry.</div>`,
 upd(t,c){rise($('#eb'),t,.05);rise($('#a1'),t,c[0]);rise($('#st'),t,.2,.6,80);drawNet('dnet',1);rise($('#a2'),t,c[1]);
   $('#sun').setAttribute('transform',`rotate(${t*25})`);
   $$('#cracks path').forEach((p,i)=>{p.style.strokeDasharray=1;p.style.strokeDashoffset=1-eo(P(t,c[1]+i*.12,.6))});
@@ -177,28 +177,28 @@ upd(t,c){rise($('#eb'),t,.05);rise($('#a1'),t,c[0]);rise($('#st'),t,.2,.6,80);dr
   pop($('#dry'),t,c[2],.45,'rotate(-6deg)');const sh=t>c[2]+.2&&t<c[2]+.5?Math.sin(t*80)*6:0;$('#c').style.translate=`${sh}px 0`;}};
 
 /* ---------- 5 JOURNEY ---------- */
-const rows=[['₹','रेट दिखाया','Rate card · पैकेज'],['★','भरोसा दिया','Reviews · काम के उदाहरण'],['➜','बटन दिया','WhatsApp · Call · Form']];
+const rows=[['₹','Showed the price','Rate card · packages'],['★','Built trust','Reviews · past work'],['➜','Gave a button','WhatsApp · Call · Form']];
 S['05-journey']={html:()=>`
-<div class="eyebrow op0" id="eb">कस्टमर ऐसे बनता है</div>
-<h1 class="op0" id="tt" style="font-size:80px">लोग ${hl('==एड==')} से आए,<br>फिर वेबसाइट ने…</h1>
+<div class="eyebrow op0" id="eb">How a customer is made</div>
+<h1 class="op0" id="tt" style="font-size:84px;letter-spacing:-.03em">People came from ${hl('==an ad==')},<br>then the website…</h1>
 <div class="stage op0" id="st" style="height:780px;margin-top:34px">
  <div class="abs card" id="ad" style="left:34px;top:40px;width:330px;padding:20px;box-shadow:0 18px 40px rgba(15,23,42,.1)">
   <div class="tagk" style="color:var(--soft);font-size:20px">Sponsored</div>
   <div style="margin-top:12px;height:120px;border-radius:16px;background:linear-gradient(120deg,var(--blue),#6AA9F5)"></div>
-  <div style="margin-top:14px;font-weight:700;font-size:30px">आपका बिज़नेस</div>
-  <div style="margin-top:12px;height:50px;border-radius:12px;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:26px">और जानें</div></div>
- <div class="abs card op0" id="vis" style="left:34px;top:470px;width:330px;padding:22px 24px"><div style="font-weight:600;font-size:28px;color:var(--soft)">वेबसाइट पर विज़िटर</div><div id="vn" style="font-family:Inter;font-weight:800;font-size:64px;line-height:1.1;color:var(--blue2)">0</div></div>
- <div class="abs" id="ph" style="left:440px;top:30px;width:430px;height:720px;border:5px solid var(--ink);border-radius:56px;background:#fff;overflow:hidden;padding:56px 22px 0">
-  <div style="height:120px;border-radius:20px;background:var(--db);display:flex;align-items:center;padding:0 22px;font-weight:700;font-size:34px;color:var(--blue2)">आपकी वेबसाइट</div>
+  <div style="margin-top:14px;font-weight:700;font-size:30px">Your business</div>
+  <div style="margin-top:12px;height:50px;border-radius:12px;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:26px">Learn more</div></div>
+ <div class="abs card op0" id="vis" style="left:34px;top:470px;width:330px;padding:22px 24px"><div style="font-weight:600;font-size:28px;color:var(--soft)">Website visitors</div><div id="vn" style="font-family:Inter;font-weight:800;font-size:64px;line-height:1.1;color:var(--blue2)">0</div></div>
+ <div class="abs" id="ph" style="left:396px;top:30px;width:486px;height:720px;border:5px solid var(--ink);border-radius:56px;background:#fff;overflow:hidden;padding:56px 22px 0">
+  <div style="height:120px;border-radius:20px;background:var(--db);display:flex;align-items:center;padding:0 22px;font-weight:700;font-size:34px;color:var(--blue2)">Your website</div>
   ${rows.map((r,i)=>`<div class="rw op0" style="display:flex;gap:18px;align-items:center;margin-top:20px;padding:18px;border-radius:20px;border:2px solid var(--line)">
    <div style="flex:none;width:62px;height:62px;border-radius:16px;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:32px;font-family:Inter">${r[0]}</div>
-   <div style="flex:1"><div style="font-weight:700;font-size:34px;line-height:1.2">${r[1]}</div><div style="font-weight:500;font-size:22px;color:var(--soft)">${r[2]}</div></div>
+   <div style="flex:1;min-width:0"><div style="font-weight:700;font-size:29px;line-height:1.2;white-space:nowrap">${r[1]}</div><div style="font-weight:500;font-size:20px;color:var(--soft);white-space:nowrap">${r[2]}</div></div>
    <div class="ok" style="flex:none;width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--yellow);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:24px;transform:scale(0)">✓</div></div>`).join('')}
  </div>
  <div id="ppl"></div>
- <div class="abs" id="nt" style="left:470px;top:0"></div>
+ <div class="abs" id="nt" style="left:430px;top:0"></div>
 </div>
-<div class="vc good op0" id="res" style="margin-top:26px"><div class="ic">✓</div><div style="flex:1"><div class="lb">तब जाकर</div><div class="tx">वो ${hl('==कस्टमर==')} बने</div></div>
+<div class="vc good op0" id="res" style="margin-top:26px"><div class="ic">✓</div><div style="flex:1"><div class="lb">That&#39;s when</div><div class="tx">they became ${hl('==customers==')}</div></div>
  <div style="font-family:Inter;font-weight:800;font-size:72px" id="cn">+0</div></div>`,
 upd(t,c){rise($('#eb'),t,.05);rise($('#tt'),t,.15);sweep($('#tt'),t,.7);rise($('#st'),t,.25,.6,80);pop($('#ad'),t,c[0],.5);rise($('#vis'),t,c[0]+.4,.45,30);let vc=0;for(let i=0;i<10;i++){if(t>c[0]+.5+i*.38+1.0)vc++}$('#vn').textContent=vc;
   let pp='';for(let i=0;i<10;i++){const st=c[0]+.5+i*.38;const k=P(t,st,1.1);if(k>0&&k<1){const e=eio(k);const x0=200,y0=330,x1=655,y1=260+i%3*10;const x=x0+(x1-x0)*e;const y=y0+(y1-y0)*e-Math.sin(e*Math.PI)*120;
@@ -206,17 +206,17 @@ upd(t,c){rise($('#eb'),t,.05);rise($('#tt'),t,.15);sweep($('#tt'),t,.7);rise($('
   $$('.rw').forEach((r,i)=>{rise(r,t,c[1+i]-.2,.45,30);const k=P(t,c[1+i]+.3,.35);r.querySelector('.ok').style.transform=`scale(${k?bk(k):0})`;r.style.borderColor=k>0?'var(--blue)':'var(--line)'});
   rise($('#res'),t,c[4],.55,80);sweep($('#res'),t,c[4]+.5,.4);
   const n=Math.min(3,Math.floor(cl(t-c[4]-.6,0,9)/0.55));$('#cn').textContent='+'+n;
-  let nh='';for(let i=0;i<n;i++){const k=P(t,c[4]+.6+i*.55,.4);nh+=`<div style="position:absolute;left:${-40}px;top:${120+i*0}px;opacity:${k*(i==n-1?1:0)};transform:translateY(${(1-eo(k))*-30}px);width:370px;background:var(--ink);color:#fff;border-radius:22px;padding:16px 22px;font-weight:600;font-size:28px;display:flex;gap:14px;align-items:center;box-shadow:0 14px 30px rgba(15,23,42,.25)"><b style="width:40px;height:40px;border-radius:50%;background:#22C55E;display:flex;align-items:center;justify-content:center;font-size:22px">✓</b>नई इंक्वायरी आई</div>`}$('#nt').innerHTML=nh;}};
+  let nh='';for(let i=0;i<n;i++){const k=P(t,c[4]+.6+i*.55,.4);nh+=`<div style="position:absolute;left:${-40}px;top:${120+i*0}px;opacity:${k*(i==n-1?1:0)};transform:translateY(${(1-eo(k))*-30}px);width:430px;white-space:nowrap;background:var(--ink);color:#fff;border-radius:22px;padding:16px 22px;font-weight:600;font-size:28px;display:flex;gap:14px;align-items:center;box-shadow:0 14px 30px rgba(15,23,42,.25)"><b style="width:40px;height:40px;border-radius:50%;background:#22C55E;display:flex;align-items:center;justify-content:center;font-size:22px">✓</b>New enquiry received</div>`}$('#nt').innerHTML=nh;}};
 
 /* ---------- 6 BOTH ---------- */
 S['06-both']={html:()=>`
-<div class="eyebrow op0" id="eb">इसलिए</div>
-<h1 class="op0" id="tt" style="font-size:112px">दोनों चाहिए।</h1>
+<div class="eyebrow op0" id="eb">So</div>
+<h1 class="op0" id="tt" style="font-size:112px;letter-spacing:-.035em">You need both.</h1>
 <div class="vcs" style="margin-top:40px">
- <div class="vc bad op0" id="v1"><div class="ic">✕</div><div><div class="lb">सिर्फ़ वेबसाइट</div><div class="tx">अकेली वेबसाइट, कुछ नहीं</div></div></div>
- <div class="vc bad op0" id="v2" style="position:relative;overflow:hidden"><div class="ic">✕</div><div><div class="lb">बिना वेबसाइट के एड</div><div class="tx">एड का पैसा, पानी में</div></div>
+ <div class="vc bad op0" id="v1"><div class="ic">✕</div><div><div class="lb">Website only</div><div class="tx">A website alone does nothing</div></div></div>
+ <div class="vc bad op0" id="v2" style="position:relative;overflow:hidden"><div class="ic">✕</div><div><div class="lb">Ads without a website</div><div class="tx">Ad money, thrown in the water</div></div>
   <svg class="abs" style="left:0;bottom:0" width="912" height="70"><path id="v2w" fill="var(--water)"/></svg><div id="sink"></div></div>
- <div class="vc good op0" id="v3"><div class="ic">✓</div><div><div class="lb">वेबसाइट + एड · गूगल · सोशल</div><div class="tx">${hl('==जाल + पानी==')} = कस्टमर</div></div></div>
+ <div class="vc good op0" id="v3"><div class="ic">✓</div><div><div class="lb">Website + Ads · Google · Social</div><div class="tx">${hl('==Net + water==')} = customers</div></div></div>
 </div>
 <div class="op0" id="eqn" style="display:flex;align-items:center;justify-content:center;gap:26px;margin-top:46px">
  <div class="card" style="width:200px;height:170px;display:flex;align-items:center;justify-content:center;overflow:hidden">${netSVG(150,110,'enet',{step:30,sag:20})}</div>
@@ -231,10 +231,10 @@ upd(t,c){rise($('#eb'),t,.05);pop($('#tt'),t,.12,.45);rise($('#v1'),t,c[0],.5);r
   pop($('#ec'),t,c[2]+1.4,.5);}};
 
 /* ---------- 7 CTA ---------- */
-const opts=[['₹','एड से'],['G','गूगल से'],['♥','सोशल मीडिया से'],['?','पता नहीं']];
+const opts=[['₹','From ads'],['G','From Google'],['♥','From social media'],['?','Don&#39;t know']];
 S['07-cta']={html:()=>`
-<div class="eyebrow op0" id="eb">आपसे एक सवाल</div>
-<h1 class="op0" id="tt" style="font-size:80px">आपकी वेबसाइट पर लोग<br>${hl('==कहां से==')} आते हैं?</h1>
+<div class="eyebrow op0" id="eb">Quick question</div>
+<h1 class="op0" id="tt" style="font-size:84px;letter-spacing:-.03em">Where do your website<br>visitors ${hl('==come from?==')}</h1>
 <div style="display:flex;flex-direction:column;gap:16px;margin-top:36px">${opts.map((o,i)=>`<div class="opt op0" style="position:relative;display:flex;align-items:center;gap:24px;background:#fff;border:3px solid var(--line);border-radius:24px;padding:16px 26px;overflow:hidden">
  <span class="ob" style="position:absolute;left:0;top:0;bottom:0;width:100%;background:var(--yellow);transform-origin:left;transform:scaleX(0)"></span>
  <span style="position:relative;flex:none;width:58px;height:58px;border-radius:16px;background:var(--db);color:var(--blue2);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:32px;font-family:Inter">${o[0]}</span>
@@ -243,15 +243,15 @@ S['07-cta']={html:()=>`
 <div class="op0" id="cta" style="margin-top:30px;background:var(--ink);border-radius:32px;padding:30px 36px;color:#fff">
  <div style="display:flex;gap:16px;align-items:center"><div style="flex:1;height:96px;border-radius:48px;background:#fff;display:flex;align-items:center;padding:0 34px;font-size:44px;font-weight:700" id="cbox"></div>
   <div id="send" style="width:96px;height:96px;border-radius:50%;background:var(--yellow);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:800">➤</div></div>
- <div class="op0" id="cl1" style="margin-top:22px;font-weight:600;font-size:40px;line-height:1.3">पता नहीं? कमेंट में लिखो <b style="color:var(--yellow)">"पता नहीं"</b></div>
- <div class="op0" id="cl2" style="margin-top:6px;font-weight:600;font-size:36px;color:#CBD5E1">या DM करो, बात करते हैं · फ़्री 20 मिनट कॉल</div></div>
-<div class="op0" id="hd" style="margin-top:22px;text-align:center;font-weight:700;font-size:36px;color:var(--blue2)">जाल और पानी, दोनों चाहिए · @official_softnear</div>`,
+ <div class="op0" id="cl1" style="margin-top:22px;font-weight:600;font-size:40px;line-height:1.3">Don&#39;t know? Comment <b style="color:var(--yellow)">DON&#39;T KNOW</b></div>
+ <div class="op0" id="cl2" style="margin-top:6px;font-weight:600;font-size:36px;color:#CBD5E1">Or DM us, let&#39;s talk · free 20-minute call</div></div>
+<div class="op0" id="hd" style="margin-top:22px;text-align:center;font-weight:700;font-size:36px;color:var(--blue2)">You need the net and the water · @official_softnear</div>`,
 upd(t,c){rise($('#eb'),t,.05);rise($('#tt'),t,c[0]);sweep($('#tt'),t,c[0]+.6);
   $$('.opt').forEach((o,i)=>{rise(o,t,c[0]+.6+i*.2,.45,40)});
   const last=$$('.opt')[3];const sel=P(t,c[1],.45);last.querySelector('.ob').style.transform=`scaleX(${eio(sel)})`;last.style.borderColor=sel>0?'var(--ink)':'var(--line)';
   const tp=$('#tap');const r=last.getBoundingClientRect();const pr=$('#c').getBoundingClientRect();tp.style.left=(r.left-pr.left+r.width-170)+'px';tp.style.top=(r.top-pr.top+r.height/2-45)+'px';
   const tk=P(t,c[1]-.25,.6);tp.style.opacity=tk>0&&tk<1?(1-tk):0;tp.style.transform=`scale(${.4+tk*1.2})`;
-  rise($('#cta'),t,c[2]-.4,.55,120);const cb=$('#cbox');if(t<c[2]){cb.innerHTML='<span style="color:#94A3B8;font-weight:500">कमेंट लिखें…</span>'}else{typed(cb,'पता नहीं',t,c[2],7,true);cb.style.color='var(--ink)'}
+  rise($('#cta'),t,c[2]-.4,.55,120);const cb=$('#cbox');if(t<c[2]){cb.innerHTML='<span style="color:#94A3B8;font-weight:500">Add a comment…</span>'}else{typed(cb,'DON\'T KNOW',t,c[2],12,true);cb.style.color='var(--ink)'}
   const sk=P(t,c[2]+1.2,.5);$('#send').style.transform=`scale(${1+.2*Math.sin(sk*Math.PI)})`;
   rise($('#cl1'),t,c[2]+1.4,.45,20);rise($('#cl2'),t,c[3],.45,20);rise($('#hd'),t,c[3]+.5,.45,20);}};
 

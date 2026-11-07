@@ -13,9 +13,10 @@ one company with one point of view.
 - **Reuse the team's lines as they are** where they fit (marked "Lines to keep").
   Rewrite around them, not over them.
 - **Don't repeat a script as-is within 6 weeks.** Check `log.md` for when it last ran.
-- **Hindi or English:** the team writes reels in conversational Hindi with everyday
-  English words (वेबसाइट, एड, गूगल, कस्टमर, DM, लीड्स). Keep that mix. In Hindi, talk to the
-  viewer as "तुम/आप" the way the source script does, and keep it consistent within a post.
+- **Language:** the team writes scripts in conversational Hindi with everyday English words
+  (वेबसाइट, एड, गूगल, कस्टमर, DM, लीड्स). Use that for the **Hindi voiceover** and captions.
+  Reel visuals are always **English text**, and every reel also gets an **English voiceover**
+  version (see "Reels and video" in `brand.md`).
 - **Add every new script the team gives** as a new entry below, with the date, the
   original text unchanged, the core idea, and where it was used.
 
@@ -33,7 +34,7 @@ one company with one point of view.
 
 ## Recurring calls to action
 
-- Comment a keyword: `WEBSITE` (free website check), `पता नहीं` (doesn't know where visitors come from)
+- Comment a keyword: `WEBSITE` (free website check), `DON'T KNOW` / `पता नहीं` (doesn't know where visitors come from)
 - "DM करो, बात करते हैं" → free 20-minute call (approved offer in `brand.md`)
 - Follow @official_softnear
 
@@ -59,15 +60,16 @@ one company with one point of view.
 - "बिना वेबसाइट के एड का पैसा पानी में।"
 - "जाल और पानी, दोनों चाहिए।"
 
-**CTA:** comment "पता नहीं" · DM for a free 20-minute call.
+**CTA:** comment DON'T KNOW (Hindi viewers may write "पता नहीं"; treat both the same) · DM for a free 20-minute call.
 
 **Follow-up ideas:** one post per "water" (ads vs SEO vs social: cost, speed, effort);
 "3 things a website must do when an ad visitor lands" (rate, trust, button) as a
 checklist carousel; how to find where your visitors come from (Google Analytics in 2
 minutes); the net metaphor for an industry (clinic, coaching, Shopify store).
 
-**Used in:** IG/FB/LI reel, week of 2026-11-09, `2026-11/week-11-09/ig-reel-jaal-paani/`
-(text-led animated reel, no voiceover; `script.md` has the beat sheet for recording one).
+**Used in:** week of 2026-11-09, `2026-11/week-11-09/ig-reel-jaal-paani/`: animated reel
+with English on-screen text, two versions (`reel-hi.mp4` Hindi voiceover, `reel-en.mp4`
+English voiceover). Full Hindi and English voiceover script in `script.md`.
 
 ### 2026-11-07 · "₹5,000 vs ₹25,000 website"
 

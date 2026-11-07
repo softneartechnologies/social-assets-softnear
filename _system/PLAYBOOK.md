@@ -60,6 +60,7 @@ Write the plan to `WEEK/plan.md` (the calendar table from the skills, plus targe
 ## 3. Write the copy
 
 - Instagram carousels: `ig/skills/ig-carousel/SKILL.md` (cover <= 6 words, one idea per slide, recap slide, one CTA). Caption = Job B in `ig/skills/ig-caption/SKILL.md`.
+- Reels follow "Reels and video" in `brand.md`: English on-screen text, a voiceover always, and two versions (Hindi voiceover and English voiceover). Example build: `2026-11/week-11-09/ig-reel-jaal-paani/` (`script.md` + `source/`).
 - Instagram reel: `ig/skills/ig-reel/SKILL.md`. Score 3 hooks with `python3 ig/skills/ig-reel/hookscore.py`, keep the best. Caption = Job A. Put the voiceover script and beat sheet (`beats.py`) in the PostDesk `media_brief` so the team can re-shoot it with a face if they want.
 - Every Instagram caption: run `python3 ig/skills/ig-human/humanize.py`, then `detect.py` until PASS, then `python3 ig/skills/ig-caption/caption.py FILE --keywords "..."` until READY. No links in IG captions.
 - LinkedIn: `li/skills/linkedin-post-writer/SKILL.md` (number-first or statement line 1, never a question first, 900-1,300 chars, closing question, 0-2 hashtags, link in first comment). Then apply `li/skills/linkedin-humanizer/SKILL.md` in audit mode and fix blockers.

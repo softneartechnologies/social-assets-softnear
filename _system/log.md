@@ -41,4 +41,4 @@ One block per week, newest last. The weekly run reads the last four weeks so it 
 
 - 2026-11-08 (extra, W45): IG reel + FB reel · S5 Website designing x I8/local business · pillar Buyer pain + fix · angle "₹5,000 vs ₹25,000 website, 5 differences" · keyword WEBSITE · PostDesk 28, 29
 - 2026-11-09/10/13 (extra, W46): English animated version of the website price reel · FB Mon 18:30, IG Tue 19:30, LI Fri 13:30 · S5 x I8/local business · keyword WEBSITE · PostDesk 30, 31, 32
-- 2026-11-09/11/12 (extra, W46): "जाल और पानी" animated Hindi reel from team script · LI Mon 13:30, FB Wed 18:30, IG Thu 19:30 · S5+S10 x local business · pillar Opinion / Buyer pain + fix · contrarian "we build websites" hook + net metaphor · keyword पता नहीं · DM → free 20-min call
+- 2026-11-09/11/12/14 (extra, W46): "Net and water" (जाल और पानी) animated reel from team script, English on-screen text, two voiceovers · LI Mon 13:30 (English VO), FB Wed 18:30 (Hindi VO), IG Thu 19:30 (Hindi VO), IG Sat 19:30 (English VO) · S5+S10 x local business · pillar Opinion / Buyer pain + fix · contrarian "we build websites" hook + net metaphor · keyword DON'T KNOW / पता नहीं · DM → free 20-min call

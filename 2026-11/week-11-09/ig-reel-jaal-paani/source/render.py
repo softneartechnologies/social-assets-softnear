@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Render the "जाल और पानी" reel scene by scene from stage.html.
 
-python3 render.py --check            stills at key moments -> check/
-python3 render.py [scene ids...]     frames + one mp4 per scene -> out/
+TIMING=timing_hi.json REEL_WORK=dir python3 render.py --check     stills at key moments -> dir/check/
+TIMING=timing_hi.json REEL_WORK=dir python3 render.py [scene ids]  frames + one mp4 per scene -> dir/out/
+Timing files come from timing.py (scene lengths and cues from the voiceover).
 Needs Playwright (chromium), ffmpeg, and the Inter + Hind fonts installed.
 """
 import base64, json, os, subprocess, sys, shutil
@@ -13,7 +14,7 @@ HERE = Path(__file__).parent
 REPO = HERE.parents[3]
 FPS = 30
 LOGO = "data:image/png;base64," + base64.b64encode((REPO / "_system/assets/softnear-logo.png").read_bytes()).decode()
-SCENES = json.loads((HERE / "scenes.json").read_text())
+SCENES = json.loads(Path(os.environ.get("TIMING", HERE / "timing_en.json")).read_text())
 WORK = Path(os.environ.get("REEL_WORK", HERE / "work"))
 
 
