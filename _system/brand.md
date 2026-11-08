@@ -125,6 +125,7 @@ The goal of every post is a conversation with a potential buyer, not likes.
 - **Every reel has a voiceover.** Never ship a text-only reel.
 - **On-screen text is always English.** Never put Hindi text in the visuals.
 - **Make two versions of every reel:** the same English visuals with a **Hindi voiceover**, and with an **English voiceover**. Time each version's animation to its own voice.
+- **Scheduling the two versions:** LinkedIn gets the English version, Facebook and Instagram get the Hindi version. The second version never goes to the same platform in the same week; extra reels only use the free extra slots (see "Calendar rules" in PLAYBOOK.md and `_system/calendar.py`).
 - Reels should be cinematic and animated (motion graphics that act out the idea, sound effects on each beat, music under the voice), spread awareness, and end with a clear ask: comment a keyword or DM us.
 - Voice: ElevenLabs v4 via Bloom (brand "Softnear"), voice "christopher", unless the team records its own.
 
