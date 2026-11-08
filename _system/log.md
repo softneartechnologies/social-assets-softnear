@@ -43,3 +43,10 @@ One block per week, newest last. The weekly run reads the last four weeks so it 
 - 2026-11-09/10/13 (extra, W46): English animated version of the website price reel · FB Mon 18:30, IG Tue 19:30, LI Fri 13:30 · S5 x I8/local business · keyword WEBSITE · PostDesk 30, 31, 32
 - 2026-11-09/11/12/14 (extra, W46): "Net and water" (जाल और पानी) animated reel from team script, English on-screen text, two voiceovers · LI Mon 13:30 (English VO), FB Wed 18:30 (Hindi VO), IG Thu 19:30 (Hindi VO), IG Sat 19:30 (English VO) · S5+S10 x local business · pillar Opinion / Buyer pain + fix · contrarian "we build websites" hook + net metaphor · keyword DON'T KNOW / पता नहीं · DM → free 20-min call
 - 2026-11-13/15/16/17 (extra): "Find the leaks. We're the right team." Shopify & e-commerce reel (Claude-written script), English text, two voiceovers · FB Fri 13 18:30 (Hindi VO), IG Sun 15 19:30 (Hindi VO), LI Mon 16 13:30 (English VO), IG Tue 17 19:30 (English VO) · S11+S10+S6 x I8 · pillar Buyer pain + fix / Offer · 70% cart-abandonment hook + 4 leaks with sourced stats + concept storefronts + "we're the right team" positioning · keyword STORE / DM
+
+## Calendar fix (2026-11-08)
+
+Extra Hindi/English reels had been added on top of the week of 2026-11-09 (every platform every day, same reel in both languages on IG/FB). Rules R1-R5 added to PLAYBOOK.md and `_system/calendar.py`. Pending posts moved:
+- #29 FB Hindi website reel -> Mon 11-09 18:30 · #33 IG Hindi net&water -> Tue 11-10 · #38 IG Hindi Shopify leaks -> Sat 11-14
+- #34 FB Hindi net&water -> Mon 11-16 · #36 IG English net&water -> Tue 11-17 · #35 LI net&water -> Fri 11-20 · #30 IG English website -> Sat 11-21
+- #37 FB Hindi Shopify leaks -> Mon 11-23 · #40 IG English Shopify leaks -> Tue 11-24 · #39 LI Shopify leaks -> Fri 11-27 · #31 FB English website -> Mon 11-30

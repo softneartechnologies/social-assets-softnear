@@ -23,7 +23,7 @@ python3 -c "import playwright" && which ffmpeg                  # renderer needs
 - Target week = the next Monday to Sunday after today (Asia/Kolkata).
 - Week folder: `assets/YYYY-MM/week-MM-DD/` named after that Monday (month of the Monday).
 - If that folder already exists, or PostDesk already has posts with campaign `Week of YYYY-MM-DD`, the week is done: only handle rejected posts (below), then stop and report.
-- PostDesk `get_studio_info`: note dates/platforms already taken; do not double-book a platform on a day.
+- PostDesk `get_studio_info` and `list_posts(from=<Monday>, limit=200)`: note dates/platforms already taken (including reels carried over from earlier weeks). Run `python3 assets/_system/calendar.py check posts.json`. If a weekly-plan slot is already taken by a carried-over post, use `calendar.py next ... post` for that platform instead of double-booking. Follow "Calendar rules" below.
 - PostDesk `list_posts status=rejected`: read `reviewer_notes`; fix and `update_post` those first, and apply the lesson to this week.
 - Read `assets/_system/log.md`: do not repeat an angle or hook formula used in the last 4 weeks.
 - Read `assets/_system/brand.md`: facts, pillars, positions, banned words. Never invent numbers or clients.
@@ -37,11 +37,29 @@ Read and follow:
 
 Weekly slots (studio timezone Asia/Kolkata):
 
-| platform | posts | days / times | formats |
+| platform | weekly plan posts | days / times | formats |
 | --- | --- | --- | --- |
 | LinkedIn | 3 | Tue, Wed, Thu at 13:30 (08:00 UK, 09:00 CET) | 1200x1200 image each |
 | Instagram | 3 | Mon 19:30, Wed 19:30, Fri 19:30 | 2 carousels (6-8 slides, 1080x1350) + 1 reel (1080x1920 MP4 from 5-6 text frames) |
 | Facebook | 3 | Tue 18:30, Thu 18:30, Sat 11:00 | 1200x1200 image each |
+
+### Calendar rules (set by the owner on 2026-11-08, never break them)
+
+The calendar must never overlap. `python3 _system/calendar.py` enforces these rules:
+
+- **R1 One post per platform per day.** Never two Instagram (or two Facebook, two LinkedIn) posts on the same date.
+- **R2 Weekly caps (Mon-Sun):** Instagram 5, Facebook 4, LinkedIn 4. Not every platform needs a post every day; Sunday stays empty unless a slot below says otherwise.
+- **R3 Slots.** Weekly-plan posts use the slots in the table above. Extra reels/videos (anything made outside the weekly run: Hindi/English reels, festival videos, ad-hoc requests) use only these extra slots:
+  - Instagram: Tue 19:30 and Sat 19:30
+  - Facebook: Mon 18:30
+  - LinkedIn: Fri 13:30
+- **R4 Same idea, different days.** The same service x industry piece never runs on two platforms on the same day; spread it across the week.
+- **R5 One language per platform.** LinkedIn gets the English version. Facebook and Instagram get the Hindi version when one exists. Hindi and English versions of the same piece never go to the same platform in the same week; a second-language copy, if the team wants it at all, goes into a later week's free extra slot.
+- **New reel or video?** Never squeeze it into a taken day and never move a planned post for it. Save `list_posts(from=today, limit=200)` as JSON and run
+  `python3 _system/calendar.py next posts.json instagram reel --after YYYY-MM-DD --lang hindi --key S5xI8`
+  (same for `facebook reel` / `linkedin video`). Use the date it prints; if the week's extra slots are full it rolls to the next week.
+- **Before and after every create_posts / update_post batch**, save `list_posts` again and run `python3 _system/calendar.py check posts.json`. It must print `OK`. If it does not, reschedule pending posts (never published ones) until it does, and report what moved.
+- Posts moved to a later week keep their original `campaign`, so the "week already planned" check below is not fooled by them; the weekly run plans around them using the free planned slots.
 
 Rules for the mix (lead generation first, see "Lead generation rules" in `brand.md`):
 - **Pick this week's targets first.** Choose 3 service x industry pairs from the tables in `brand.md` (e.g. S11 Shopify x I8 Retail, S8 AI automations x I4 Logistics, S2 App development x I7 Healthcare). Read `_system/log.md` and pick pairs not used in the last 4 weeks, so every service and industry gets covered over time.
@@ -113,6 +131,8 @@ Use the `postdesk-softnear` connector (tools `mcp__postdesk-softnear__*`).
 - `media_urls`: raw URLs in slide order (reel: the MP4 first)
 - `post_type`: post / carousel / reel
 - `media_brief`: slide copy, alt text, and for the reel the script and beat sheet
+
+Then save `list_posts(from=<Monday>, limit=200)` and run `python3 _system/calendar.py check posts.json`; it must print `OK` before the run ends.
 
 ## 7. Log and report
 
