@@ -9,8 +9,10 @@ Nothing is published by this job: PostDesk holds every post as "pending review".
 
 ```bash
 cd /home/claude
-GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 https://github.com/Jakeschincariol/instagram-agent-skill ig
-GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 https://github.com/sergebulaev/linkedin-skills li
+# Third-party skill packs are pinned to a reviewed commit. Update a hash only after reading what changed.
+pin() { mkdir -p "$2" && git -C "$2" init -q && git -C "$2" remote add origin "$1" && GIT_LFS_SKIP_SMUDGE=1 git -C "$2" fetch -q --depth 1 origin "$3" && GIT_LFS_SKIP_SMUDGE=1 git -C "$2" checkout -q FETCH_HEAD; }
+pin https://github.com/Jakeschincariol/instagram-agent-skill ig d03c56bb598be770c60b201f94237e5d1a4268a6
+pin https://github.com/sergebulaev/linkedin-skills li 8f8bc4b40a2d5419b2dcf898772b85712cfbdf41
 # the assets repo needs push access: call add_repo(owner=softneartechnologies, repo=social-assets-softnear, access=push) first
 git clone --depth 1 https://github.com/softneartechnologies/social-assets-softnear assets
 mkdir -p ~/.claude/instagram && cp assets/_system/brand.md ~/.claude/instagram/voice.md
@@ -24,6 +26,7 @@ python3 -c "import playwright" && which ffmpeg                  # renderer needs
 - Week folder: `assets/YYYY-MM/week-MM-DD/` named after that Monday (month of the Monday).
 - If that folder already exists, or PostDesk already has posts with campaign `Week of YYYY-MM-DD`, the week is done: only handle rejected posts (below), then stop and report.
 - PostDesk `get_studio_info` and `list_posts(from=<Monday>, limit=200)`: note dates/platforms already taken (including reels carried over from earlier weeks). Run `python3 assets/_system/calendar.py check posts.json`. If a weekly-plan slot is already taken by a carried-over post, use `calendar.py next ... post` for that platform instead of double-booking. Follow "Calendar rules" below.
+- PostDesk `get_performance_insights`: save `insights_markdown` to `assets/_system/insights.md`, then follow "Using results" below. If the tool is not available yet, skip this and plan as usual.
 - PostDesk `list_posts status=rejected`: read `reviewer_notes`; fix and `update_post` those first, and apply the lesson to this week.
 - Read `assets/_system/log.md`: do not repeat an angle or hook formula used in the last 4 weeks.
 - Read `assets/_system/brand.md`: facts, pillars, positions, banned words. Never invent numbers or clients.
@@ -42,6 +45,15 @@ Weekly slots (studio timezone Asia/Kolkata):
 | LinkedIn | 3 | Tue, Wed, Thu at 13:30 (08:00 UK, 09:00 CET) | 1200x1200 image each |
 | Instagram | 3 | Mon 19:30, Wed 19:30, Fri 19:30 | 2 carousels (6-8 slides, 1080x1350) + 1 reel (1080x1920 MP4 from 5-6 text frames) |
 | Facebook | 3 | Tue 18:30, Thu 18:30, Sat 11:00 | 1200x1200 image each |
+
+### Using results (`_system/insights.md`, rewritten every run)
+
+- If the file says **keep the current plan**, do exactly that. Early numbers are too noisy to act on.
+- Otherwise split the 9 weekly-plan posts as the file says, normally 6 proven, 2 variations of what works and 1 experiment. Tell each one apart in `plan.md`.
+- Give more of the week's target pairs, hooks and formats to the "Do more of this" list, and drop or rework the "Do less of this" list.
+- Results only choose among allowed options. They never override the calendar rules, the slots, `brand.md`, the lead offers or team approval, and their numbers never go in post copy.
+- Change one thing at a time in the experiment post, so its result means something.
+- List any "Tracking problems" from the file in the final report.
 
 ### Calendar rules (set by the owner on 2026-11-08, never break them)
 
@@ -67,9 +79,10 @@ Rules for the mix (lead generation first, see "Lead generation rules" in `brand.
   - LinkedIn: decision makers (founders, CTOs, ops and marketing heads) in that industry.
   - Instagram: founders and small-business owners; carousels for checklists and cost breakdowns, the reel for the sharpest pain point.
   - Facebook: small and mid-size business owners; plain language, local-business examples.
-- Every post: buyer named in the first 2 lines, one pain, one service as the fix, one lead action with a keyword or link, and a lead offer from `brand.md`. Put the keyword and target pair in the PostDesk title, e.g. `W46 – S11xI8 – Shopify speed – keyword SPEED`.
+- Every post: buyer named in the first 2 lines, one pain, one service as the fix, one lead action with a keyword or link, and a lead offer from `brand.md`. Use the title format in step 6.
 - At least 2 posts a week are direct offers; at most 1 post a week has no service in it (proof or people).
 - Use the industry's own words and search terms in captions (e.g. "LMS", "patient app", "dispatch app", "Shopify theme") so Instagram and LinkedIn search can find them. Hashtags: industry + service, specific, never generic.
+- If the `social-media-skills` plugin is available, use `facebook-strategy` for the Facebook week and `experimentation-and-ab-testing` to design the experiment post. Use `threads-post` only when the team asks for Threads posts.
 - Facebook posts can share an idea with LinkedIn/Instagram but are rewritten for small-business owners (`li/skills/linkedin-repurposer/SKILL.md`, `ig/skills/ig-repurpose/SKILL.md`). Never copy-paste between platforms.
 - Links: service page + UTM tags (`brand.md`, rule 5).
 
@@ -126,7 +139,8 @@ Use the `postdesk-softnear` connector (tools `mcp__postdesk-softnear__*`).
 
 `create_posts` once with all 9 posts:
 - `campaign`: `Week of YYYY-MM-DD`
-- `title`: `W<ISO week> – <pillar> – <angle>`
+- `title`: `W<ISO week> – S<service>xI<industry> – <pillar> – <angle> – keyword <KEYWORD> – <Hindi or English>`, e.g. `W46 – S11xI8 – Offer – Shopify speed – keyword SPEED – English`. This is the only title format; `calendar.py` reads the pair and language from it.
+- `service`, `industry`, `pillar`, `hook`, `lead_keyword`, `language`: set all six on every post, because results are grouped by them
 - `content` without hashtags; `hashtags` separate; `first_comment` for the LinkedIn link
 - `media_urls`: raw URLs in slide order (reel: the MP4 first)
 - `post_type`: post / carousel / reel
@@ -136,5 +150,5 @@ Then save `list_posts(from=<Monday>, limit=200)` and run `python3 _system/calend
 
 ## 7. Log and report
 
-Append to `_system/log.md`: week, each post's platform, service x industry pair, pillar, formula/hook number, angle, keyword. Before planning, also read PostDesk comments/notes and any lead feedback the team leaves in `_system/leads.md`, and plan more of what produced leads. Commit and push.
+Commit `_system/insights.md` with the log. Append to `_system/log.md`: week, each post's platform, service x industry pair, pillar, formula/hook number, angle, keyword. Before planning, also read PostDesk comments/notes and any lead feedback the team leaves in `_system/leads.md`, and plan more of what produced leads. The team records DMs and calls on each published post in PostDesk, which feeds the results above; `leads.md` remains for notes that don't belong to one post. Commit and push.
 Finish with a short message: what was planned, the folder link, and anything flagged (rejected posts fixed, `{{number}}` placeholders, render problems).
