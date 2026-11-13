@@ -1,0 +1,17 @@
+R.I.P. the fintech sign-up form that asks for everything before it offers anything.
+
+It asked for your full address before telling you what you could borrow, and wanted a photo of your PAN card on screen two. When you switched to the gallery to find that photo, it logged you out and started again from the top.
+
+It was built by teams who wanted complete data on day one. Fair enough, because compliance needs that data.
+
+Compliance doesn't need it before the user has seen a reason to stay, though.
+
+The onboarding flows we design for lending, wallet and payments apps change the order, not the rules. Name, phone and PAN come first. Then the user sees what they can get. Aadhaar, DigiLocker and documents come last, with save and resume, so a trip to the gallery doesn't cost anyone their progress.
+
+The KYC checks stay exactly the same. Only the order moves.
+
+If you run product or growth at a lending, wallet or payments company in India and your funnel drops at onboarding, we'll look at it with you on a free 20-minute call. DM us KYC, or find the link in the first comment.
+
+Which step in your onboarding loses the most people?
+
+#Fintech #UXDesign

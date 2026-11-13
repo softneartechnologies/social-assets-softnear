@@ -1,0 +1,9 @@
+"AI will get our invoices wrong." Fair. That's why it shouldn't post anything on its own.
+
+If you run a factory or a manufacturing business, someone on your team probably types supplier invoices into Tally or your ERP every day. Same 5 fields. GST number, item, quantity, rate, total. The PDFs come in on Gmail and WhatsApp, and every one gets typed by hand.
+
+That's the kind of repeating work AI is good at. A document AI setup reads the PDF, fills a draft entry and flags anything it isn't sure about. Your accounts team approves it.
+
+Nothing goes in without a person seeing the doubtful fields.
+
+Comment INVOICE and we'll set up a free 20-minute call to check whether your supplier invoices are a good fit for invoice automation.

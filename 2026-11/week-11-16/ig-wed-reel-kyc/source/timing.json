@@ -1,0 +1,9 @@
+{
+  "note": "Voiceover clip lengths in seconds (ElevenLabs v4 'christopher' via Bloom, brand Softnear, generated 2026-11-13). One clip per frame.",
+  "hi": [5.407, 3.971, 4.676, 3.239, 2.691, 6.687],
+  "en": [4.833, 3.318, 4.598, 3.474, 2.586, 4.911],
+  "bloom_audio": {
+    "en": ["58ecd904-b0ed-460f-9a8f-11e554282092", "20f8e3c6-9e53-41fb-b3a4-dd2e969eb0ac", "0d05d12a-b112-49bc-b1d3-8943cb040e1e", "a59155ca-4462-4f38-979c-2d148aa03fa2", "bde74e12-53d7-40d3-a6b9-2e0ced4a77bd", "d24c464d-6ea7-4ecc-b45a-40612bea292e"],
+    "hi": ["fdd9c1a4-a255-48ad-bdf5-ccfdafe074a5", "15c67f02-7e5e-4bd1-9584-477d30f22657", "132adf6a-2a48-4c29-8e54-08633ba78732", "069d6c3b-16af-44e6-b6db-53fa2b1e8693", "3b953bb1-4434-4432-a6c1-fb99583c830a", "49249a5e-792a-4ee3-b277-b2e5eef52fdc"]
+  }
+}

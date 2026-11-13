@@ -1,0 +1,19 @@
+Two manufacturing plants can buy the same ERP in January and be a year apart by December.
+
+In plant A, one person in accounts types every supplier invoice into Tally or SAP Business One. The PDF lands in Gmail, they read the GST number, items, quantities and rates, and type them in.
+
+Plant B has the same inbox and the same ERP. A document AI model reads each PDF, creates a draft entry and flags any field it isn't confident about. The same person now reviews the flagged entries instead of typing all of them.
+
+In January you can't tell the plants apart.
+
+By December the curves have split. Plant A's month-end still waits on one desk catching up. In plant B, that desk spends its hours on the mismatches that cost money: a rate that changed, a short delivery, a bill that came in twice.
+
+We hold one rule on AI in manufacturing: put it where a process repeats every day, not where a demo looks good. Supplier invoices are the clearest case we know: the fields barely change.
+
+The part teams skip is the review screen. Document AI with no human check on low-confidence fields is how a wrong quantity ends up in your ERP.
+
+Which document does your team still retype every day?
+
+P.S. If it's supplier invoices, DM us INVOICE and we'll set up a free 20-minute call.
+
+#Manufacturing #DocumentAI

@@ -1,0 +1,13 @@
+
+BEAT SHEET  ·  45 words  ·  ~16.4s at 165 wpm  ·  target 17.0s
+========================================================================
+  0:00.0   2.9s  HOOK    Nobody tells you: 14 KYC questions kill sign-ups.
+  0:02.9   2.9s          They wanted the loan. The form kept going.
+  0:05.8   2.5s  MID     Ask 3 things first. Name, phone, PAN.
+  0:08.4   2.5s          Show the offer. Then ask for documents.
+  0:10.9   2.5s          Let them save and come back later.
+  0:13.4   2.9s  CTA     We design fintech sign-ups people finish. Comment KYC.
+------------------------------------------------------------------------
+  - Loops: the last beat repeats "kyc, sign-ups" from the hook. Second watches are free reach.
+  - Length is on target (16.4s against 17.0s).
+

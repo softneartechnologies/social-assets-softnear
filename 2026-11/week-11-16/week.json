@@ -1,0 +1,50 @@
+{
+  "handle": "@official_softnear",
+  "posts": [
+    {"id": "ig-mon-hotel", "platform": "instagram", "format": "carousel", "slides": [
+      {"kind": "headline", "eyebrow": "Hotel & homestay owners", "title": "Your hotel site hides the ==price==", "sub": "3 jobs a hotel website has. Most only do one."},
+      {"kind": "statement", "eyebrow": "Why it matters", "title": "A guest from Instagram decides ==on the first screen.==", "sub": "If they have to call for the rate, they keep scrolling."},
+      {"kind": "point", "eyebrow": "Job 1", "title": "Show the ==rate==", "body": "Room, dates, price per night. On the first screen, not behind \"call us\"."},
+      {"kind": "point", "eyebrow": "Job 2", "title": "Give them **trust**", "body": "Real room photos, your location on a map, the reviews you already have, a clear cancellation policy."},
+      {"kind": "point", "eyebrow": "Job 3", "title": "Give them ==one button==", "body": "Book now, or WhatsApp us. One tap on a phone, no long form."},
+      {"kind": "point", "eyebrow": "The part owners skip", "title": "Your website is the net. ==Traffic is the water.==", "body": "Instagram, Google and ads bring the guests. The website turns them into bookings. You need both."},
+      {"kind": "list", "eyebrow": "Screenshot this", "title": "Hotel website checklist", "items": [{"text": "Rate on the first screen"}, {"text": "Real photos, map and reviews"}, {"text": "One-tap Book or WhatsApp button"}, {"text": "Guests coming in from Google, Instagram or ads"}], "highlight": 0},
+      {"kind": "cta", "eyebrow": "Web development", "title": "Comment ==HOTEL==", "body": "We'll send a free cost and timeline estimate for your hotel website.", "button": "Comment HOTEL"}
+    ]},
+    {"id": "li-tue-invoice", "platform": "linkedin", "format": "image", "slides": [
+      {"kind": "headline", "eyebrow": "AI in manufacturing", "title": "Same ERP. ==A year apart.==", "sub": "One plant types every supplier invoice. The other reviews only what AI flags.", "chips": ["AI reads the PDF", "Draft entry in the ERP", "?A person checks the flags"]}
+    ]},
+    {"id": "fb-tue-kyc", "platform": "facebook", "format": "image", "slides": [
+      {"kind": "headline", "eyebrow": "Loan & wallet apps", "title": "14 fields before KYC? ==Ask 3.==", "sub": "Name, phone, PAN. Show the offer. Then ask for documents.", "chips": ["Name", "Phone", "?PAN"]}
+    ]},
+    {"id": "li-wed-hotel", "platform": "linkedin", "format": "image", "slides": [
+      {"kind": "headline", "eyebrow": "Hotels & travel", "title": "Same ad. Two websites. ==One shows the rate.==", "sub": "A guest who tapped an ad shouldn't have to call for the price.", "chips": ["Rate on screen 1", "Real photos", "?Book button"]}
+    ]},
+    {"id": "ig-wed-reel-kyc", "platform": "instagram", "format": "reel", "seconds_per_slide": 3.0, "slides": [
+      {"kind": "statement", "eyebrow": "Fintech founders", "title": "14 KYC questions ==kill sign-ups.=="},
+      {"kind": "statement", "eyebrow": "Your user", "title": "Wanted the loan. ==Form kept going.=="},
+      {"kind": "list", "eyebrow": "Fix 1", "title": "Ask 3 things first", "items": [{"text": "Name"}, {"text": "Phone"}, {"text": "PAN"}]},
+      {"kind": "statement", "eyebrow": "Fix 2", "title": "Offer first. ==Documents after.=="},
+      {"kind": "statement", "eyebrow": "Fix 3", "title": "Save now. ==Finish later.=="},
+      {"kind": "cta", "eyebrow": "UI/UX for fintech", "title": "Comment ==KYC==", "body": "Free 20-minute call on your sign-up flow.", "button": "@official_softnear"}
+    ]},
+    {"id": "li-thu-kyc", "platform": "linkedin", "format": "image", "slides": [
+      {"kind": "headline", "eyebrow": "Fintech onboarding", "title": "R.I.P. the ~~14-field~~ sign-up form", "sub": "Same KYC checks. ==A different order.==", "chips": ["Name, phone, PAN", "Show the offer", "?Documents last"]}
+    ]},
+    {"id": "fb-thu-invoice", "platform": "facebook", "format": "image", "slides": [
+      {"kind": "headline", "eyebrow": "Factories & manufacturers", "title": "Stop typing ==supplier invoices==", "sub": "AI reads the PDF. Your team checks only what it flags.", "chips": ["Read the PDF", "Fill a draft entry", "?Flag the doubts"]}
+    ]},
+    {"id": "ig-fri-invoice", "platform": "instagram", "format": "carousel", "slides": [
+      {"kind": "headline", "eyebrow": "Manufacturers", "title": "\"AI will get our ==invoices== wrong.\"", "sub": "Fair worry. Here's the setup that handles it."},
+      {"kind": "statement", "eyebrow": "Today", "title": "Someone types every supplier invoice ==by hand.==", "sub": "Same 5 fields: GST number, item, quantity, rate, total."},
+      {"kind": "point", "eyebrow": "Step 1", "title": "AI ==reads== the PDF", "body": "Supplier invoices from Gmail or WhatsApp, read field by field."},
+      {"kind": "point", "eyebrow": "Step 2", "title": "It fills a **draft** entry", "body": "In Tally or your ERP, as a draft. Nothing posts on its own."},
+      {"kind": "point", "eyebrow": "Step 3 · the one that matters", "title": "Your team checks ==the flags==", "body": "Anything the model isn't sure about goes to a person: a changed rate, a short quantity, a duplicate bill."},
+      {"kind": "list", "eyebrow": "Screenshot this", "title": "Invoice automation, in order", "items": [{"text": "AI reads the PDF"}, {"text": "Draft entry in Tally or ERP"}, {"text": "Unsure fields get flagged"}, {"text": "A person approves"}], "highlight": 2},
+      {"kind": "cta", "eyebrow": "AI automation for manufacturing", "title": "Comment ==INVOICE==", "body": "Free 20-minute call to see if your invoices are a good fit.", "button": "Comment INVOICE"}
+    ]},
+    {"id": "fb-sat-hotel", "platform": "facebook", "format": "image", "slides": [
+      {"kind": "headline", "eyebrow": "Homestays & small hotels", "title": "Guests shouldn't ==call for the price==", "sub": "Room, rate, Book button. On the first screen.", "chips": ["Room", "Rate", "?Book button"]}
+    ]}
+  ]
+}
