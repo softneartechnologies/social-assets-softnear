@@ -50,3 +50,15 @@ Extra Hindi/English reels had been added on top of the week of 2026-11-09 (every
 - #29 FB Hindi website reel -> Mon 11-09 18:30 · #33 IG Hindi net&water -> Tue 11-10 · #38 IG Hindi Shopify leaks -> Sat 11-14
 - #34 FB Hindi net&water -> Mon 11-16 · #36 IG English net&water -> Tue 11-17 · #35 LI net&water -> Fri 11-20 · #30 IG English website -> Sat 11-21
 - #37 FB Hindi Shopify leaks -> Mon 11-23 · #40 IG English Shopify leaks -> Tue 11-24 · #39 LI Shopify leaks -> Fri 11-27 · #31 FB English website -> Mon 11-30
+
+## Week of 2026-11-16
+
+- IG Mon · S1xI6 · Buyer pain + fix · #7 Wrong Way, Right Way · hotel site hides the price: rate, trust, button + net/water · HOTEL · PostDesk 43
+- LI Tue · S12xI9 · How we build / AI · F20 Diverging-Curves · same ERP, two plants a year apart; document AI + review screen · INVOICE / link · PostDesk 44
+- FB Tue · S9xI3 · Buyer pain + fix · loan/wallet app: 14 fields before KYC, ask 3 · KYC · PostDesk 45
+- LI Wed · S1xI6 · Buyer pain + fix · F17 Controlled A/B (thought experiment) · same ad, two websites, one shows the rate · HOTEL / link · PostDesk 46
+- IG Wed · S9xI3 · Buyer pain + fix (Opinion) · #3 Nobody Tells You reel (87.0), Hindi VO · 14 KYC questions kill sign-ups · KYC · PostDesk 47 (silent cut attached; voiced build pending)
+- LI Thu · S9xI3 · Offer · F2 R.I.P. Obituary · R.I.P. the sign-up form; same KYC, different order · KYC / link · PostDesk 48
+- FB Thu · S12xI9 · Buyer pain + fix · factories: stop typing supplier invoices · INVOICE · PostDesk 49
+- IG Fri · S12xI9 · Offer · #12 The Objection · "AI will get our invoices wrong": read, draft, flag, approve · INVOICE · PostDesk 50
+- FB Sat · S1xI6 · Offer · homestays: guests shouldn't call for the price · HOTEL · PostDesk 51
